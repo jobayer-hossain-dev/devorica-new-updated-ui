@@ -521,7 +521,7 @@ export default function HomePage({ onOpenProjectRequest, onOpenCalendly }) {
                   <img
                     src={srv.img}
                     alt={srv.title}
-                    className="w-full max-w-xs object-contain max-h-[190px]"
+                    className="mb-4 w-full max-w-xs object-contain"
                   />
                 </div>
                 <div className="flex w-full items-start justify-between gap-3">
