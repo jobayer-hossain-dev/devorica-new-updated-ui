@@ -94,7 +94,7 @@ export default function HomePage({ onOpenProjectRequest, onOpenCalendly }) {
       desc: 'Launch an investor-ready AI MVP in weeks — production-grade code, in front of users and investors fast. Built for funded founders validating an AI-first product.',
       href: '/services/ai-mvp-development',
       linkText: 'Explore AI MVP Development',
-      img: '/images/hero-showcase.jpg',
+      img: '/homePage/EupinenceDashBoard.png',
       reverse: false
     },
     {
@@ -103,7 +103,7 @@ export default function HomePage({ onOpenProjectRequest, onOpenCalendly }) {
       desc: 'Full-cycle SaaS — strategy, UX, engineering, AI, and launch — from one senior team that owns the whole lifecycle. Built to scale without breaking.',
       href: '/services/product-development',
       linkText: 'Explore SaaS Development',
-      img: '/images/service-webdev.jpg',
+      img: '/homePage/mySpendDashboard.png',
       reverse: true
     },
     {
@@ -112,7 +112,7 @@ export default function HomePage({ onOpenProjectRequest, onOpenCalendly }) {
       desc: 'Custom AI that removes repetitive work: support automation, document and contract processing, and AI agents wired into the tools you already run.',
       href: '/services/ai-automation',
       linkText: 'Explore AI Automation',
-      img: '/images/service-strategy.jpg',
+      img: '/homePage/Inner.png',
       reverse: false
     },
     {
@@ -121,7 +121,7 @@ export default function HomePage({ onOpenProjectRequest, onOpenCalendly }) {
       desc: 'High-conversion UI/UX for AI products, SaaS, and mobile apps. Designed for the metric — activation, retention, conversion — not a dribbble shot.',
       href: '/services/product-design',
       linkText: 'Explore Product Design',
-      img: '/images/service-uiux.jpg',
+      img: '/homePage/MySpendApp.png',
       reverse: true
     },
     {
@@ -130,7 +130,7 @@ export default function HomePage({ onOpenProjectRequest, onOpenCalendly }) {
       desc: 'Post-launch reliability: uptime monitoring, security patching, and AI model tuning by a senior team that knows your stack. Whether we built it or not.',
       href: '/services/maintenance-care',
       linkText: 'Explore Maintenance & Care',
-      img: '/images/devorica-studio-minds.jpg',
+      img: '/homePage/ZenHcareApp.png',
       reverse: false
     }
   ];
