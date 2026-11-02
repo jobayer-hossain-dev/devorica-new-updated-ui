@@ -46,8 +46,34 @@ export default function Navbar({ onOpenProjectRequest }) {
 
   useEffect(() => {
     setMobileMenuOpen(false);
+    setMobileServicesOpen(false);
     setServicesOpen(false);
   }, [location.pathname]);
+
+  // Keep the page behind the mobile drawer from scrolling while it is open.
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+
+    const previousHtmlOverflow = document.documentElement.style.overflow;
+    const previousBodyOverflow = document.body.style.overflow;
+
+    document.documentElement.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden';
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        setMobileMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.documentElement.style.overflow = previousHtmlOverflow;
+      document.body.style.overflow = previousBodyOverflow;
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [mobileMenuOpen]);
 
   const serviceItems = [
     {
