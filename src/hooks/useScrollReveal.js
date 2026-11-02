@@ -77,6 +77,13 @@ export function useScrollReveal(amount = 0.05, margin = '0px') {
   const controls = useAnimation();
   const isVisible = useRef(false);
 
+  // Zentexx keeps the page content laid out and visible while scrolling. The
+  // reveal is a one-time page-entry motion, not a scroll-gated opacity mask.
+  useEffect(() => {
+    isVisible.current = true;
+    controls.start('visible');
+  }, [controls]);
+
   const onViewportEnter = async () => {
     if (!isVisible.current) {
       isVisible.current = true;

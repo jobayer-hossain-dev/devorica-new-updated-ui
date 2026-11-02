@@ -227,7 +227,7 @@ export default function HomePage({ onOpenProjectRequest, onOpenCalendly }) {
     <div className="w-full">
       {/* SECTION 0: HERO BANNER */}
       <section 
-        className="overflow-hidden bg-[url('/homePage/bannerMubile.png')] bg-cover bg-center px-4 pb-10 lg:bg-[url('/homePage/banner.png')] lg:px-0 lg:pb-[69px]"
+        className="overflow-hidden bg-[url('/homePage/bannerMubile.png')] bg-cover bg-center px-4 pb-8 lg:bg-[url('/homePage/banner.png')] lg:px-0 lg:pb-[117px]"
         aria-label="Devorica AI product development hero section"
       >
         <div className="container mx-auto max-w-7xl pt-[60px] text-center sm:pt-16 lg:pt-[148px]">
@@ -361,7 +361,7 @@ export default function HomePage({ onOpenProjectRequest, onOpenCalendly }) {
           </div>
 
           <div className="mx-auto mt-6 grid grid-cols-2 gap-2 sm:grid-cols-2 lg:mt-12 lg:grid-cols-4 lg:gap-4 justify-items-center">
-            <div className="flex flex-col justify-end lg:rounded-[12px] rounded-sm bg-[#F5F5F5] lg:w-[308px] lg:h-[191px] w-full h-[120px] lg:p-4 p-3">
+            <div className="flex flex-col justify-end lg:rounded-[12px] rounded-sm bg-[#F5F5F5] lg:w-[308px] lg:h-[191px] w-full h-[110px] lg:p-4 p-3">
               <div className="lg:text-[56px] lg:leading-[68px] font-switzerMedium text-[26px] leading-[32px] text-[#000000]">
                 4 wks
               </div>
@@ -370,7 +370,7 @@ export default function HomePage({ onOpenProjectRequest, onOpenCalendly }) {
               </p>
             </div>
 
-            <div className="flex flex-col justify-end lg:rounded-[12px] rounded-sm bg-[#F5F5F5] lg:w-[308px] lg:h-[191px] w-full h-[120px] lg:p-4 p-3">
+            <div className="flex flex-col justify-end lg:rounded-[12px] rounded-sm bg-[#F5F5F5] lg:w-[308px] lg:h-[191px] w-full h-[110px] lg:p-4 p-3">
               <div className="lg:text-[56px] lg:leading-[68px] font-switzerMedium text-[26px] leading-[32px] text-[#000000]">
                 11+
               </div>
@@ -379,7 +379,7 @@ export default function HomePage({ onOpenProjectRequest, onOpenCalendly }) {
               </p>
             </div>
 
-            <div className="flex flex-col justify-end lg:rounded-[12px] rounded-sm bg-[#F5F5F5] lg:w-[308px] lg:h-[191px] w-full h-[120px] lg:p-4 p-3">
+            <div className="flex flex-col justify-end lg:rounded-[12px] rounded-sm bg-[#F5F5F5] lg:w-[308px] lg:h-[191px] w-full h-[110px] lg:p-4 p-3">
               <div className="lg:text-[56px] lg:leading-[68px] font-switzerMedium text-[26px] leading-[32px] text-[#000000]">
                 1M+
               </div>
@@ -388,7 +388,7 @@ export default function HomePage({ onOpenProjectRequest, onOpenCalendly }) {
               </p>
             </div>
 
-            <div className="flex flex-col justify-end lg:rounded-[12px] rounded-sm bg-[#F5F5F5] lg:w-[308px] lg:h-[191px] w-full h-[120px] lg:p-4 p-3">
+            <div className="flex flex-col justify-end lg:rounded-[12px] rounded-sm bg-[#F5F5F5] lg:w-[308px] lg:h-[191px] w-full h-[110px] lg:p-4 p-3">
               <div className="lg:text-[56px] lg:leading-[68px] font-switzerMedium text-[26px] leading-[32px] text-[#000000]">
                 3+
               </div>
@@ -462,7 +462,7 @@ export default function HomePage({ onOpenProjectRequest, onOpenCalendly }) {
               <article key={idx} className="grid grid-cols-2 items-stretch gap-6">
                 {/* Text Card */}
                 <div
-                  className={`bg-service-card border-services flex flex-col justify-between rounded-lg border-2 border-[#2A2A2A] px-6 py-8 ${
+                  className={`bg-service-card border-services flex flex-col justify-between rounded-lg border-[0.667px] px-6 py-8 ${
                     srv.reverse ? 'order-2' : 'order-1'
                   }`}
                 >
@@ -475,7 +475,7 @@ export default function HomePage({ onOpenProjectRequest, onOpenCalendly }) {
                         {srv.badge}
                       </div>
                     </div>
-                    <p className="text-desc-service font-vietnam text-base leading-6 mt-4">
+                    <p className="text-desc-service font-vietnam text-base leading-6">
                       {srv.desc}
                     </p>
                   </div>
@@ -495,14 +495,14 @@ export default function HomePage({ onOpenProjectRequest, onOpenCalendly }) {
 
                 {/* Dashboard Image Column */}
                 <div
-                  className={`group flex items-center justify-center overflow-hidden rounded-lg bg-[#141414] border border-[#222222] p-4 ${
+                  className={`group flex aspect-[1.42735] items-center justify-center overflow-hidden ${
                     srv.reverse ? 'order-1' : 'order-2'
                   }`}
                 >
                   <img
                     src={srv.img}
                     alt={srv.title}
-                    className="object-contain transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105 max-h-[420px]"
+                    className="h-full w-full object-contain transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-100"
                   />
                 </div>
               </article>
@@ -556,8 +556,8 @@ export default function HomePage({ onOpenProjectRequest, onOpenCalendly }) {
         variants={revealVariants}
         {...projectsReveal.viewportProps}
       >
-        <div className="text-center lg:mb-[56px] mb-[32px] flex flex-col justify-center items-center">
-          <div className="flex items-center font-vietnam w-fit border-[#E4E6E9] gap-2 lg:px-4 lg:py-3 px-3 py-2 rounded-md border text-sm leading-[20px] lg:text-base text-[#4F4F4F]">
+          <div className="text-center lg:mb-[56px] mb-[32px] flex flex-col justify-center items-center">
+          <div className="flex items-center font-vietnam w-fit border-[#E4E6E9] gap-2 lg:px-4 lg:py-3 px-3 py-2 rounded-md border text-sm leading-[20px] lg:text-base lg:leading-[20px] text-[#4F4F4F]">
             <span>Our Projects</span>
             <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
           </div>

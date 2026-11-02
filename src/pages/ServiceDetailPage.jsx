@@ -25,56 +25,41 @@ export default function ServiceDetailPage({ onOpenProjectRequest, onOpenCalendly
   }
 
   return (
-    <div className="w-full pt-28 lg:pt-36">
-      {/* Top Breadcrumb */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 mb-8">
-        <Link
-          to="/"
-          className="inline-flex items-center gap-2 text-xs font-semibold font-vietnam text-neutral-500 hover:text-neutral-900 transition-colors"
-        >
-          <ArrowLeft className="w-3.5 h-3.5" />
-          <span>Home</span>
-          <span className="text-neutral-300">/</span>
-          <span className="text-neutral-800">Services</span>
-        </Link>
-      </div>
+    <div className="w-full">
+      {/* Service hero: the reference uses one immersive dark panel for every detail route. */}
+      <section className="mx-4 h-[603px] min-h-0 overflow-hidden rounded-b-[40px] rounded-t-[40px] bg-[#050607] text-center text-white lg:mr-[26px] lg:h-[798px] lg:min-h-0" style={{ backgroundImage: 'radial-gradient(80% 65% at 100% 100%, rgba(21,78,128,.72), transparent 58%), radial-gradient(70% 60% at 50% 0%, rgba(19,28,34,.3), transparent 70%)' }}>
+        <div className="mx-auto flex min-h-[603px] max-w-7xl -translate-y-11 flex-col items-center justify-center px-4 pb-4 pt-36 sm:px-6 lg:min-h-[798px] lg:translate-y-[24px] lg:px-4 lg:pt-[153px] lg:pb-20">
+          <div className="translate-y-0">
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-[#202020] px-5 py-2 font-vietnam text-sm font-medium text-white">
+            <span>{service.title}</span>
+          </div>
 
-      {/* Service Hero */}
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 pb-16 text-center">
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-[#E4E6E9] bg-white text-xs sm:text-sm font-vietnam font-medium text-[#4F4F4F] mb-6">
-          <span>{service.badge}</span>
-          <span className="w-1.5 h-1.5 rounded-full bg-[#3649F5]"></span>
-        </div>
+          <h1 className="w-full max-w-none font-switzerMedium text-[32px] leading-[1.18] tracking-tight text-white sm:text-6xl lg:-translate-y-[5px] lg:max-w-none lg:text-[64px] lg:leading-[1.18]">
+            {service.heroHeading}
+          </h1>
 
-        <h1 className="font-switzerMedium text-4xl sm:text-6xl lg:text-[64px] text-[#0A0A0A] tracking-tight leading-[1.1] max-w-4xl mx-auto">
-          {service.heroHeading}
-        </h1>
+          <p className="mx-auto mt-3 max-h-20 w-full max-w-none overflow-hidden font-vietnam text-base leading-relaxed text-[#F3F3F3] sm:mt-6 sm:max-h-none sm:text-lg lg:-translate-y-3">
+            {service.heroDescription}
+          </p>
 
-        <p className="mt-6 font-vietnam text-base sm:text-lg text-[#555555] max-w-2xl mx-auto leading-relaxed">
-          {service.heroDescription}
-        </p>
-
-        <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
           <button
             type="button"
             onClick={onOpenCalendly}
-            className="group relative flex w-full sm:w-auto cursor-pointer items-center justify-center overflow-hidden rounded-[4px] bg-[#3649F5] px-8 py-3.5 font-vietnam text-sm sm:text-base font-medium text-white transition hover:bg-[#2A39D8]"
+            className="mx-auto mt-6 flex h-[49px] w-[232px] translate-y-px cursor-pointer items-center justify-center gap-2 rounded-[4px] bg-white px-6 py-3 font-vietnam text-sm font-medium leading-5 text-[#0A0A0A] shadow-[0_2px_8px_rgba(255,255,255,.35)] transition hover:bg-[#F3F3F3] sm:mt-8 sm:h-[57px] sm:w-[253px] sm:px-6 sm:py-4 sm:text-base sm:leading-5 lg:-translate-y-[18px]"
           >
-            <span className="flex items-center gap-2">
-              <img src="/homePage/gogglemeet.png" alt="" className="w-4 h-4 object-contain brightness-200" />
-              <span>Book Call</span>
-            </span>
-            <span className="ml-2 h-2 w-2 rounded-full bg-white"></span>
+            <img src="/homePage/gogglemeet.png" alt="" className="h-5 w-5 object-contain" />
+            <span>Book a Strategy Call</span>
           </button>
+          </div>
 
-          <button
-            type="button"
-            onClick={onOpenProjectRequest}
-            className="devorica-metallic-btn flex w-full sm:w-auto items-center justify-center gap-2 px-8 py-3.5 text-sm sm:text-base font-vietnam font-medium text-white transition cursor-pointer"
-          >
-            <img src="/homePage/cloud upload.png" alt="" className="h-5 w-5 brightness-150" />
-            <span>Project Request</span>
-          </button>
+          <div className="mt-3 w-full translate-y-6 border-t border-white/10 pt-7 sm:mt-24 sm:translate-y-0">
+            <p className="font-vietnam text-sm font-medium text-white/70">Trusted by 50+ Startups &amp; Growing Businesses</p>
+            <div className="mt-5 flex items-center justify-center gap-8 overflow-hidden opacity-75 grayscale sm:gap-14">
+              {['/bikkhipto-logo.webp', '/bayloz-logo.png', '/portfolio/client-fathom.svg', '/portfolio/client-easysub.svg', '/portfolio/client-maertens.svg'].map((src, idx) => (
+                <img key={src} src={src} alt={`Trusted client ${idx + 1}`} className="h-7 w-auto max-w-[128px] shrink-0 object-contain" />
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 

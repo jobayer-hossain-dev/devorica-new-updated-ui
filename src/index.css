@@ -74,17 +74,37 @@
    ============================================================ */
 html {
   scroll-behavior: auto !important;
-  overflow-x: clip;
+  overflow-x: hidden;
 }
 body {
-  overflow-x: clip;
+  overflow-x: hidden;
   width: 100%;
   max-width: 100%;
 }
 #root {
-  overflow-x: clip;
+  overflow-x: hidden;
   width: 100%;
   max-width: 100%;
+}
+
+@media (max-width: 767px) {
+  html {
+    scrollbar-width: none;
+  }
+
+  html::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .work-card--wide {
+    grid-column: span 2 / span 2;
+  }
+
+  .work-card--narrow {
+    grid-column: span 1 / span 1;
+  }
 }
 html.lenis, html.lenis body {
   height: auto;
@@ -97,6 +117,23 @@ html.lenis, html.lenis body {
 }
 .lenis.lenis-stopped {
   overflow: hidden;
+}
+
+/* Keep the reference motion language, while making every reveal and marquee
+   safe for visitors who explicitly request reduced motion. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 /* Zentexx Switzer Typography */
@@ -249,18 +286,62 @@ details > summary::-webkit-details-marker {
   animation-play-state: paused;
 }
 
-/* Custom subtle scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+/* Detail article geometry is intentionally explicit to mirror the reference page. */
+.blog-post-header { height: 438px; }
+.blog-post-cover { height: 340px; }
+.blog-post-body { min-height: 3000px; }
+.blog-post-tags { height: 150px; }
+.blog-post-explore { height: 125px; }
+
+@media (min-width: 640px) {
+  .blog-post-header { height: 450px; }
+  .blog-post-cover { height: 450px; }
+  .blog-post-tags { height: 170px; }
+  .blog-post-explore { height: 136.67px; }
 }
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
+
+@media (min-width: 1024px) {
+  .blog-post-header { height: 486.19px; }
+  .blog-post-cover { height: 560px; }
+  .blog-post-body { height: 7142.04px; min-height: 0; }
+  .blog-post-tags { height: 184.67px; }
 }
-::-webkit-scrollbar-thumb {
-  background: #c1c1c1;
-  border-radius: 3px;
+
+.case-hero { height: 842px; }
+.case-intro { min-height: 520px; padding-top: 70px; padding-bottom: 70px; }
+.case-gallery { min-height: 900px; }
+.case-built, .case-process, .case-challenge, .case-dashboard, .case-agent, .case-trackers, .case-alerts, .case-result, .case-more { padding: 72px 20px; }
+.case-built { min-height: 600px; }
+.case-process { min-height: 850px; }
+.case-challenge { min-height: 900px; background: #f7f7f7; }
+.case-dashboard { min-height: 1000px; }
+.case-agent { min-height: 700px; background: #0b0b0b; color: white; }
+.case-trackers { min-height: 1050px; }
+.case-alerts { min-height: 500px; background: #f5f5f5; }
+.case-result { min-height: 360px; }
+.case-more { min-height: 500px; }
+.case-copy { max-width: 840px; margin: 0 auto; }
+.case-copy h2 { font-family: var(--font-switzer-medium, sans-serif); font-size: clamp(32px, 5vw, 64px); line-height: 1.05; letter-spacing: -.04em; color: inherit; }
+.case-copy p { margin-top: 24px; max-width: 760px; font-family: var(--font-vietnam, sans-serif); font-size: 18px; line-height: 1.7; color: inherit; opacity: .78; }
+.case-process-card, .tracker-card { min-height: 250px; border-radius: 20px; border: 1px solid #e5e5e5; padding: 28px; background: white; }
+.case-process-card span { font-size: 12px; color: #3649f5; }
+.case-process-card h3, .tracker-card h3 { margin-top: 36px; font-size: 24px; color: #0a0a0a; }
+.case-process-card p, .tracker-card p { margin-top: 14px; font-size: 14px; line-height: 1.6; color: #657083; }
+.case-process-card svg { margin-top: 28px; color: #3649f5; }
+.case-stat { display: flex; min-height: 160px; flex-direction: column; justify-content: space-between; border-top: 1px solid #d5d5d5; padding-top: 18px; font-size: 42px; color: #0a0a0a; }
+.case-stat span { font-size: 13px; color: #7c7c7c; }
+@media (min-width: 1024px) {
+  .case-hero { height: 891px; }
+  .case-intro { height: 760px; padding-top: 100px; padding-bottom: 100px; }
+  .case-gallery { height: 1303.34px; }
+  .case-built { height: 818.11px; padding-top: 220px; }
+  .case-process { height: 1093.61px; padding-top: 100px; }
+  .case-challenge { height: 1259.61px; padding-top: 220px; }
+  .case-dashboard { height: 1564.28px; padding-top: 170px; }
+  .case-agent { height: 955.61px; padding-top: 210px; }
+  .case-trackers { height: 1667.08px; padding-top: 220px; }
+  .case-alerts { height: 721.25px; padding-top: 220px; }
+  .case-result { height: 520px; padding-top: 150px; }
+  .case-more { height: 687.41px; padding-top: 0; }
 }
-::-webkit-scrollbar-thumb:hover {
-  background: #999999;
-}
+

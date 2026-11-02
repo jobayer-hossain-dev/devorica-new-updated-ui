@@ -34,12 +34,13 @@ export const homePageFaqs = [
   }
 ];
 
-export default function FAQSection({ items = homePageFaqs }) {
+export default function FAQSection({ items = homePageFaqs, limit, compact = false }) {
   const { controls, viewportProps } = useScrollReveal(0.18);
+  const visibleItems = typeof limit === 'number' ? items.slice(0, limit) : items;
 
   return (
     <motion.section
-      className="bg-howIt-section px-5 py-12 lg:py-20"
+      className={`bg-howIt-section px-5 ${compact ? '-mt-2.5 min-h-[600px] py-0 sm:min-h-0' : 'py-12 lg:py-20'}`}
       variants={revealVariants}
       initial="hidden"
       animate={controls}
@@ -47,19 +48,23 @@ export default function FAQSection({ items = homePageFaqs }) {
     >
       <div className="mx-auto max-w-5xl">
         {/* Section Heading */}
-        <div className="text-center">
-          <p className="mx-auto mb-3 w-fit rounded-md border border-[#E4E6E9] px-4 py-2.5 font-vietnam text-base font-vietnam text-design-desc">
-            FAQ
-            <span className="ml-2 inline-block h-2 w-2 rounded-full bg-[#3649F5]"></span>
-          </p>
-          <h2 className="font-switzerMedium text-[32px] leading-[38px] text-mission lg:text-5xl lg:leading-[58px]">
-            Have a Question? <br className="hidden lg:block" /> Here's the Answers
-          </h2>
-        </div>
+        {compact ? (
+          <h2 className="font-switzerMedium text-[32px] leading-[38px] text-mission">FAQ</h2>
+        ) : (
+          <div className="text-center">
+            <p className="mx-auto mb-3 w-fit rounded-md border border-[#E4E6E9] px-4 py-2.5 font-vietnam text-base font-vietnam text-design-desc">
+              FAQ
+              <span className="ml-2 inline-block h-2 w-2 rounded-full bg-[#3649F5]"></span>
+            </p>
+            <h2 className="font-switzerMedium text-[32px] leading-[38px] text-mission lg:text-5xl lg:leading-[58px]">
+              Have a Question? <br className="hidden lg:block" /> Here's the Answers
+            </h2>
+          </div>
+        )}
 
         {/* Divide-y Accordion list */}
         <div className="mt-6 lg:mt-12 divide-y divide-[#DADADA] border-[#DADADA]">
-          {items.map((item, idx) => (
+          {visibleItems.map((item, idx) => (
             <details
               key={idx}
               className="group lg:py-5 py-4"

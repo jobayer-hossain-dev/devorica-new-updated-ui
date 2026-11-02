@@ -3,15 +3,15 @@ import { motion } from 'framer-motion';
 import { useToast } from './Toast';
 import { useScrollReveal, revealVariants } from '../hooks/useScrollReveal';
 
-export default function ContactSection({ onOpenCalendly }) {
+export default function ContactSection({ onOpenCalendly, compact = false }) {
   const { controls, viewportProps } = useScrollReveal(0.15);
   const { showToast } = useToast();
   const [submitting, setSubmitting] = useState(false);
   const [formState, setFormState] = useState({
     fullName: '',
     email: '',
-    interest: 'SaaS MVP',
-    budget: '$10k - $20k',
+    interest: '',
+    budget: '',
     message: ''
   });
 
@@ -34,8 +34,8 @@ export default function ContactSection({ onOpenCalendly }) {
       setFormState({
         fullName: '',
         email: '',
-        interest: 'SaaS MVP',
-        budget: '$10k - $20k',
+        interest: '',
+        budget: '',
         message: ''
       });
     }, 900);
@@ -44,7 +44,7 @@ export default function ContactSection({ onOpenCalendly }) {
   return (
     <motion.section
       id="contact"
-      className="bg-white px-4 py-12 sm:py-16 lg:py-25"
+      className={`bg-white px-4 py-12 ${compact ? 'pb-12 lg:py-25' : 'pb-[98px] lg:pb-[192px] lg:pt-25'} sm:py-16`}
       variants={revealVariants}
       initial="hidden"
       animate={controls}

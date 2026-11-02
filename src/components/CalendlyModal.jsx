@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { X, Calendar, Clock, Video, CheckCircle2 } from 'lucide-react';
 import { useToast } from './Toast';
 
@@ -7,6 +7,20 @@ export default function CalendlyModal({ isOpen, onClose }) {
   const [selectedDate, setSelectedDate] = useState('Tomorrow');
   const [selectedSlot, setSelectedSlot] = useState('3:00 PM (EST)');
   const [confirmed, setConfirmed] = useState(false);
+
+  useEffect(() => {
+    if (!isOpen) return undefined;
+    const previousOverflow = document.body.style.overflow;
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') onClose();
+    };
+    document.body.style.overflow = 'hidden';
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isOpen, onClose]);
 
   if (!isOpen) return null;
 

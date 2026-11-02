@@ -9,8 +9,8 @@ export default function PricingSection({ onOpenProjectRequest, onOpenCalendly })
 
   const tabs = [
     'Web & Product Development',
-    'AI Automation & Workflows',
-    'Dedicated Team & Care'
+    'AI Automation',
+    'Team & Care'
   ];
 
   const packages = {
@@ -163,7 +163,7 @@ export default function PricingSection({ onOpenProjectRequest, onOpenCalendly })
   return (
     <motion.section
       id="pricing"
-      className="w-full bg-[#0B0B0B] px-4 py-16 lg:py-24"
+      className="w-full bg-[#0B0B0B] px-4 py-16 lg:pb-[100px] lg:pt-24"
       {...viewportProps}
     >
       <div className="mx-auto max-w-7xl">
@@ -172,14 +172,14 @@ export default function PricingSection({ onOpenProjectRequest, onOpenCalendly })
           variants={revealVariants}
           initial="hidden"
           animate={controls}
-          className="flex flex-col items-center text-center"
+          className="flex flex-col items-center pt-3 text-center lg:pt-0"
         >
           <div className="mt-2 flex items-center gap-2 rounded-[5px] border border-[#3B3B3B] px-4 py-1.5">
             <span className="font-vietnam text-sm text-[#D1D1D1]">Pricing Plans</span>
             <span className="h-2 w-2 rounded-full bg-[#3649F5]"></span>
           </div>
           <h2 className="mt-4 font-switzer text-[32px] leading-[38px] text-[#FFFFFF] font-medium lg:leading-[58px] lg:text-5xl">
-            Transparent Pricing Ranges.<br />No Hidden Fees.
+            Transparent Pricing.<br />No Hidden Fees.
           </h2>
           <p className="mt-4 font-vietnam text-sm leading-5 text-[#CACACA] lg:text-lg lg:leading-6">
             Predictable, range-based packages tailored for modern founders, startups, <br className="hidden lg:block" />
@@ -196,7 +196,7 @@ export default function PricingSection({ onOpenProjectRequest, onOpenCalendly })
           className="mt-8 lg:mt-10 flex justify-center w-full"
         >
           {/* Mobile Vertical Stacked Tabs (Matches Zentexx Mobile Exactly) */}
-          <div className="flex flex-col items-center lg:hidden gap-2 w-full max-w-sm rounded-lg border border-[#3B3B3B] bg-[#1C1C1C] p-2">
+          <div className="flex flex-wrap items-center justify-center lg:hidden w-full max-w-full rounded-md border border-[#3B3B3B] bg-[#1C1C1C] px-2 py-2">
             {tabs.map((tab) => {
               const isActive = activeTab === tab;
               return (
@@ -204,7 +204,7 @@ export default function PricingSection({ onOpenProjectRequest, onOpenCalendly })
                   key={tab}
                   type="button"
                   onClick={() => setActiveTab(tab)}
-                  className={`w-full text-center cursor-pointer rounded-sm px-4 py-2.5 font-vietnam text-sm transition-all duration-300 ${
+                    className={`text-center cursor-pointer rounded-sm px-4 py-2 font-vietnam text-sm transition-all duration-300 ${
                     isActive
                       ? 'border border-transparent [background:linear-gradient(#2C2C2C,#2C2C2C)_padding-box,linear-gradient(135deg,#3B3B3B_0%,#FFFFFF_50%,#2C2C2C_100%)_border-box] text-white shadow-md font-medium'
                       : 'border border-transparent text-[#B5B5B5] hover:text-white'
@@ -244,12 +244,14 @@ export default function PricingSection({ onOpenProjectRequest, onOpenCalendly })
           initial="hidden"
           animate={controls}
           transition={{ delay: 0.2 }}
-          className="mx-auto mt-8 lg:mt-12 grid grid-cols-1 gap-5 md:grid-cols-3"
+          className="mx-auto mt-5 lg:mt-[44px] grid grid-cols-1 gap-3 lg:gap-5 md:grid-cols-3"
         >
           {packages[activeTab].map((pkg, idx) => (
             <article
               key={idx}
-              className={`relative flex flex-col rounded-lg border border-[#323232] bg-[#141414] p-5 lg:p-6 transition-all duration-300 hover:border-[#4B4B4B] ${
+              className={`relative flex flex-col overflow-hidden rounded-lg border border-[#323232] bg-[#141414] p-5 transition-all duration-300 hover:border-[#4B4B4B] lg:h-[619.3px] lg:p-6 ${
+                idx === 0 ? 'h-[474.7px]' : idx === 1 ? 'h-[526.7px]' : 'h-[490.7px]'
+              } ${
                 pkg.popular ? 'overflow-hidden shadow-[0_0_40px_rgba(54,73,245,0.12)]' : ''
               }`}
             >
@@ -321,34 +323,19 @@ export default function PricingSection({ onOpenProjectRequest, onOpenCalendly })
           ))}
         </motion.div>
 
-        {/* Agency Payment & Guarantee Banner */}
-        <motion.div
-          variants={revealVariants}
-          initial="hidden"
-          animate={controls}
-          transition={{ delay: 0.25 }}
-          className="mt-12 rounded-xl border border-white/10 bg-[#161616] p-6 lg:p-8 flex flex-col md:flex-row items-center justify-between gap-6"
-        >
-          <div className="space-y-1 text-center md:text-left">
-            <h4 className="font-switzer font-medium text-lg text-white">
-              3-Stage Milestone Billing &amp; Local Payment Rails
-            </h4>
-            <p className="font-vietnam text-xs lg:text-sm text-[#A0A0A0]">
-              Pay in 3 milestone installments: 40% kickoff, 30% prototype review, and 30% final production delivery. We accept bKash Merchant, Nagad, and direct bank transfers.
-            </p>
-          </div>
-          <div className="flex flex-wrap items-center justify-center gap-3">
-            <span className="px-3 py-1.5 rounded-md bg-white/5 border border-white/10 text-xs font-vietnam text-neutral-300">
-              ✓ 100% IP &amp; Code Ownership
-            </span>
-            <span className="px-3 py-1.5 rounded-md bg-white/5 border border-white/10 text-xs font-vietnam text-neutral-300">
-              ✓ Strict Non-Disclosure Agreement (NDA)
-            </span>
-            <span className="px-3 py-1.5 rounded-md bg-white/5 border border-white/10 text-xs font-vietnam text-neutral-300">
-              ✓ 30-Day Post-Launch Warranty
-            </span>
-          </div>
-        </motion.div>
+        <div className="mt-4 flex h-[72.7px] flex-col items-center justify-center text-center lg:mt-6 lg:h-auto">
+          <p className="font-vietnam text-sm text-[#F6F6F6] lg:text-base">
+            Not sure which option fits? It’s good, but it still has no action.
+          </p>
+          <button
+            type="button"
+            onClick={onOpenCalendly}
+            className="mt-2 cursor-pointer font-vietnam text-base leading-[22.7px] text-[#F6F6F6] underline transition-colors hover:text-[#3649F5] lg:text-lg lg:leading-[22.7px]"
+          >
+            Talk to an Expert
+          </button>
+        </div>
+
       </div>
     </motion.section>
   );

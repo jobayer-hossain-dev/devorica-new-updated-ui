@@ -3,6 +3,7 @@ import { teamData } from '../data/teamData';
 import FAQSection from '../components/FAQSection';
 import CTASection from '../components/CTASection';
 import ContactSection from '../components/ContactSection';
+import { LogoMarquee } from '../components/Marquee';
 
 export default function AboutPage({ onOpenProjectRequest, onOpenCalendly }) {
   const principles = [
@@ -29,86 +30,137 @@ export default function AboutPage({ onOpenProjectRequest, onOpenCalendly }) {
   ];
 
   const galleryImages = [
-    '/images/team-opt-studio.jpg',
-    '/images/team-opt-sprint.jpg',
-    '/images/team-opt-collab.jpg',
-    '/images/team-opt-strategy.jpg',
-    '/images/team-brainstorm.jpg',
-    '/images/team-workshop.jpg'
+    '/aboutPage/IMR02103.jpg',
+    '/aboutPage/magic.jpeg',
+    '/aboutPage/IMR02309.jpg',
+    '/aboutPage/IMR02253.jpg',
+    '/aboutPage/fotballMatch.jpg',
+    '/aboutPage/DSC00694.JPG'
+  ];
+  const galleryRows = [
+    [galleryImages[0], galleryImages[1]],
+    [galleryImages[2], galleryImages[3]],
+    [galleryImages[4], galleryImages[5]]
+  ];
+
+  const aboutTeam = [
+    ['Azmain Hossain', 'CEO & Founder', '/aboutPage/final/azmain.png'],
+    ['Safayet Ahmad', 'CMO', '/aboutPage/Shafayet.png'],
+    ['Abid Hossain', 'Co-Founder', '/aboutPage/final/abid.png'],
+    ['Mamun Riyad', 'COO', '/aboutPage/Riyad1.png'],
+    ['Arif', 'CRO', '/aboutPage/final/arif.png'],
+    ['Tanvir Hasan', 'Team Lead', '/aboutPage/final/tanvire.png'],
+    ['Rasibul Islam', 'Full Stack Developer', '/aboutPage/final/rasibull.png'],
+    ['Sajid Abdullah', 'Full Stack Developer', '/aboutPage/final/sajid.png'],
+    ['Mohammad Atiq Ullah', 'MERN Stack Developer', '/aboutPage/final/atiq.png'],
+    ['Hasan Ali', 'AI Application Developer', '/aboutPage/final/hasan.png'],
+    ['Rakib Hossen', 'MERN Stack Developer', '/aboutPage/final/rakib.png'],
+    ['Wahedul Islam', 'Full Stack Developer', '/aboutPage/final/wahid.png'],
+    ['Mohammed Fahim', 'Front-End Developer', '/aboutPage/final/fahim.png'],
+    ['Sohailul Alam', 'Digital Marketing Specialist', '/aboutPage/final/sohail.png'],
+    ['Naim Uddin', 'UI/UX Designer', '/aboutPage/final/naim.png'],
+    ['Yasin Howlader', 'UI/UX Designer', '/aboutPage/final/yeasin.png'],
+    ['Shahriar Hossain', 'Senior Visualizer', '/aboutPage/final/shahriar.png'],
+    ['Abdur Rahat Tarek', 'Social Media Manager', '/aboutPage/final/rahat.png'],
+    ['Mohammad AL Amin', 'Video Editor & Motion Designer', '/aboutPage/final/alamin.png'],
+    ['Toasin Jawad', 'Visualizer', '/aboutPage/final/jawd.png']
   ];
 
   return (
     <div className="w-full">
       {/* SECTION 0: HERO */}
-      <section className="w-full bg-white px-4 pt-32 pb-14 sm:pt-40 sm:pb-20 text-center">
-        <div className="max-w-5xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-md border border-[#E4E6E9] text-xs sm:text-sm font-vietnam font-medium text-[#4F4F4F] mb-6">
+      <section className="w-full bg-white px-6 pb-2 pt-16 text-center sm:pb-6 sm:pt-40 h-[412.583px] lg:h-[471.333px] lg:pt-[120px]">
+        <div className="mx-auto max-w-none">
+          <div className="mb-[7px] inline-flex items-center gap-2 rounded-full border border-[#E4E6E9] px-4 py-3 text-xs font-vietnam font-medium text-[#4F4F4F] sm:mb-3 sm:py-2 sm:text-sm">
             <span>About Us</span>
             <span className="w-2 h-2 rounded-full bg-[#3649F5]" />
           </div>
 
-          <h1 className="font-switzer font-medium text-4xl sm:text-6xl lg:text-7xl text-[#0A0A0A] tracking-tight leading-[1.1]">
+          <h1 className="font-switzer font-medium text-[32px] leading-[1.18] sm:text-6xl lg:text-[64px] lg:leading-[1.18] text-[#0A0A0A] tracking-tight">
             We Build Digital Products That <br />
-            <span className="text-[#3649F5]">Perform for Businesses</span> Worldwide.
+            Perform for Businesses Worldwide.
           </h1>
 
-          <p className="mt-6 font-vietnam text-base sm:text-lg text-[#555555] max-w-2xl mx-auto leading-relaxed">
-            Devorica is an applied AI product engineering studio. We combine world-class design systems with battle-tested distributed cloud and machine learning engineering.
+          <p className="mx-auto mt-4 max-w-3xl font-vietnam text-sm leading-5 text-[#555555] sm:mt-5 sm:text-lg sm:leading-relaxed">
+            Devorica is a full cycle digital product agency that partners with ambitious companies to design, build, and scale products.
           </p>
 
-          <div className="mt-8 flex justify-center">
+          <div className="mt-4 flex justify-center sm:mt-5">
             <button
               type="button"
               onClick={onOpenCalendly}
-              className="flex items-center justify-center gap-2.5 rounded-sm border border-[#D5D5D5] bg-white hover:bg-[#F9F9F9] px-7 py-3.5 text-center font-vietnam text-sm sm:text-base font-medium text-[#0A0A0A] shadow-sm transition-all cursor-pointer"
+              className="flex items-center justify-center gap-2.5 rounded-sm bg-[#3649F5] px-7 py-3 text-center font-vietnam text-sm font-medium text-white shadow-[0_4px_16px_rgba(54,73,245,0.3)] transition-all hover:bg-[#2a3ce0] cursor-pointer sm:py-3.5 sm:text-base"
             >
               <img src="/homePage/gogglemeet.png" alt="" className="w-5 h-4 object-contain" />
-              <span>Schedule a Strategy Call</span>
+              <span>Book a Strategy Call</span>
             </button>
           </div>
         </div>
       </section>
 
+      <LogoMarquee showTrustLabel />
+
       {/* SECTION 1: MISSION */}
-      <section className="bg-[#FCFCFB] pt-16 pb-12 lg:py-24 px-4 lg:px-8 border-y border-[#ECECEC]">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-          <div>
+      <section className="border-y border-[#ECECEC] bg-white px-4 pb-12 pt-16 h-[773.333px] lg:h-[810px] lg:px-0 lg:py-0">
+        <div className="mx-auto grid max-w-none grid-cols-1 items-center gap-10 lg:grid-cols-[610px_minmax(0,1fr)] lg:gap-[180.8px]">
+          <div className="lg:order-2">
             <span className="inline-block px-3 py-1 rounded-md bg-[#3649F5]/10 text-[#3649F5] font-vietnam text-xs font-semibold mb-3">
-              Our Vision
+              Our Mission
             </span>
             <h2 className="font-switzer font-medium text-3xl sm:text-4xl lg:text-5xl text-[#0A0A0A] leading-tight">
-              We Don't Just Build Products. <br />
-              We Build Businesses.
+              We Don&apos;t Just Build <br />
+              Products. We Build <br />
+              Businesses.
             </h2>
             <p className="mt-5 font-vietnam text-sm sm:text-base text-[#555555] leading-relaxed">
-              Software is only valuable when it moves real metrics — customer acquisition, operational automation, and user retention. Our team bridges the gap between ambitious visionary concepts and scalable, investor-grade production software.
+              Devorica is a product engineering and UX design company for startups and B2B SaaS teams. We move fast, think strategically, and stay invested in your outcomes — not just your deliverables.
             </p>
-            <div className="mt-8 grid grid-cols-2 gap-6 pt-6 border-t border-[#E5E5E5]">
-              <div>
-                <p className="font-switzer font-semibold text-3xl text-[#3649F5]">3-4 Weeks</p>
-                <p className="font-vietnam text-xs sm:text-sm text-[#666666] mt-1">Average Time-to-Market</p>
-              </div>
-              <div>
-                <p className="font-switzer font-semibold text-3xl text-[#3649F5]">100%</p>
-                <p className="font-vietnam text-xs sm:text-sm text-[#666666] mt-1">Senior Engineering</p>
-              </div>
-            </div>
           </div>
 
-          <div className="rounded-xl overflow-hidden shadow-2xl border border-neutral-200 bg-neutral-900">
+          <div className="order-1 overflow-hidden bg-neutral-900 lg:h-[610px] lg:w-[610px]">
             <img
-              src="/images/agency-team-collaboration.jpg"
+              src="/saasMvpPage/team.png"
               alt="Devorica Team"
-              className="w-full h-auto object-cover"
+              className="aspect-square h-full w-full object-cover"
             />
           </div>
         </div>
       </section>
 
+      <section className="bg-white px-4 py-12 h-[545.333px] sm:py-16 lg:h-[636.333px] lg:px-0 lg:py-20">
+        <div className="mx-auto max-w-7xl">
+          <div className="flex flex-col justify-start lg:items-center lg:text-center">
+            <div className="mb-3 inline-flex w-fit items-center gap-2 rounded-[4px] border border-[#E4E6E9] bg-white px-3 py-2 font-vietnam text-sm font-medium text-[#4F4F4F] lg:px-4 lg:py-2.5 lg:text-base">
+              Our Impact
+              <span className="h-2 w-2 rounded-full bg-[#3649F5]" />
+            </div>
+            <h2 className="mb-2 font-switzerMedium text-[32px] leading-[38px] text-[#0A0A0A] lg:mb-4 lg:text-[48px] lg:leading-[58px]">
+              Built for measurable <br className="hidden lg:block" /> product progress
+            </h2>
+            <p className="font-vietnam text-sm leading-5 text-[#4F4F4F] lg:text-lg lg:leading-6">
+              We judge our work by what happens after launch: how quickly an idea is validated, <br className="hidden lg:block" /> how reliably the product runs, and how well it holds up as usage grows.
+            </p>
+          </div>
+          <div className="mx-auto mt-6 grid grid-cols-2 gap-2 lg:mt-12 lg:grid-cols-4 lg:gap-4">
+            {[
+              ['4 wks', 'Average time to launch an AI MVP'],
+              ['11+', 'AI systems running in production'],
+              ['1M+', 'End users reached by products'],
+              ['3+', 'Years building software products'],
+            ].map(([value, label]) => (
+              <div key={value} className="flex h-[120px] flex-col justify-end rounded-sm bg-[#F5F5F5] p-3 lg:h-[191px] lg:rounded-[12px] lg:p-4">
+                <div className="font-switzerMedium text-[26px] leading-[32px] text-black lg:text-[56px] lg:leading-[68px]">{value}</div>
+                <p className="mt-1 font-vietnam text-[13px] leading-4 text-[#6D6D6D] lg:text-base lg:leading-[22px]">{label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* SECTION 2: PRINCIPLES */}
-      <section className="w-full bg-[#0B0B0B] px-4 py-16 lg:py-24 text-white">
+      <section className="w-full bg-[#0B0B0B] px-4 py-16 h-[1553.333px] text-white lg:h-[1095.333px] lg:px-8 lg:py-[78px]">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center max-w-3xl mx-auto mb-14">
+          <div className="mx-auto mb-14 max-w-3xl text-center">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-md border border-[#333333] text-xs font-vietnam font-medium text-[#B0B0B0] mb-3">
               <span>Core Values</span>
               <span className="w-1.5 h-1.5 rounded-full bg-[#3649F5]" />
@@ -118,20 +170,20 @@ export default function AboutPage({ onOpenProjectRequest, onOpenCalendly }) {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:mt-[56px] lg:grid-cols-2 lg:gap-6">
             {principles.map((pr, idx) => (
               <div
                 key={idx}
-                className="bg-[#141414] border border-[#2B2B2B] rounded-xl p-6 flex flex-col justify-between hover:border-[#4B4B4B] transition-all"
+                className="flex h-[283px] flex-col justify-between overflow-hidden rounded-xl border border-[#2B2B2B] bg-[#141414] p-6 transition-all hover:border-[#4B4B4B] lg:h-[311px]"
               >
                 <div>
-                  <div className="w-12 h-12 rounded-lg bg-[#222222] flex items-center justify-center mb-5 p-2.5">
-                    <img src={pr.icon} alt="" className="w-full h-full object-contain" />
+                  <div className="mb-5 flex h-[60px] w-[60px] items-center justify-center">
+                    <img src={pr.icon} alt={pr.title} className="h-full w-full object-contain" />
                   </div>
-                  <h3 className="font-switzer font-medium text-xl text-white mb-2">
+                  <h3 className="mb-2 font-switzer text-xl font-medium text-white lg:text-2xl lg:leading-[30px]">
                     {pr.title}
                   </h3>
-                  <p className="font-vietnam text-xs sm:text-sm text-[#A0A0A0] leading-relaxed">
+                  <p className="font-vietnam text-xs leading-relaxed text-[#A0A0A0] sm:text-sm lg:text-base lg:leading-6">
                     {pr.desc}
                   </p>
                 </div>
@@ -142,45 +194,45 @@ export default function AboutPage({ onOpenProjectRequest, onOpenCalendly }) {
       </section>
 
       {/* SECTION 3: TEAM MEMBERS */}
-      <section className="w-full bg-white px-4 py-16 lg:py-24 border-b border-[#ECECEC]">
+      <section className="w-full border-b border-[#ECECEC] bg-white px-4 py-16 h-[3039.927px] lg:h-[2686.375px] lg:py-[120px]">
         <div className="max-w-7xl mx-auto">
-          <div className="max-w-3xl mx-auto text-center mb-16">
+          <div className="mb-16 grid max-w-none gap-8 text-left lg:grid-cols-2 lg:gap-10">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-md border border-[#E4E6E9] text-xs font-vietnam font-medium text-[#4F4F4F] mb-3">
               <span>Leadership & Team</span>
               <span className="w-1.5 h-1.5 rounded-full bg-[#3649F5]" />
             </div>
-            <h2 className="font-switzer font-medium text-3xl sm:text-5xl text-[#0A0A0A]">
-              Meet the Minds Behind Devorica
+            <h2 className="font-switzer font-medium text-3xl text-[#0A0A0A] sm:text-5xl lg:text-[48px] lg:leading-[58px]">
+              Meet the Minds<br className="hidden lg:block" /> Behind Devorica
             </h2>
-            <p className="font-vietnam text-sm sm:text-base text-[#555555] mt-3">
+            <p className="mt-3 font-vietnam text-sm text-[#555555] sm:text-base lg:pt-[64px]">
               A tight-knit collective of senior architects, product designers, and applied AI researchers who live and breathe high-performance software.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {teamData.map((member, idx) => (
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 lg:gap-4">
+            {aboutTeam.map(([name, role, image], idx) => (
               <div
                 key={idx}
-                className="bg-[#F8F9FA] rounded-xl overflow-hidden border border-[#ECECEC] shadow-sm hover:shadow-md transition-all group flex flex-col"
+                className="group flex h-[249.34px] flex-col overflow-hidden rounded-xl border border-[#ECECEC] bg-[#F8F9FA] p-2 shadow-sm transition-all hover:shadow-md lg:h-[424.406px] lg:p-[10px]"
               >
-                <div className="h-64 sm:h-72 overflow-hidden bg-neutral-100 flex items-center justify-center">
+                <div className="h-[177.84px] overflow-hidden rounded-lg bg-neutral-100 sm:h-72 lg:h-[312.4px]">
                   <img
-                    src={member.image}
-                    alt={member.name}
+                    src={image}
+                    alt={name}
                     className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
-                <div className="p-5 flex-1 flex flex-col justify-between">
+                <div className="flex flex-1 flex-col justify-between p-0">
                   <div>
-                    <h3 className="font-switzer font-medium text-lg text-[#0A0A0A] group-hover:text-[#3649F5] transition-colors">
-                      {member.name}
+                    <h3 className="font-switzer font-medium text-lg text-[#0A0A0A] transition-colors group-hover:text-[#3649F5]">
+                      {name}
                     </h3>
-                    <p className="text-xs font-medium text-[#3649F5] font-vietnam mt-0.5">
-                      {member.role}
+                    <p className="mt-0.5 text-[10px] font-medium text-[#3649F5] font-vietnam lg:text-xs">
+                      {role}
                     </p>
                   </div>
-                  <p className="text-xs font-vietnam text-[#777777] mt-3">
-                    {member.expertise}
+                  <p className="mt-2 text-[10px] leading-3 font-vietnam text-[#777777] lg:mt-3 lg:text-xs lg:leading-normal">
+                    Product design, engineering &amp; delivery
                   </p>
                 </div>
               </div>
@@ -190,7 +242,7 @@ export default function AboutPage({ onOpenProjectRequest, onOpenCalendly }) {
       </section>
 
       {/* SECTION 4: AGENCY CULTURE GALLERY */}
-      <section className="px-4 py-16 lg:py-24 bg-[#FAFAFA]">
+      <section className="bg-[#FAFAFA] px-4 py-16 h-[850.333px] lg:h-[1124px] lg:py-[120px]">
         <div className="max-w-7xl mx-auto">
           <div className="max-w-3xl mx-auto text-center mb-12">
             <h2 className="font-switzer font-medium text-2xl sm:text-4xl text-[#0A0A0A] leading-relaxed">
@@ -198,17 +250,14 @@ export default function AboutPage({ onOpenProjectRequest, onOpenCalendly }) {
             </h2>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
-            {galleryImages.map((img, gIdx) => (
-              <div
-                key={gIdx}
-                className="overflow-hidden rounded-xl h-52 sm:h-72 bg-neutral-200 shadow-md group"
-              >
-                <img
-                  src={img}
-                  alt="Devorica Agency Life"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
+          <div className="flex flex-col gap-2 sm:gap-6">
+            {galleryRows.map((row, rowIdx) => (
+              <div key={rowIdx} className={`grid h-[173px] gap-2 ${rowIdx === 0 ? 'grid-cols-[247.646px_102.354px]' : rowIdx === 1 ? 'grid-cols-2' : 'grid-cols-[140px_210px]'} lg:h-72 lg:grid-cols-2 lg:gap-6`}>
+                {row.map((img, gIdx) => (
+                  <div key={gIdx} className="group h-full overflow-hidden rounded-xl bg-neutral-200 shadow-md">
+                    <img src={img} alt="Devorica Agency Life" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  </div>
+                ))}
               </div>
             ))}
           </div>
@@ -216,13 +265,13 @@ export default function AboutPage({ onOpenProjectRequest, onOpenCalendly }) {
       </section>
 
       {/* SECTION 5: FAQ */}
-      <FAQSection />
+      <div className="h-[878px] overflow-hidden lg:min-h-[959px]"><FAQSection /></div>
 
       {/* SECTION 6: CTA BANNER */}
-      <CTASection onOpenCalendly={onOpenCalendly} onOpenProjectRequest={onOpenProjectRequest} />
+      <div className="h-[500px] overflow-hidden lg:h-auto"><CTASection onOpenCalendly={onOpenCalendly} onOpenProjectRequest={onOpenProjectRequest} /></div>
 
       {/* SECTION 7: CONTACT FORM */}
-      <ContactSection onOpenCalendly={onOpenCalendly} />
+      <ContactSection compact onOpenCalendly={onOpenCalendly} />
     </div>
   );
 }

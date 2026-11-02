@@ -13,13 +13,13 @@ import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import WorkPage from './pages/WorkPage';
 import CaseStudyPage from './pages/CaseStudyPage';
-import ServicesOverviewPage from './pages/ServicesOverviewPage';
 import ServiceDetailPage from './pages/ServiceDetailPage';
 import BlogPage from './pages/BlogPage';
 import BlogPostPage from './pages/BlogPostPage';
 import FAQPage from './pages/FAQPage';
 import CareerPage from './pages/CareerPage';
 import ContactPage from './pages/ContactPage';
+import NotFoundPage from './pages/NotFoundPage';
 
 // Scroll to top on route change with Lenis integration
 function ScrollToTop() {
@@ -39,6 +39,10 @@ function ScrollToTop() {
 export default function App() {
   const [projectModalOpen, setProjectModalOpen] = useState(false);
   const [calendlyModalOpen, setCalendlyModalOpen] = useState(false);
+  const { pathname } = useLocation();
+  const knownExactPaths = new Set(['/', '/about', '/work', '/faq', '/blog', '/career', '/contact']);
+  const isKnownNestedPath = /^\/(work|services|blog)\//.test(pathname);
+  const isNotFoundPath = pathname === '/services' || pathname === '/services/' || (!knownExactPaths.has(pathname) && !isKnownNestedPath);
 
   // Initialize Lenis Ultra-Smooth Floating Momentum (50x Deeper Inertia)
   useEffect(() => {
@@ -80,7 +84,7 @@ export default function App() {
         <ScrollToTop />
 
         {/* Global Navigation Header */}
-        <Navbar onOpenProjectRequest={() => setProjectModalOpen(true)} />
+        {!isNotFoundPath && <Navbar onOpenProjectRequest={() => setProjectModalOpen(true)} />}
 
         {/* Dynamic Route Content */}
         <main className="flex-grow">
@@ -122,15 +126,6 @@ export default function App() {
               }
             />
             <Route
-              path="/services"
-              element={
-                <ServicesOverviewPage
-                  onOpenProjectRequest={() => setProjectModalOpen(true)}
-                  onOpenCalendly={() => setCalendlyModalOpen(true)}
-                />
-              }
-            />
-            <Route
               path="/services/:slug"
               element={
                 <ServiceDetailPage
@@ -159,16 +154,7 @@ export default function App() {
               path="/contact"
               element={<ContactPage onOpenCalendly={() => setCalendlyModalOpen(true)} />}
             />
-            {/* Fallback */}
-            <Route
-              path="*"
-              element={
-                <HomePage
-                  onOpenProjectRequest={() => setProjectModalOpen(true)}
-                  onOpenCalendly={() => setCalendlyModalOpen(true)}
-                />
-              }
-            />
+            <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </main>
 

@@ -47,6 +47,9 @@ export default function Navbar({ onOpenProjectRequest }) {
   useEffect(() => {
     setMobileMenuOpen(false);
     setServicesOpen(false);
+    setIsVisible(true);
+    setIsScrolled(false);
+    setLastScrollY(0);
   }, [location.pathname]);
 
   const serviceItems = [
@@ -90,6 +93,12 @@ export default function Navbar({ onOpenProjectRequest }) {
           isScrolled ? 'bg-white/95 backdrop-blur-md shadow-[0_4px_20px_rgba(0,0,0,0.06)]' : 'bg-transparent'
         } ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}
       >
+        {servicesOpen && (
+          <div
+            aria-hidden="true"
+            className="pointer-events-none fixed inset-0 z-30 bg-black/[0.08] backdrop-blur-[6px]"
+          />
+        )}
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6">
           <div className="flex items-center gap-10">
             {/* Logo */}
@@ -97,7 +106,7 @@ export default function Navbar({ onOpenProjectRequest }) {
               <img
                 src="/favicon.png"
                 alt="Devorica logo"
-                className="h-7 w-auto lg:h-8 object-contain"
+                className="h-7 w-[23px] object-contain lg:h-[27px] lg:w-[23px]"
               />
             </Link>
 
@@ -264,9 +273,8 @@ export default function Navbar({ onOpenProjectRequest }) {
 
           {/* Header Action Buttons */}
           <div className="flex items-center gap-2">
-            <button
-              type="button"
-              onClick={onOpenProjectRequest}
+            <Link
+              to="/contact"
               className="flex items-center justify-center gap-2 overflow-hidden rounded-[4px] px-7 py-3.5 font-vietnam text-base font-medium text-white transition hover:scale-[1.02] cursor-pointer"
               style={{
                 borderRadius: '4px',
@@ -280,7 +288,7 @@ export default function Navbar({ onOpenProjectRequest }) {
                 src="/homePage/cloud upload.png"
               />
               Project request
-            </button>
+            </Link>
 
             <a
               target="_blank"
@@ -392,7 +400,7 @@ export default function Navbar({ onOpenProjectRequest }) {
                 <button
                   type="button"
                   onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                  className="flex w-full cursor-pointer items-center justify-between rounded-[4px] bg-[#F5F5F7] px-4 py-4 text-[18px] font-medium transition-colors duration-200 text-[#2B2B2B]"
+                  className={`flex w-full cursor-pointer items-center justify-between rounded-[4px] bg-[#F5F5F7] px-4 py-4 text-[18px] font-medium transition-colors duration-200 ${mobileServicesOpen ? 'text-blue-600' : 'text-[#2B2B2B]'}`}
                   aria-expanded={mobileServicesOpen}
                 >
                   <span>Services</span>
@@ -408,7 +416,7 @@ export default function Navbar({ onOpenProjectRequest }) {
                     mobileServicesOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
                   }`}
                 >
-                  <div className="overflow-hidden space-y-2 py-2 pl-2">
+                  <div className={`overflow-hidden space-y-2 ${mobileServicesOpen ? 'py-2' : 'py-0'}`}>
                     {serviceItems.map((item) => (
                       <Link
                         key={item.href}
@@ -464,12 +472,9 @@ export default function Navbar({ onOpenProjectRequest }) {
             </ul>
 
             <div className="mt-4 grid grid-cols-[minmax(0,1fr)_52px] items-stretch gap-2 px-4">
-              <button
-                type="button"
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  onOpenProjectRequest();
-                }}
+              <Link
+                to="/contact"
+                onClick={() => setMobileMenuOpen(false)}
                 className="flex h-11 min-w-0 items-center justify-center gap-2 overflow-hidden rounded-[4px] px-3 text-white cursor-pointer"
                 style={{
                   borderRadius: '4px',
@@ -479,7 +484,7 @@ export default function Navbar({ onOpenProjectRequest }) {
               >
                 <img alt="Project request icon" className="h-5 w-5 shrink-0" src="/homePage/cloud upload.png" />
                 <span className="min-w-0 truncate text-sm font-medium">Project Request</span>
-              </button>
+              </Link>
               <a
                 target="_blank"
                 rel="noopener noreferrer"

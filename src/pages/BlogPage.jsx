@@ -2,59 +2,60 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Clock, Calendar, ArrowUpRight } from 'lucide-react';
 import { blogData } from '../data/blogData';
-import CTASection from '../components/CTASection';
 
 export default function BlogPage({ onOpenCalendly }) {
   const featured = blogData[0];
   const others = blogData.slice(1);
+  const referenceBlogImages = [
+    'https://zentexx.com/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdeouaqmod%2Fimage%2Fupload%2Fv1764400249%2Fts4fwmlont7spmknujpf.png&w=3840&q=75',
+    'https://zentexx.com/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdeouaqmod%2Fimage%2Fupload%2Fv1759905318%2Fydy6doiujfv7f4vnvnr.png&w=3840&q=75',
+    'https://zentexx.com/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdeouaqmod%2Fimage%2Fupload%2Fv1758369214%2Frk4w5lmu60njfqpot2jw.png&w=3840&q=75',
+    'https://zentexx.com/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdeouaqmod%2Fimage%2Fupload%2Fv1756709612%2Fqrmr9olkq5a94yd3gs2k.png&w=3840&q=75',
+  ];
 
   return (
-    <div className="w-full pt-28 lg:pt-36">
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 pb-16 text-center">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-md border border-[#E4E6E9] bg-white text-xs font-vietnam font-medium text-[#4F4F4F] mb-6">
-          <span>Articles & Insights</span>
-          <span className="w-1.5 h-1.5 rounded-full bg-[#3649F5]"></span>
+    <div className="w-full">
+      <section className="mx-auto max-w-6xl h-[282.4px] px-5 pb-[53.5px] pt-[48px] text-center sm:px-6 lg:h-[381.58px] lg:pb-[53.5px] lg:pt-[48px]">
+        <div className="mb-6 inline-flex items-center gap-2 font-vietnam text-xs font-semibold text-[#3649F5]">
+          <span>Articles &amp; Insights</span>
         </div>
 
-        <h1 className="font-switzerMedium text-4xl sm:text-6xl text-[#0A0A0A] tracking-tight leading-[1.1]">
+        <h1 className="mx-auto max-w-[1024px] font-switzerMedium text-[32px] leading-[1.16] tracking-tight text-[#0A0A0A] sm:text-6xl lg:text-[72px] lg:leading-[1.07]">
           Engineering, Design & <br />
           <span className="text-[#3649F5]">AI Product Strategy</span>
         </h1>
 
-        <p className="mt-6 font-vietnam text-base sm:text-lg text-[#555555] max-w-2xl mx-auto leading-relaxed">
+        <p className="mt-3 font-vietnam text-base sm:mt-6 sm:text-lg text-[#555555] max-w-2xl mx-auto leading-relaxed">
           Actionable blueprints, architectural deep dives, and hard-learned lessons from shipping AI products for global startups.
         </p>
       </section>
 
       {/* Featured Big Card */}
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-16">
+      <section className="mx-auto mb-0 max-w-7xl px-5 sm:px-8 lg:pr-[42px]">
         <Link
           to={`/blog/${featured.slug}`}
-          className="group block rounded-3xl bg-[#0B0B0B] text-white overflow-hidden border border-[#222222] shadow-2xl grid grid-cols-1 lg:grid-cols-12 items-center hover:border-[#444444] transition-all"
+          className="group grid h-[612.71px] min-h-0 grid-cols-1 items-center overflow-hidden rounded-[16px] border border-[#DCDCDC] bg-white text-[#0A0A0A] shadow-sm transition-all hover:shadow-xl lg:h-[532.02px] lg:min-h-0 lg:grid-cols-12"
         >
-          <div className="lg:col-span-6 h-full min-h-[350px] relative overflow-hidden bg-neutral-900">
+          <div className="relative h-[255px] min-h-0 overflow-hidden bg-neutral-900 lg:col-span-6 lg:h-full lg:min-h-0">
             <img
-              src={featured.coverImage}
+              src="https://zentexx.com/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdeouaqmod%2Fimage%2Fupload%2Fv1764400251%2Fgrck3pvggkah2rg0xkdx.png&w=3840&q=75"
               alt={featured.title}
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
           </div>
 
-          <div className="lg:col-span-6 p-8 sm:p-12 space-y-4">
-            <div className="flex items-center gap-3 text-xs font-vietnam text-neutral-400">
-              <span className="px-3 py-1 rounded-full bg-[#1C1C1C] border border-[#333333] text-[#3649F5] font-semibold">
-                {featured.category}
-              </span>
-              <span>{featured.date}</span>
+          <div className="space-y-4 p-7 sm:p-12 lg:col-span-6">
+            <div className="flex items-center gap-3 text-xs font-vietnam text-neutral-500">
+              <span className="font-semibold text-[#5B45F5]">{featured.author.name}</span>
               <span>•</span>
-              <span>{featured.readTime}</span>
+              <span>{featured.date}</span>
             </div>
 
-            <h2 className="font-switzer font-bold text-2xl sm:text-3xl text-white group-hover:text-[#3649F5] transition-colors leading-snug">
+            <h2 className="font-switzer text-2xl font-bold leading-snug text-neutral-950 transition-colors group-hover:text-[#3649F5] sm:text-3xl">
               {featured.title}
             </h2>
 
-            <p className="font-vietnam text-sm sm:text-base text-neutral-300 leading-relaxed">
+            <p className="font-vietnam text-sm leading-relaxed text-neutral-600 sm:text-base">
               {featured.excerpt}
             </p>
 
@@ -65,10 +66,10 @@ export default function BlogPage({ onOpenCalendly }) {
                 className="w-9 h-9 rounded-full object-cover border border-white/20"
               />
               <div>
-                <span className="font-switzer font-semibold text-xs text-white block">
+                  <span className="block font-switzer text-xs font-semibold text-neutral-950">
                   {featured.author.name}
                 </span>
-                <span className="font-vietnam text-[11px] text-neutral-400">
+                  <span className="font-vietnam text-[11px] text-neutral-500">
                   {featured.author.role}
                 </span>
               </div>
@@ -78,9 +79,9 @@ export default function BlogPage({ onOpenCalendly }) {
       </section>
 
       {/* Other Articles Grid */}
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 pb-24">
+      <section className="mx-auto h-[2058.13px] max-w-6xl px-4 pb-24 sm:px-6 lg:h-[860.71px]">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {others.map((article) => (
+          {others.map((article, articleIndex) => (
             <Link
               key={article.id}
               to={`/blog/${article.slug}`}
@@ -88,7 +89,7 @@ export default function BlogPage({ onOpenCalendly }) {
             >
               <div className="h-48 overflow-hidden bg-neutral-100 relative">
                 <img
-                  src={article.coverImage}
+                  src={referenceBlogImages[articleIndex + 1] || article.coverImage}
                   alt={article.title}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
@@ -123,8 +124,6 @@ export default function BlogPage({ onOpenCalendly }) {
           ))}
         </div>
       </section>
-
-      <CTASection onOpenCalendly={onOpenCalendly} />
     </div>
   );
 }
