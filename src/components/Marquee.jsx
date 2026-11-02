@@ -22,7 +22,7 @@ export function LogoMarquee({ showTrustLabel = false }) {
         <div className="pointer-events-none absolute right-0 top-0 bottom-0 z-10 w-16 sm:w-28 bg-gradient-to-l from-white via-white/80 to-transparent" />
 
         <div className="relative w-full max-w-full overflow-hidden">
-          <div className={`${showTrustLabel ? 'pb-8 pt-5' : 'py-8 sm:py-10'} flex items-center gap-12 sm:gap-20 w-max shrink-0 animate-marquee hover:[animation-play-state:paused]`}>
+        <div style={{ animationDuration: showTrustLabel ? '54.17s' : undefined }} className={`${showTrustLabel ? 'pb-8 pt-5' : 'py-8 sm:py-10'} flex items-center gap-12 sm:gap-20 w-max shrink-0 animate-marquee hover:[animation-play-state:paused]`}>
             {[...logos, ...logos, ...logos, ...logos].map((logo, idx) => (
               <div
                 key={idx}
@@ -90,7 +90,7 @@ export function TechStackMarquee() {
 
         {/* Row 1 (moving left) */}
         <div className="relative w-full max-w-full overflow-hidden">
-          <div className="flex items-center gap-4 w-max shrink-0 animate-marquee hover:[animation-play-state:paused]">
+          <div style={{ animationDuration: '40.26s' }} className="flex items-center gap-4 w-max shrink-0 animate-marquee hover:[animation-play-state:paused]">
             {[...row1, ...row1, ...row1].map((item, idx) => (
               <div
                 key={idx}
@@ -107,7 +107,7 @@ export function TechStackMarquee() {
 
         {/* Row 2 (moving right / reverse) */}
         <div className="relative w-full max-w-full overflow-hidden">
-          <div className="flex items-center gap-4 w-max shrink-0 animate-marquee-reverse hover:[animation-play-state:paused]">
+          <div style={{ animationDuration: '60.97s' }} className="flex items-center gap-4 w-max shrink-0 animate-marquee-reverse hover:[animation-play-state:paused]">
             {[...row2, ...row2, ...row2].map((item, idx) => (
               <div
                 key={idx}
