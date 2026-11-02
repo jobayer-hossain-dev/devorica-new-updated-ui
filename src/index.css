@@ -41,6 +41,9 @@
 .text-saas-btn {
   color: #FF7847 !important;
 }
+.rounded-4xl {
+  border-radius: 32px !important;
+}
 .bg-end-btn {
   background-color: rgba(0, 138, 235, 0.1) !important;
 }
