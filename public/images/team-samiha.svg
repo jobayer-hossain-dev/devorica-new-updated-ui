@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <defs>
+    <radialGradient id="bgGlow" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#1A0D05" />
+      <stop offset="60%" stop-color="#0D0D0D" />
+      <stop offset="100%" stop-color="#080808" />
+    </radialGradient>
+    <linearGradient id="hairGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2A2A2A" />
+      <stop offset="50%" stop-color="#181818" />
+      <stop offset="100%" stop-color="#0D0D0D" />
+    </linearGradient>
+    <linearGradient id="orangeAccent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF6B1A" />
+      <stop offset="100%" stop-color="#E85002" />
+    </linearGradient>
+    <linearGradient id="skinGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#D99B72" />
+      <stop offset="100%" stop-color="#B87B52" />
+    </linearGradient>
+    <linearGradient id="clothGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1C1C1C" />
+      <stop offset="100%" stop-color="#0A0A0A" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="500" height="500" rx="36" fill="url(#bgGlow)" />
+  
+  <!-- Subtle Brand Geometric Grid Lines -->
+  <circle cx="250" cy="220" r="160" fill="none" stroke="#E85002" stroke-opacity="0.12" stroke-width="1.5" stroke-dasharray="4 6" />
+  <circle cx="250" cy="220" r="190" fill="none" stroke="#E85002" stroke-opacity="0.06" stroke-width="1" />
+
+  <!-- Back Hair Silhouette -->
+  <path d="M150,220 C140,320 160,400 170,440 L330,440 C340,400 360,320 350,220 C345,140 310,100 250,100 C190,100 155,140 150,220 Z" fill="url(#hairGrad)" />
+
+  <!-- Body / Turtleneck -->
+  <path d="M140,500 C140,430 180,390 220,380 L280,380 C320,390 360,430 360,500 Z" fill="url(#clothGrad)" stroke="#333333" stroke-width="1.5" />
+  
+  <!-- Turtleneck Collar with Warm Orange Accent Stitch -->
+  <path d="M215,350 L285,350 L290,390 L210,390 Z" fill="#141414" stroke="#E85002" stroke-width="1.5" stroke-opacity="0.4" />
+  <path d="M225,365 L275,365" stroke="#E85002" stroke-width="2" stroke-linecap="round" />
+
+  <!-- Neck -->
+  <path d="M225,300 L275,300 L278,360 L222,360 Z" fill="url(#skinGrad)" />
+  <path d="M222,330 C235,345 265,345 278,330 L278,350 L222,350 Z" fill="#9E6540" opacity="0.4" />
+
+  <!-- Head / Face -->
+  <ellipse cx="250" cy="240" rx="62" ry="78" fill="url(#skinGrad)" />
+
+  <!-- Ears -->
+  <ellipse cx="187" cy="245" rx="10" ry="16" fill="#C2845B" />
+  <ellipse cx="313" cy="245" rx="10" ry="16" fill="#C2845B" />
+  
+  <!-- Warm Orange Minimalist Earring -->
+  <circle cx="186" cy="256" r="3.5" fill="url(#orangeAccent)" />
+  <circle cx="314" cy="256" r="3.5" fill="url(#orangeAccent)" />
+
+  <!-- Eyebrows -->
+  <path d="M210,208 Q225,200 238,206" fill="none" stroke="#222222" stroke-width="3" stroke-linecap="round" />
+  <path d="M262,206 Q275,200 290,208" fill="none" stroke="#222222" stroke-width="3" stroke-linecap="round" />
+
+  <!-- Eyes -->
+  <ellipse cx="225" cy="222" rx="7" ry="5" fill="#1A1A1A" />
+  <ellipse cx="275" cy="222" rx="7" ry="5" fill="#1A1A1A" />
+  <circle cx="227" cy="220" r="2" fill="#FFFFFF" />
+  <circle cx="277" cy="220" r="2" fill="#FFFFFF" />
+  
+  <!-- Eyelashes / Liner -->
+  <path d="M215,220 Q225,214 235,220" fill="none" stroke="#111" stroke-width="2.5" stroke-linecap="round" />
+  <path d="M265,220 Q275,214 285,220" fill="none" stroke="#111" stroke-width="2.5" stroke-linecap="round" />
+
+  <!-- Nose -->
+  <path d="M250,225 L247,248 L254,250" fill="none" stroke="#A86E45" stroke-width="2" stroke-linecap="round" />
+
+  <!-- Lips (Warm Terracotta / Orange Accent) -->
+  <path d="M236,275 Q250,270 264,275 Q250,283 236,275 Z" fill="#D4532B" />
+
+  <!-- Front Hair / Bangs (Curated Luxury Bob / Flow) -->
+  <path d="M188,220 C185,150 210,120 250,120 C290,120 315,150 312,220 C305,170 280,150 250,150 C220,150 195,170 188,220 Z" fill="#141414" />
+  <path d="M190,170 C220,150 260,150 300,180 C280,140 240,135 190,170 Z" fill="url(#orangeAccent)" opacity="0.2" />
+
+  <!-- Brand Signature Hairpin (Devorica Warm Orange Slash) -->
+  <line x1="288" y1="175" x2="305" y2="160" stroke="url(#orangeAccent)" stroke-width="3" stroke-linecap="round" />
+  <circle cx="307" cy="158" r="3" fill="#FFF" />
+</svg>

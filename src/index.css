@@ -1,0 +1,266 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   DEVORICA DESIGN SYSTEM COLORS & UTILITIES
+   ============================================================ */
+.text-secondary {
+  color: #FFFFFF !important;
+}
+.bg-secondary {
+  background-color: #FFFFFF !important;
+}
+.bg-principles {
+  background-color: #0B0B0B !important;
+}
+.bg-service-card {
+  background-color: #121211 !important;
+}
+.border-services {
+  border-color: #2A2A2A !important;
+}
+.text-research-desc {
+  color: #D1D1D1 !important;
+}
+.text-desc-service {
+  color: #B7B7B7 !important;
+}
+.text-design-desc {
+  color: #4F4F4F !important;
+}
+.text-header-desc {
+  color: #4A5565 !important;
+}
+.text-step-desc {
+  color: #5D5D5D !important;
+}
+.bg-saas-btn {
+  background-color: rgba(255, 120, 71, 0.1) !important;
+}
+.text-saas-btn {
+  color: #FF7847 !important;
+}
+.bg-bookCall {
+  background-color: #3649F5 !important;
+}
+.text-bookCall {
+  color: #3649F5 !important;
+}
+.bg-step-btn {
+  background-color: #000000 !important;
+}
+.bg-tab-btn {
+  background-color: #191919 !important;
+}
+.bg-tech-card {
+  background-color: #141414 !important;
+}
+.border-tech-card {
+  border-color: #222222 !important;
+}
+.bg-input-from {
+  background-color: #F6F6F6 !important;
+}
+.bg-contact-from {
+  background-color: #F3F3F5 !important;
+}
+.bg-howIt-section {
+  background-color: #F9F9F9 !important;
+}
+
+/* ============================================================
+   LENIS SMOOTH SCROLLING (MATCHING ZENTEXX & APPLE EXACTLY)
+   ============================================================ */
+html {
+  scroll-behavior: auto !important;
+  overflow-x: clip;
+}
+body {
+  overflow-x: clip;
+  width: 100%;
+  max-width: 100%;
+}
+#root {
+  overflow-x: clip;
+  width: 100%;
+  max-width: 100%;
+}
+html.lenis, html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* Zentexx Switzer Typography */
+@font-face {
+  font-family: 'switzer';
+  src: url('/fonts/Switzer_Regular-s.p.0lxq26jvtw16x.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'switzer';
+  src: url('/fonts/Switzer_Medium-s.p.08n6hsvz4qqkb.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'switzer';
+  src: url('/fonts/Switzer_Bold-s.p.0gwkb2x46z9ib.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'switzer';
+  src: url('/fonts/Switzer_Extrabold-s.p.01mupu.nnbhjo.woff') format('woff');
+  font-weight: 700;
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+.font-switzer {
+  font-family: 'switzer', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.font-switzerMedium {
+  font-family: 'switzer', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-weight: 500;
+}
+
+@layer base {
+  body {
+    @apply font-vietnam text-[#171717] bg-white selection:bg-[#3649F5] selection:text-white antialiased;
+  }
+}
+
+/* Devorica Metallic Skeuomorphic Pill Button */
+.devorica-metallic-btn,
+.zentex-metallic-btn {
+  border-radius: 4px;
+  background: radial-gradient(83.04% 105.77% at 50.23% -5.77%, #4D5061 0%, rgba(0, 0, 0, 0) 100%), #0A0A0A;
+  box-shadow: 3px 2px 12px 0 rgba(255, 255, 255, 0.25) inset, 0 4px 8px 0 rgba(0, 0, 0, 0.22), 0 15px 15px 0 rgba(0, 0, 0, 0.20), 0 33px 20px 0 rgba(0, 0, 0, 0.11), 0 59px 23px 0 rgba(0, 0, 0, 0.03);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.devorica-metallic-btn:hover,
+.zentex-metallic-btn:hover {
+  filter: brightness(1.15);
+  transform: translateY(-1px);
+}
+
+.devorica-metallic-btn:active,
+.zentex-metallic-btn:active {
+  transform: translateY(0.5px);
+  filter: brightness(0.95);
+}
+
+.bg-btn-gradient {
+  background: linear-gradient(to bottom right, #4D5061, #0A0A0A);
+}
+
+.bg-submit-gradient {
+  background: linear-gradient(to bottom right, #1332C4, #5271FF);
+}
+
+.text-gradient-orange {
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  background: linear-gradient(90deg, #FE5E00, #E8A66F);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+/* Custom Zentexx Glowing Border utilities */
+.glow-border-box {
+  border: 1px solid transparent;
+  background: linear-gradient(#2C2C2C, #2C2C2C) padding-box,
+              linear-gradient(135deg, #3B3B3B 0%, #FFFFFF 50%, #2C2C2C 100%) border-box;
+}
+
+.glow-border-card {
+  border: 1px solid #2A2A2A;
+  background: #121211;
+  transition: all 0.3s ease;
+}
+
+.glow-border-card:hover {
+  border-color: #555555;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.05);
+}
+
+/* Button Dual Layer Slide Effect */
+.slide-btn {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slide-btn .btn-text-primary {
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.slide-btn .btn-text-secondary {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.slide-btn:hover .btn-text-primary {
+  transform: translateY(-100%);
+}
+
+.slide-btn:hover .btn-text-secondary {
+  transform: translateY(-100%);
+}
+
+/* Smooth Accordion */
+details > summary {
+  list-style: none;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Pause marquee on hover */
+.marquee-container:hover .marquee-content {
+  animation-play-state: paused;
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #999999;
+}

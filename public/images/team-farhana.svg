@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <defs>
+    <radialGradient id="bgGlowFarhana" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#1A0D05" />
+      <stop offset="60%" stop-color="#0D0D0D" />
+      <stop offset="100%" stop-color="#080808" />
+    </radialGradient>
+    <linearGradient id="hairGradFarhana" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#242424" />
+      <stop offset="60%" stop-color="#141414" />
+      <stop offset="100%" stop-color="#0A0A0A" />
+    </linearGradient>
+    <linearGradient id="orangeAccentFarhana" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF6B1A" />
+      <stop offset="100%" stop-color="#E85002" />
+    </linearGradient>
+    <linearGradient id="skinGradFarhana" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#DDA07A" />
+      <stop offset="100%" stop-color="#BA7E55" />
+    </linearGradient>
+    <linearGradient id="blazerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#222222" />
+      <stop offset="100%" stop-color="#0F0F0F" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="500" height="500" rx="36" fill="url(#bgGlowFarhana)" />
+  
+  <!-- Subtle Brand Geometric Grid Lines -->
+  <circle cx="250" cy="220" r="160" fill="none" stroke="#E85002" stroke-opacity="0.12" stroke-width="1.5" stroke-dasharray="4 6" />
+  <circle cx="250" cy="220" r="190" fill="none" stroke="#E85002" stroke-opacity="0.06" stroke-width="1" />
+
+  <!-- Back Hair (Sleek High Ponytail / Tied Hair) -->
+  <path d="M165,220 C160,300 170,360 180,410 L320,410 C330,360 340,300 335,220 C330,130 300,95 250,95 C200,95 170,130 165,220 Z" fill="url(#hairGradFarhana)" />
+  <!-- Ponytail side fall -->
+  <path d="M300,160 C360,180 380,260 360,340 C350,330 340,300 330,260 Z" fill="#121212" />
+
+  <!-- Body / Blazer (UX Professional) -->
+  <path d="M130,500 C135,420 175,385 210,380 L290,380 C325,385 365,420 370,500 Z" fill="url(#blazerGrad)" stroke="#333333" stroke-width="1.5" />
+  
+  <!-- Inner Top with Warm Orange V-Neck -->
+  <path d="M210,380 L250,440 L290,380 Z" fill="#141414" />
+  <path d="M220,380 L250,425 L280,380" stroke="url(#orangeAccentFarhana)" stroke-width="2" fill="none" stroke-linecap="round" />
+
+  <!-- Neck -->
+  <path d="M225,295 L275,295 L278,380 L222,380 Z" fill="url(#skinGradFarhana)" />
+  <path d="M222,325 C235,340 265,340 278,325 L278,350 L222,350 Z" fill="#9E6540" opacity="0.35" />
+
+  <!-- Head / Face -->
+  <ellipse cx="250" cy="235" rx="60" ry="76" fill="url(#skinGradFarhana)" />
+
+  <!-- Ears -->
+  <ellipse cx="189" cy="240" rx="9" ry="15" fill="#C2845B" />
+  <ellipse cx="311" cy="240" rx="9" ry="15" fill="#C2845B" />
+  
+  <!-- Minimalist Geometric Ear Stud -->
+  <polygon points="188,248 185,253 191,253" fill="url(#orangeAccentFarhana)" />
+  <polygon points="312,248 309,253 315,253" fill="url(#orangeAccentFarhana)" />
+
+  <!-- Eyebrows -->
+  <path d="M212,204 Q226,196 238,202" fill="none" stroke="#1A1A1A" stroke-width="3" stroke-linecap="round" />
+  <path d="M262,202 Q274,196 288,204" fill="none" stroke="#1A1A1A" stroke-width="3" stroke-linecap="round" />
+
+  <!-- Smart Designer Glasses (Thin Metallic Orange Rim) -->
+  <rect x="208" y="210" width="34" height="26" rx="7" fill="none" stroke="url(#orangeAccentFarhana)" stroke-width="2" stroke-opacity="0.85" />
+  <rect x="258" y="210" width="34" height="26" rx="7" fill="none" stroke="url(#orangeAccentFarhana)" stroke-width="2" stroke-opacity="0.85" />
+  <line x1="242" y1="220" x2="258" y2="220" stroke="url(#orangeAccentFarhana)" stroke-width="2" stroke-opacity="0.85" />
+  <line x1="190" y1="218" x2="208" y2="220" stroke="url(#orangeAccentFarhana)" stroke-width="1.5" stroke-opacity="0.85" />
+  <line x1="292" y1="220" x2="310" y2="218" stroke="url(#orangeAccentFarhana)" stroke-width="1.5" stroke-opacity="0.85" />
+
+  <!-- Eyes behind glasses -->
+  <ellipse cx="225" cy="223" rx="6.5" ry="4.5" fill="#181818" />
+  <ellipse cx="275" cy="223" rx="6.5" ry="4.5" fill="#181818" />
+  <circle cx="227" cy="221" r="2" fill="#FFFFFF" />
+  <circle cx="277" cy="221" r="2" fill="#FFFFFF" />
+
+  <!-- Nose -->
+  <path d="M250,225 L247,246 L254,248" fill="none" stroke="#A86E45" stroke-width="2" stroke-linecap="round" />
+
+  <!-- Lips (Warm Terracotta Smile) -->
+  <path d="M236,272 Q250,268 264,272 Q250,280 236,272 Z" fill="#D4532B" />
+
+  <!-- Front Hair Styling -->
+  <path d="M190,215 C188,145 215,115 250,115 C285,115 312,145 310,215 C300,165 275,145 250,145 C225,145 200,165 190,215 Z" fill="#161616" />
+</svg>
