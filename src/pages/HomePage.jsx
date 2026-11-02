@@ -538,7 +538,7 @@ export default function HomePage({ onOpenProjectRequest, onOpenCalendly }) {
                   className="mt-4 flex w-fit cursor-pointer items-center gap-2 font-vietnam text-sm text-secondary duration-300 hover:text-see"
                 >
                   <span>{srv.linkText}</span>
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight />
                 </Link>
               </article>
             ))}
