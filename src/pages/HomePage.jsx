@@ -514,30 +514,28 @@ export default function HomePage({ onOpenProjectRequest, onOpenCalendly }) {
             {services.map((srv, idx) => (
               <article
                 key={idx}
-                className="bg-service-card border border-[#2A2A2A] flex flex-col items-start rounded-[4px] px-3 pb-6 pt-4 shadow-lg"
+                className="bg-service-card border-services flex flex-col items-start rounded-[4px] border px-3 pb-6"
                 style={{ position: 'sticky', top: `${idx * 12}px`, zIndex: idx + 1 }}
               >
-                <div className="w-full mb-4 flex justify-center">
+                <div className="mt-3 flex w-full justify-center">
                   <img
                     src={srv.img}
                     alt={srv.title}
                     className="mb-4 w-full max-w-xs object-contain"
                   />
                 </div>
-                <div className="flex w-full items-start justify-between gap-3">
-                  <h3 className="font-switzer text-[22px] leading-7 font-medium text-secondary">
-                    {srv.title}
-                  </h3>
-                  <div className="rounded-full px-3 py-1 font-vietnam text-xs font-medium whitespace-nowrap bg-[#FF7847]/10 text-[#FF7847]">
-                    {srv.badge}
-                  </div>
+                <div className="mb-3 rounded-4xl px-3 py-1.5 font-vietnam text-sm bg-saas-btn text-saas-btn">
+                  {srv.badge}
                 </div>
-                <p className="font-vietnam text-xs text-desc-service mt-2 leading-relaxed">
+                <h3 className="mb-[6px] font-switzer text-xl font-medium text-secondary">
+                  {srv.title}
+                </h3>
+                <p className="text-desc-service font-vietnam text-sm">
                   {srv.desc}
                 </p>
                 <Link
                   to={srv.href}
-                  className="mt-4 flex items-center gap-1.5 font-vietnam text-sm font-medium text-secondary hover:text-[#3649F5]"
+                  className="mt-4 flex w-fit cursor-pointer items-center gap-2 font-vietnam text-sm text-secondary duration-300 hover:text-see"
                 >
                   <span>{srv.linkText}</span>
                   <ArrowRight className="w-4 h-4" />
