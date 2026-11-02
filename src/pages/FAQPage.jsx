@@ -43,8 +43,8 @@ export default function FAQPage({ onOpenCalendly }) {
   const items = useMemo(() => categoryQuestions[activeCategory] || [], [activeCategory]);
 
   return (
-    <div className="w-full pt-10 lg:pt-[80px]">
-      <section className="px-4 text-center sm:px-6">
+    <div className="faq-page w-full">
+      <section className="faq-header px-4 text-center sm:px-6">
         <h1 className="mx-auto max-w-[1050px] font-switzerMedium text-[32px] leading-[1.18] tracking-tight text-[#0A0A0A] sm:text-6xl lg:text-[64px] lg:leading-[1.18]">
           Frequently Asked Questions
         </h1>
@@ -61,7 +61,7 @@ export default function FAQPage({ onOpenCalendly }) {
         </div>
       </section>
 
-      <section className="mx-auto mt-[40.5px] max-w-[1024px] px-4 pb-0 pt-0 sm:mt-16 sm:px-6 sm:pt-0 lg:mt-16 lg:pb-4">
+      <section className="faq-list mx-auto mt-[40.5px] max-w-[1024px] px-4 pb-0 pt-0 sm:mt-16 sm:px-6 sm:pt-0 lg:mt-16 lg:pb-4">
         <h2 className="font-switzerMedium text-[26px] leading-8 text-[#0A0A0A] sm:text-[30px] sm:leading-9">{activeCategory}</h2>
         <div className="mt-6 border-t border-[#DADADA] lg:mt-8">
           {items.map((item, index) => {
