@@ -128,7 +128,6 @@ export default function Navbar({ onOpenProjectRequest }) {
                 <li className="relative" ref={dropdownRef}>
                   <button
                     type="button"
-                    onClick={() => setServicesOpen(!servicesOpen)}
                     onMouseEnter={() => setServicesOpen(true)}
                     className={`flex cursor-pointer items-center gap-2 font-vietnam transition-colors duration-200 ${
                       servicesOpen || location.pathname.startsWith('/services')
