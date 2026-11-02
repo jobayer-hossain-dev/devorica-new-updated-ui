@@ -144,28 +144,28 @@ export default function HomePage({ onOpenProjectRequest, onOpenCalendly }) {
     {
       title: 'Bikkhipto',
       subtitle: '+65% Conversion Lift · Headless E-commerce',
-      img: '/portfolio/bikkhipto.jpg',
+      img: '/homePage/QuranLinkSeeDashBoard.png',
       href: '/work/bikkhipto',
       colSpan: 'sm:col-span-2'
     },
     {
       title: 'Bayloz',
       subtitle: '99.99% Uptime · Global Marketplace',
-      img: '/portfolio/bayloz.jpg',
+      img: '/homePage/EuphuinanceProjects.png',
       href: '/work/bayloz',
       colSpan: 'sm:col-span-1'
     },
     {
       title: 'Fathom AI',
       subtitle: '99.4% Precision · Autonomous Intelligence',
-      img: '/portfolio/fathom.jpg',
+      img: '/homePage/AppZenCare.png',
       href: '/work/fathom-ai',
       colSpan: 'sm:col-span-1'
     },
     {
       title: 'Maertens Studio',
       subtitle: 'Award-Winning · Immersive WebGL Showcase',
-      img: '/portfolio/studiomaertens.jpg',
+      img: '/homePage/MyspendSeeApp.png',
       href: '/work/maertens-studio',
       colSpan: 'sm:col-span-2'
     }
