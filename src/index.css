@@ -345,3 +345,24 @@ details > summary::-webkit-details-marker {
   .case-more { height: 687.41px; padding-top: 0; }
 }
 
+@media (max-width: 639px) {
+  .blog-post-header { height: 389px; }
+  .blog-post-cover { height: 220px; }
+  .blog-post-body { height: 7597.33px; min-height: 0; }
+  .blog-post-tags { height: 168.67px; }
+  .blog-post-explore { height: 120.67px; }
+
+  .case-hero { height: 841.85px; }
+  .case-intro { height: 1124px; min-height: 0; }
+  .case-gallery { height: 941.85px; min-height: 0; overflow: hidden; }
+  .case-built { height: 303.78px; min-height: 0; overflow: hidden; }
+  .case-process { height: 1209.78px; min-height: 0; overflow: hidden; }
+  .case-challenge { height: 1117.78px; min-height: 0; overflow: hidden; }
+  .case-dashboard { height: 1127.84px; min-height: 0; overflow: hidden; }
+  .case-agent { height: 439.78px; min-height: 0; overflow: hidden; }
+  .case-trackers { height: 1183.81px; min-height: 0; overflow: hidden; }
+  .case-alerts { height: 761px; min-height: 0; overflow: hidden; }
+  .case-result { height: 784px; min-height: 0; overflow: hidden; }
+  .case-more { height: 745.13px; min-height: 0; overflow: hidden; }
+}
+
