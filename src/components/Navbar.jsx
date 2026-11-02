@@ -356,7 +356,7 @@ export default function Navbar({ onOpenProjectRequest }) {
       {/* Mobile Drawer Menu */}
       <aside
         className={`fixed inset-0 z-50 h-[100dvh] w-full transform transition-transform duration-300 ease-in-out md:hidden ${
-          mobileMenuOpen ? 'translate-x-0' : '-translate-x-full pointer-events-none'
+          mobileMenuOpen ? 'translate-x-0' : 'translate-x-full pointer-events-none'
         }`}
         aria-label="Mobile menu"
         aria-hidden={!mobileMenuOpen}
