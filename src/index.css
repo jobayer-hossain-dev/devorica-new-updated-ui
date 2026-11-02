@@ -74,7 +74,6 @@
    ============================================================ */
 html {
   scroll-behavior: auto !important;
-  overflow-x: hidden;
 }
 body {
   overflow-x: hidden;
