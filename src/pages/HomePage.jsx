@@ -60,12 +60,13 @@ export default function HomePage({ onOpenProjectRequest, onOpenCalendly }) {
   useEffect(() => {
     const currentWord = words[wordIdx];
     const typingSpeed = isDeleting ? 45 : 90;
+    let completionTimer;
 
     const timer = setTimeout(() => {
       if (!isDeleting) {
         setDisplayedText(currentWord.substring(0, displayedText.length + 1));
         if (displayedText === currentWord) {
-          setTimeout(() => setIsDeleting(true), 1600);
+          completionTimer = setTimeout(() => setIsDeleting(true), 1600);
         }
       } else {
         setDisplayedText(currentWord.substring(0, displayedText.length - 1));
@@ -76,7 +77,10 @@ export default function HomePage({ onOpenProjectRequest, onOpenCalendly }) {
       }
     }, typingSpeed);
 
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(timer);
+      if (completionTimer) clearTimeout(completionTimer);
+    };
   }, [displayedText, isDeleting, wordIdx]);
 
   const heroMarqueeLogos = [
