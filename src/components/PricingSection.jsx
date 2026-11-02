@@ -160,6 +160,12 @@ export default function PricingSection({ onOpenProjectRequest, onOpenCalendly })
     ]
   };
 
+  const packageAliases = {
+    'AI Automation': 'AI Automation & Workflows',
+    'Team & Care': 'Dedicated Team & Care'
+  };
+  const activePackages = packages[activeTab] || packages[packageAliases[activeTab]] || packages['Web & Product Development'];
+
   return (
     <motion.section
       id="pricing"
@@ -246,7 +252,7 @@ export default function PricingSection({ onOpenProjectRequest, onOpenCalendly })
           transition={{ delay: 0.2 }}
           className="mx-auto mt-5 lg:mt-[44px] grid grid-cols-1 gap-3 lg:gap-5 md:grid-cols-3"
         >
-          {packages[activeTab].map((pkg, idx) => (
+          {activePackages.map((pkg, idx) => (
             <article
               key={idx}
               className={`relative flex flex-col overflow-hidden rounded-lg border border-[#323232] bg-[#141414] p-5 transition-all duration-300 hover:border-[#4B4B4B] lg:h-[619.3px] lg:p-6 ${
