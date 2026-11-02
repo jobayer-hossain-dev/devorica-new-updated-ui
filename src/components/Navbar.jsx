@@ -320,7 +320,7 @@ export default function Navbar({ onOpenProjectRequest }) {
       </header>
 
       {/* Mobile Sticky Header */}
-      <header className="sticky top-0 z-40 w-full overflow-hidden px-4 py-4 text-header transition-all duration-300 md:hidden bg-transparent translate-y-0">
+      <header className={`sticky top-0 z-40 w-full overflow-hidden px-4 py-4 text-header transition-all duration-300 md:hidden ${isScrolled ? 'bg-white/95 backdrop-blur-md shadow-[0_4px_20px_rgba(0,0,0,0.06)]' : 'bg-transparent'} ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}>
         <div className="mx-auto flex max-w-7xl items-center justify-between">
           <Link to="/" aria-label="Go to Devorica homepage">
             <img

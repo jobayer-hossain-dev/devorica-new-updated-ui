@@ -91,6 +91,7 @@ export default function HomePage({ onOpenProjectRequest, onOpenCalendly }) {
     {
       title: 'AI MVP Development',
       badge: '2-4 weeks',
+      badgeClass: 'bg-saas-btn text-saas-btn',
       desc: 'Launch an investor-ready AI MVP in weeks — production-grade code, in front of users and investors fast. Built for funded founders validating an AI-first product.',
       href: '/services/ai-mvp-development',
       linkText: 'Explore AI MVP Development',
@@ -100,6 +101,7 @@ export default function HomePage({ onOpenProjectRequest, onOpenCalendly }) {
     {
       title: 'SaaS Product Development',
       badge: '6-12 weeks',
+      badgeClass: 'bg-end-btn text-end-btn',
       desc: 'Full-cycle SaaS — strategy, UX, engineering, AI, and launch — from one senior team that owns the whole lifecycle. Built to scale without breaking.',
       href: '/services/product-development',
       linkText: 'Explore SaaS Development',
@@ -109,6 +111,7 @@ export default function HomePage({ onOpenProjectRequest, onOpenCalendly }) {
     {
       title: 'AI Automation & Agents',
       badge: '30-60 days',
+      badgeClass: 'bg-UiUx-btn text-UiUx-btn',
       desc: 'Custom AI that removes repetitive work: support automation, document and contract processing, and AI agents wired into the tools you already run.',
       href: '/services/ai-automation',
       linkText: 'Explore AI Automation',
@@ -118,6 +121,7 @@ export default function HomePage({ onOpenProjectRequest, onOpenCalendly }) {
     {
       title: 'Product & UX Design',
       badge: '1-3 weeks',
+      badgeClass: 'bg-UiUx-btn text-UiUx-btn',
       desc: 'High-conversion UI/UX for AI products, SaaS, and mobile apps. Designed for the metric — activation, retention, conversion — not a dribbble shot.',
       href: '/services/product-design',
       linkText: 'Explore Product Design',
@@ -127,6 +131,7 @@ export default function HomePage({ onOpenProjectRequest, onOpenCalendly }) {
     {
       title: 'Maintenance & Care',
       badge: 'ongoing',
+      badgeClass: 'bg-UiUx-btn text-UiUx-btn',
       desc: 'Post-launch reliability: uptime monitoring, security patching, and AI model tuning by a senior team that knows your stack. Whether we built it or not.',
       href: '/services/maintenance-care',
       linkText: 'Explore Maintenance & Care',
@@ -471,7 +476,7 @@ export default function HomePage({ onOpenProjectRequest, onOpenCalendly }) {
                       <h3 className="flex-1 font-switzer text-[40px] leading-[48px] font-medium text-secondary">
                         {srv.title}
                       </h3>
-                      <div className="rounded-4xl px-3 py-1.5 font-vietnam text-sm font-medium whitespace-nowrap bg-[#FF7847]/10 text-[#FF7847]">
+                      <div className={`rounded-4xl px-3 py-1.5 font-vietnam text-sm font-medium whitespace-nowrap ${srv.badgeClass}`}>
                         {srv.badge}
                       </div>
                     </div>
@@ -524,7 +529,7 @@ export default function HomePage({ onOpenProjectRequest, onOpenCalendly }) {
                     className="mb-4 w-full max-w-xs object-contain"
                   />
                 </div>
-                <div className="mb-3 rounded-4xl px-3 py-1.5 font-vietnam text-sm bg-saas-btn text-saas-btn">
+                <div className={`mb-3 rounded-4xl px-3 py-1.5 font-vietnam text-sm ${srv.badgeClass}`}>
                   {srv.badge}
                 </div>
                 <h3 className="mb-[6px] font-switzer text-xl font-medium text-secondary">

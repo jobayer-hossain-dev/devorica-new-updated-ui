@@ -41,6 +41,18 @@
 .text-saas-btn {
   color: #FF7847 !important;
 }
+.bg-end-btn {
+  background-color: rgba(0, 138, 235, 0.1) !important;
+}
+.text-end-btn {
+  color: #008AEB !important;
+}
+.bg-UiUx-btn {
+  background-color: rgba(69, 190, 31, 0.1) !important;
+}
+.text-UiUx-btn {
+  color: #45BE1F !important;
+}
 .bg-bookCall {
   background-color: #3649F5 !important;
 }
