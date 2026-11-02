@@ -1,5 +1,4 @@
-import { useRef, useEffect } from 'react';
-import { useAnimation, useScroll, useMotionValueEvent } from 'framer-motion';
+import { useAnimation } from 'framer-motion';
 
 // Exact cubic-bezier curve from Zentexx (easeOutQuint signature)
 export const EASING_ZENTEXX = [0.22, 1, 0.36, 1];
@@ -75,20 +74,15 @@ export const ctaBannerVariants = {
  */
 export function useScrollReveal(amount = 0.05, margin = '0px') {
   const controls = useAnimation();
-  const isVisible = useRef(false);
-
-  const onViewportEnter = async () => {
-    if (!isVisible.current) {
-      isVisible.current = true;
-      await controls.start('visible');
-    }
-  };
+  const onViewportEnter = () => controls.start('visible');
+  const onViewportLeave = () => controls.start('hidden');
 
   return {
     controls,
     viewportProps: {
       onViewportEnter,
-      viewport: { amount, margin, once: true }
+      onViewportLeave,
+      viewport: { amount, margin, once: false }
     }
   };
 }
