@@ -80,7 +80,7 @@ export default function App() {
 
   return (
     <ToastProvider>
-      <div className="min-h-screen w-full max-w-full overflow-x-hidden flex flex-col bg-white text-[#171717] selection:bg-[#3649F5] selection:text-white font-vietnam relative">
+      <div className="min-h-screen w-full max-w-full flex flex-col bg-white text-[#171717] selection:bg-[#3649F5] selection:text-white font-vietnam relative">
         <ScrollToTop />
 
         {/* Global Navigation Header */}
