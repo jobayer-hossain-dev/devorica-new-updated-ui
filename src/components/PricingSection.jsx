@@ -307,7 +307,9 @@ export default function PricingSection({ onOpenProjectRequest, onOpenCalendly })
               </p>
 
               {/* Feature List */}
-              <ul className="mt-5 space-y-3 pt-4 border-t border-[#262626] flex-1">
+              <div className="mt-5 border-t border-[#262626] pt-4">
+                <p className="mb-3 font-vietnam text-sm font-medium text-[#D1D1D1]">Includes:</p>
+                <ul className="space-y-3 flex-1">
                 {pkg.features.map((feat, fIdx) => (
                   <li key={fIdx} className="flex items-start gap-2.5">
                     <Check className="w-4 h-4 text-[#3649F5] shrink-0 mt-0.5" />
@@ -316,7 +318,8 @@ export default function PricingSection({ onOpenProjectRequest, onOpenCalendly })
                     </span>
                   </li>
                 ))}
-              </ul>
+                </ul>
+              </div>
             </article>
           ))}
         </motion.div>
