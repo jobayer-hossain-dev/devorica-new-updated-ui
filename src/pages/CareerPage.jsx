@@ -14,8 +14,8 @@ const benefits = [
 
 export default function CareerPage({ onOpenCalendly }) {
   return (
-    <div className="w-full">
-      <section className="px-4 pb-0 pt-10 text-center sm:pt-20 lg:h-[849px] lg:pt-[68px]">
+    <div className="career-page w-full">
+      <section className="career-hero px-4 pb-0 pt-10 text-center sm:pt-20 lg:h-[849px] lg:pt-[68px]">
         <h1 className="mx-auto max-w-[900px] font-switzerMedium text-[32px] leading-[1.18] tracking-tight text-[#0A0A0A] sm:text-6xl lg:text-[64px] lg:leading-[1.18]">
           Shape Your Future With a<br className="hidden sm:block" /> Growing Tech Team
         </h1>
@@ -112,11 +112,11 @@ export default function CareerPage({ onOpenCalendly }) {
         </div>
       </section>
 
-      <div className="h-[805.3px] overflow-hidden lg:h-[899.3px]">
+      <div className="career-faq h-[805.3px] overflow-hidden lg:h-[899.3px]">
         <FAQSection limit={6} />
       </div>
 
-      <CTASection onOpenCalendly={onOpenCalendly} />
+      <div className="career-cta"><CTASection onOpenCalendly={onOpenCalendly} /></div>
     </div>
   );
 }
