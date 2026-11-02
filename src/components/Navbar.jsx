@@ -52,6 +52,14 @@ export default function Navbar({ onOpenProjectRequest }) {
     setLastScrollY(0);
   }, [location.pathname]);
 
+  useEffect(() => {
+    const previousOverflow = document.body.style.overflow;
+    if (mobileMenuOpen) document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [mobileMenuOpen]);
+
   const serviceItems = [
     {
       title: 'AI MVP Launch',
