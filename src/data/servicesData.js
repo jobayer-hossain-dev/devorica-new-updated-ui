@@ -12,7 +12,7 @@ export const servicesData = [
       { value: '3 to 5 Wks', label: 'Average Delivery Time' },
       { value: '99.4%', label: 'First-Pass Model Accuracy' },
       { value: '10x', label: 'Faster Than In-House Hiring' },
-      { value: '$4.2M+', label: 'Raised by Our MVP Clients' }
+      { value: 'BDT 50Cr+', label: 'Raised by Our MVP Clients' }
     ],
     capabilities: [
       {
@@ -29,7 +29,7 @@ export const servicesData = [
       },
       {
         title: 'Authentication & Billing Setup',
-        desc: 'Seamless user sign-ups, OAuth logins, and automated subscription payments via Stripe or Lemon Squeezy.'
+        desc: 'Seamless user sign-ups, OAuth logins, and automated subscription payments via bKash, Nagad, or Stripe.'
       },
       {
         title: 'Conversion-Focused UI/UX',
@@ -65,7 +65,7 @@ export const servicesData = [
     pricing: [
       {
         name: 'Launch MVP',
-        price: '$9,000',
+        price: 'BDT 35k to 55k',
         period: 'per project',
         badge: 'Early Stage',
         popular: false,
@@ -74,14 +74,14 @@ export const servicesData = [
           'Complete UI/UX Design System',
           'Single Core AI Feature Pipeline',
           'Auth & User Management',
-          'Stripe Subscription Setup',
-          '3 to 4 Weeks Turnaround',
+          'bKash, Nagad & Card Payment Integration',
+          '2 to 4 Weeks Turnaround',
           'Full Source Code IP Transfer'
         ]
       },
       {
         name: 'Growth SaaS',
-        price: '$22,000',
+        price: 'BDT 75k to 120k',
         period: 'per project',
         badge: 'Most Popular',
         popular: true,
@@ -92,12 +92,12 @@ export const servicesData = [
           'Admin Dashboard & Role-based Access',
           'Team Collaboration & Workspaces',
           'End-to-End Automated Testing',
-          '6 to 8 Weeks Delivery + 30 Days Support'
+          '4 to 6 Weeks Delivery + 30 Days Support'
         ]
       },
       {
         name: 'Enterprise Custom',
-        price: 'Custom',
+        price: 'Custom Scope',
         period: 'flexible scope',
         badge: 'Enterprise',
         popular: false,
@@ -115,7 +115,7 @@ export const servicesData = [
     faqs: [
       {
         q: 'How much does an AI MVP cost to develop?',
-        a: 'Our AI MVP packages start at $9,000 for focused early-stage validation, scaling to $22,000 for full-featured multi-tenant platforms. We operate on transparent, fixed-scope pricing with zero hidden fees.'
+        a: 'Our AI MVP packages start at BDT 35k to 55k for focused early-stage validation, scaling to BDT 75k to 120k for full-featured multi-tenant platforms. We operate on transparent, fixed-scope pricing with zero hidden fees.'
       },
       {
         q: 'Is an MVP just a clickable prototype or real software?',
@@ -197,7 +197,7 @@ export const servicesData = [
     pricing: [
       {
         name: 'Sprint Dedicated',
-        price: '$12,000',
+        price: 'BDT 50k to 80k',
         period: 'per month',
         badge: 'Agile Pod',
         popular: true,
@@ -213,7 +213,7 @@ export const servicesData = [
       },
       {
         name: 'Full Product Delivery',
-        price: '$35,000+',
+        price: 'BDT 120k to 200k+',
         period: 'fixed scope',
         badge: 'Turnkey',
         popular: false,
@@ -304,8 +304,8 @@ export const servicesData = [
     ],
     pricing: [
       {
-        name: 'Single Workflow Agent',
-        price: '$7,500',
+        name: 'Starter Workflow Agent',
+        price: 'BDT 20k to 35k',
         period: 'per workflow',
         badge: 'Focused ROI',
         popular: false,
@@ -316,12 +316,12 @@ export const servicesData = [
           'CRM / Database Read & Write Sync',
           'Human-in-the-Loop Slack Dashboard',
           'Comprehensive Hallucination Testing',
-          '2 Weeks Rapid Implementation'
+          '1 to 2 Weeks Rapid Implementation'
         ]
       },
       {
-        name: 'Enterprise Agent Suite',
-        price: '$18,000',
+        name: 'Agentic Operations Suite',
+        price: 'BDT 60k to 95k',
         period: 'full system',
         badge: 'Enterprise',
         popular: true,
@@ -332,7 +332,7 @@ export const servicesData = [
           'Role-Based Approval & Audit Logs',
           'Live Telemetry & Cost Monitoring',
           'Custom Prompt Evals Suite',
-          '60 Days Dedicated Optimization'
+          '30 Days Dedicated Optimization'
         ]
       }
     ],
@@ -413,7 +413,7 @@ export const servicesData = [
     pricing: [
       {
         name: 'Starter D2C Store',
-        price: '$4,500',
+        price: 'BDT 25k to 45k',
         period: 'per store',
         badge: 'High Conversion',
         popular: false,
@@ -424,12 +424,12 @@ export const servicesData = [
           'Pathao & Steadfast Courier Integration',
           'Mobile OTP Customer Login',
           'SEO & Social Ad Pixel Setup',
-          '3 to 4 Weeks Delivery'
+          '2 to 3 Weeks Delivery'
         ]
       },
       {
         name: 'Growth Commerce Suite',
-        price: '$12,000',
+        price: 'BDT 65k to 110k',
         period: 'full system',
         badge: 'Most Popular',
         popular: true,
@@ -440,7 +440,7 @@ export const servicesData = [
           'Automated Fraud & Return Detection',
           'Custom Admin Dashboard & Reporting',
           'Global Currency & Multi-Language Support',
-          '60 Days Dedicated Post-Launch Support'
+          '30 Days Dedicated Post-Launch Support'
         ]
       }
     ],
@@ -521,7 +521,7 @@ export const servicesData = [
     pricing: [
       {
         name: 'Landing Page & Brand',
-        price: '$4,500',
+        price: 'BDT 15k to 25k',
         period: 'per design',
         badge: 'Marketing',
         popular: false,
@@ -532,12 +532,12 @@ export const servicesData = [
           'Micro-Interactions & Animation Guidelines',
           'Component Style Guide & Typography System',
           'Unlimited Feedback Rounds',
-          '7 to 10 Days Delivery'
+          '1 to 2 Weeks Delivery'
         ]
       },
       {
         name: 'Full Product Design System',
-        price: '$11,000',
+        price: 'BDT 40k to 70k',
         period: 'complete app',
         badge: 'Complete App',
         popular: true,
@@ -548,7 +548,7 @@ export const servicesData = [
           'Interactive Clickable Prototype for Pitching',
           'Developer Handoff Redlines & Token Tokens',
           'User Flow & Journey Architecture Maps',
-          '3 to 4 Weeks Turnaround'
+          '2 to 4 Weeks Turnaround'
         ]
       }
     ],
@@ -629,7 +629,7 @@ export const servicesData = [
     pricing: [
       {
         name: 'Essential Care',
-        price: '$1,800',
+        price: 'BDT 8k to 15k',
         period: 'per month',
         badge: 'Stability',
         popular: false,
@@ -645,7 +645,7 @@ export const servicesData = [
       },
       {
         name: 'Growth & Feature Pod',
-        price: '$4,200',
+        price: 'BDT 25k to 40k',
         period: 'per month',
         badge: 'Active Iteration',
         popular: true,
@@ -737,7 +737,7 @@ export const servicesData = [
     pricing: [
       {
         name: 'Single Dedicated Senior',
-        price: '$5,500',
+        price: 'BDT 50k to 75k',
         period: 'per month',
         badge: 'Individual Pod',
         popular: false,
@@ -753,7 +753,7 @@ export const servicesData = [
       },
       {
         name: 'Autonomous Pod (3 Roles)',
-        price: '$15,000',
+        price: 'BDT 120k to 180k',
         period: 'per month',
         badge: 'High Velocity',
         popular: true,

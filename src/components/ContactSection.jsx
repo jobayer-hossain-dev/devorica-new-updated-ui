@@ -18,8 +18,8 @@ export default function ContactSection({ onOpenCalendly, compact = false }) {
   const interestsRow1 = ['AI MVP Launch', 'SaaS Engineering', 'Modern E-Commerce'];
   const interestsRow2 = ['AI Automation & Agents', 'UI/UX Design', 'Systems Care'];
 
-  const budgetsRow1 = ['Less than $5k', '$5k to $10k', '$10k to $20k'];
-  const budgetsRow2 = ['$20k to $50k', '$50k+'];
+  const budgetsRow1 = ['Under BDT 25k', 'BDT 25k to 50k', 'BDT 50k to 100k'];
+  const budgetsRow2 = ['BDT 100k to 200k', 'BDT 200k+'];
 
   const handleSubmit = (e) => {
     e.preventDefault();

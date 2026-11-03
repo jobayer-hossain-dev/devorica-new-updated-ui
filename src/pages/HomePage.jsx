@@ -891,7 +891,7 @@ export default function HomePage({ onOpenProjectRequest, onOpenCalendly }) {
               </div>
               <div className="flex min-h-[72px] items-center justify-center gap-2 border-b border-[#2A2A2A] px-3 py-3 text-center text-sm text-white last:border-b-0">
                 <Check className="w-4 h-4 shrink-0 text-[#2CE430]" />
-                <span className="leading-5">2-4 Weeks</span>
+                <span className="leading-5">2 to 4 Weeks</span>
               </div>
               <div className="flex min-h-[72px] items-center justify-center gap-2 border-b border-[#2A2A2A] px-3 py-3 text-center text-sm text-white last:border-b-0">
                 <X className="w-4 h-4 shrink-0 text-[#FF2A2A]" />

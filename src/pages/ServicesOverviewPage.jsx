@@ -80,7 +80,7 @@ export default function ServicesOverviewPage({ onOpenProjectRequest, onOpenCalen
 
                 <div className="mt-8 pt-6 border-t border-[#1C1C1C] flex items-center justify-between">
                   <span className="text-xs font-medium text-[#8E8E93] font-vietnam">
-                    Fixed scope from {srv.pricing[0].price}
+                    Starting from {srv.pricing[0].price}
                   </span>
                   <Link
                     to={`/services/${srv.slug}`}

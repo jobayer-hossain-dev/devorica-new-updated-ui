@@ -9,7 +9,7 @@ export default function ProjectRequestModal({ isOpen, onClose }) {
     fullName: '',
     email: '',
     service: 'AI MVP Launch',
-    budget: '$10k to $20k',
+    budget: 'BDT 50k to 100k',
     message: ''
   });
 
@@ -40,11 +40,11 @@ export default function ProjectRequestModal({ isOpen, onClose }) {
   ];
 
   const budgets = [
-    'Less than $5k',
-    '$5k to $10k',
-    '$10k to $20k',
-    '$20k to $50k',
-    '$50k+'
+    'Under BDT 25k',
+    'BDT 25k to 50k',
+    'BDT 50k to 100k',
+    'BDT 100k to 200k',
+    'BDT 200k+'
   ];
 
   const handleSubmit = (e) => {
