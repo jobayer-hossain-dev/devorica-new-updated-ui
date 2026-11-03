@@ -277,7 +277,7 @@ export default function PricingSection({ onOpenProjectRequest, onOpenCalendly })
                 </div>
 
                 {/* Ideal for */}
-                <p className="mt-3 font-vietnam text-sm leading-relaxed text-[#D1D1D1] min-h-[44px]">
+                <p className="mt-3 font-vietnam text-sm leading-relaxed text-[#D1D1D1] min-h-[44px] md:min-h-[66px]">
                   {pkg.ideal}
                 </p>
 
@@ -293,7 +293,7 @@ export default function PricingSection({ onOpenProjectRequest, onOpenCalendly })
                     <span className="font-vietnam text-xs text-[#A0A0A0] lg:text-sm">
                       Estimated Range
                     </span>
-                    <div className="mt-1 flex items-baseline gap-1.5 flex-wrap min-h-[38px]">
+                    <div className="mt-1 flex items-baseline gap-1.5 flex-wrap min-h-[38px] lg:min-h-[42px]">
                       <span className="font-switzer font-semibold text-2xl lg:text-[26px] xl:text-[28px] text-white tracking-tight">
                         {pkg.price}
                       </span>
