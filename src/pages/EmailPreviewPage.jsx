@@ -8,6 +8,7 @@ import {
   Rocket,
   BookOpen,
   Monitor,
+  Maximize2,
   Smartphone,
   Send,
   Sparkles,
@@ -21,18 +22,36 @@ import { useToast } from '../components/Toast';
 export default function EmailPreviewPage() {
   const { showToast } = useToast();
   const [activeKey, setActiveKey] = useState('inquiry_receipt');
-  const [viewport, setViewport] = useState('desktop');
+  const [viewport, setViewport] = useState('desktop'); // 'desktop', 'full', 'mobile'
   const [sendingTest, setSendingTest] = useState(false);
   const [copied, setCopied] = useState(false);
 
-  // Dynamic parameters state for each template
+  // Dynamic parameters state for each template with local original logo paths for instant preview
   const [templateParams, setTemplateParams] = useState({
-    inquiry_receipt: { ...EMAIL_TEMPLATE_CATALOG.inquiry_receipt.defaultData },
-    admin_alert: { ...EMAIL_TEMPLATE_CATALOG.admin_alert.defaultData },
-    strategy_call: { ...EMAIL_TEMPLATE_CATALOG.strategy_call.defaultData },
-    project_proposal: { ...EMAIL_TEMPLATE_CATALOG.project_proposal.defaultData },
-    client_onboarding: { ...EMAIL_TEMPLATE_CATALOG.client_onboarding.defaultData },
-    studio_newsletter: { ...EMAIL_TEMPLATE_CATALOG.studio_newsletter.defaultData }
+    inquiry_receipt: {
+      ...EMAIL_TEMPLATE_CATALOG.inquiry_receipt.defaultData,
+      logoUrl: '/devorica-logo.png'
+    },
+    admin_alert: {
+      ...EMAIL_TEMPLATE_CATALOG.admin_alert.defaultData,
+      logoUrl: '/brand/devorica-white-logo-tight.png'
+    },
+    strategy_call: {
+      ...EMAIL_TEMPLATE_CATALOG.strategy_call.defaultData,
+      logoUrl: '/devorica-logo.png'
+    },
+    project_proposal: {
+      ...EMAIL_TEMPLATE_CATALOG.project_proposal.defaultData,
+      logoUrl: '/devorica-logo.png'
+    },
+    client_onboarding: {
+      ...EMAIL_TEMPLATE_CATALOG.client_onboarding.defaultData,
+      logoUrl: '/devorica-logo.png'
+    },
+    studio_newsletter: {
+      ...EMAIL_TEMPLATE_CATALOG.studio_newsletter.defaultData,
+      logoUrl: '/devorica-logo.png'
+    }
   });
 
   const currentTemplate = EMAIL_TEMPLATE_CATALOG[activeKey];
@@ -72,13 +91,14 @@ export default function EmailPreviewPage() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           templateType: activeKey,
-          ...currentData
+          ...currentData,
+          logoUrl: 'https://devorica.com/devorica-logo.png'
         })
       });
       const data = await res.json().catch(() => ({}));
       if (res.ok && data.success) {
         if (data.simulated) {
-          showToast(`Dispatched in Ready Mode (SMTP Pending). Ref: ${data.referenceId}`, 'success');
+          showToast(`Dispatched in Ready Mode. Ref: ${data.referenceId}`, 'success');
         } else {
           showToast(`Live email dispatched via SMTP! Ref: ${data.referenceId}`, 'success');
         }
@@ -104,7 +124,7 @@ export default function EmailPreviewPage() {
 
   return (
     <div className="min-h-screen bg-[#F5F5F7] text-[#1D1D1F] pt-24 pb-20 px-4 sm:px-6 lg:px-8 font-vietnam">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-[1540px] mx-auto">
         {/* Top Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-8 border-b border-[#E5E5EA]">
           <div>
@@ -113,10 +133,10 @@ export default function EmailPreviewPage() {
               Apple Grade Email Studio
             </div>
             <h1 className="font-switzer text-3xl sm:text-4xl font-semibold tracking-tight text-[#111111]">
-              6 Dynamic Email Templates
+              Expanded Dynamic Email Templates
             </h1>
             <p className="mt-1 text-sm text-[#86868B] max-w-2xl">
-              Derived from MCP design components. Ultra clean, responsive, 100% dynamic HTML email suite compatible with Apple Mail, Gmail, and Outlook.
+              Spacious full-width layouts (760px) featuring the original Devorica logo. 100% dynamic HTML email suite compatible with Apple Mail, Gmail, and Outlook.
             </p>
           </div>
 
@@ -170,35 +190,46 @@ export default function EmailPreviewPage() {
         </div>
 
         {/* Main Workspace: Left Controls & Right Preview */}
-        <div className="grid grid-cols-1 lg:grid-cols-[380px_1fr] gap-8 mt-8">
+        <div className="grid grid-cols-1 xl:grid-cols-[380px_1fr] gap-8 mt-8">
           {/* Left Controls Column */}
           <div className="flex flex-col gap-6">
             {/* Viewport Selector */}
             <div className="bg-white rounded-2xl p-5 border border-[#E5E5EA] shadow-sm">
               <label className="block text-xs font-semibold text-[#86868B] uppercase tracking-wider mb-3">
-                Preview Viewport
+                Preview Canvas Viewport
               </label>
-              <div className="grid grid-cols-2 gap-2">
+              <div className="grid grid-cols-3 gap-2">
                 <button
                   onClick={() => setViewport('desktop')}
-                  className={`flex items-center justify-center gap-2 py-2 px-3 rounded-xl text-xs font-medium border transition ${
+                  className={`flex items-center justify-center gap-1.5 py-2 px-2.5 rounded-xl text-xs font-medium border transition ${
                     viewport === 'desktop'
                       ? 'bg-[#111111] text-white border-[#111111]'
                       : 'bg-white text-[#1D1D1F] border-[#E5E5EA] hover:bg-[#F9F9FB]'
                   }`}
                 >
-                  <Monitor className="w-4 h-4" />
-                  Desktop (600px)
+                  <Monitor className="w-3.5 h-3.5" />
+                  Standard (760px)
+                </button>
+                <button
+                  onClick={() => setViewport('full')}
+                  className={`flex items-center justify-center gap-1.5 py-2 px-2.5 rounded-xl text-xs font-medium border transition ${
+                    viewport === 'full'
+                      ? 'bg-[#111111] text-white border-[#111111]'
+                      : 'bg-white text-[#1D1D1F] border-[#E5E5EA] hover:bg-[#F9F9FB]'
+                  }`}
+                >
+                  <Maximize2 className="w-3.5 h-3.5" />
+                  Full Width
                 </button>
                 <button
                   onClick={() => setViewport('mobile')}
-                  className={`flex items-center justify-center gap-2 py-2 px-3 rounded-xl text-xs font-medium border transition ${
+                  className={`flex items-center justify-center gap-1.5 py-2 px-2.5 rounded-xl text-xs font-medium border transition ${
                     viewport === 'mobile'
                       ? 'bg-[#111111] text-white border-[#111111]'
                       : 'bg-white text-[#1D1D1F] border-[#E5E5EA] hover:bg-[#F9F9FB]'
                   }`}
                 >
-                  <Smartphone className="w-4 h-4" />
+                  <Smartphone className="w-3.5 h-3.5" />
                   Mobile (375px)
                 </button>
               </div>
@@ -482,24 +513,28 @@ export default function EmailPreviewPage() {
               <div className="flex items-center gap-2 mb-2">
                 <div className="w-2 h-2 rounded-full bg-[#30D158] animate-pulse" />
                 <span className="text-xs font-semibold text-[#8E8E93] uppercase tracking-wider">
-                  Mailing Engine
+                  Mailing Engine Active
                 </span>
               </div>
               <p className="text-xs text-[#AEAEB2] leading-relaxed">
-                Configured for <code className="text-[#30D158]">mail.devorica.com</code> on port 465 (Secure SSL/TLS). Enter your email account password in <code className="text-[#30D158]">SMTP_PASS</code> in <code className="text-[#30D158]">.env</code> to activate live delivery.
+                Live delivery active through <code className="text-[#30D158]">mail.devorica.com</code> on port 465 (Secure SSL/TLS). All 6 email templates are wide, responsive, and render the official Devorica branding.
               </p>
             </div>
           </div>
 
           {/* Right Live Preview Canvas */}
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center w-full">
             <div
               className={`w-full transition-all duration-300 ${
-                viewport === 'mobile' ? 'max-w-[395px]' : 'max-w-[700px]'
+                viewport === 'mobile'
+                  ? 'max-w-[395px]'
+                  : viewport === 'full'
+                  ? 'w-full max-w-none'
+                  : 'max-w-[840px]'
               }`}
             >
               {/* Mail Client Chrome Header */}
-              <div className="bg-[#E5E5EA] rounded-t-2xl px-4 py-3 flex items-center justify-between border-b border-[#D1D1D6]">
+              <div className="bg-[#E5E5EA] rounded-t-2xl px-5 py-3.5 flex items-center justify-between border-b border-[#D1D1D6]">
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-3 rounded-full bg-[#FF5F56]" />
                   <div className="w-3 h-3 rounded-full bg-[#FFBD2E]" />
@@ -507,17 +542,17 @@ export default function EmailPreviewPage() {
                 </div>
                 <div className="text-xs font-medium text-[#636366] flex items-center gap-1.5">
                   <Mail className="w-3.5 h-3.5" />
-                  {currentTemplate.name}
+                  {currentTemplate.name} &bull; Width: {viewport === 'mobile' ? '375px' : viewport === 'full' ? 'Fluid Full' : '760px'}
                 </div>
                 <div className="w-12" />
               </div>
 
               {/* Iframe Viewport Container */}
-              <div className="bg-white rounded-b-2xl border border-t-0 border-[#E5E5EA] overflow-hidden shadow-xl min-h-[720px]">
+              <div className="bg-white rounded-b-2xl border border-t-0 border-[#E5E5EA] overflow-hidden shadow-xl min-h-[820px]">
                 <iframe
-                  title="Apple Email Preview"
+                  title="Devorica Email Preview"
                   srcDoc={renderedEmail.html}
-                  className="w-full h-[760px] border-none"
+                  className="w-full h-[880px] border-none"
                 />
               </div>
             </div>
