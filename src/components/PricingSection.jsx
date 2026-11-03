@@ -19,9 +19,9 @@ export default function PricingSection({ onOpenProjectRequest, onOpenCalendly })
         title: 'Launch MVP',
         badge: null,
         ideal: 'Ideal for: early-stage founders and modern brands validating a core product fast',
-        price: 'BDT 25k – 40k',
+        price: 'BDT 25k to 40k',
         period: '/ project',
-        timeline: 'Typical timeline: 2–3 weeks',
+        timeline: 'Typical timeline: 2 to 3 weeks',
         popular: false,
         features: [
           'Next.js & React mobile-first architecture',
@@ -35,9 +35,9 @@ export default function PricingSection({ onOpenProjectRequest, onOpenCalendly })
         title: 'Growth Build',
         badge: '🔥 Most Popular',
         ideal: 'Ideal for: scaling businesses, e-commerce brands, and digital subscription portals',
-        price: 'BDT 50k – 85k',
+        price: 'BDT 50k to 85k',
         period: '/ project',
-        timeline: 'Typical timeline: 3–5 weeks',
+        timeline: 'Typical timeline: 3 to 5 weeks',
         popular: true,
         features: [
           'Full-cycle frontend + robust backend architecture',
@@ -51,9 +51,9 @@ export default function PricingSection({ onOpenProjectRequest, onOpenCalendly })
         title: 'Scale Platform',
         badge: null,
         ideal: 'Ideal for: high-traffic marketplaces, multi-tenant SaaS, or custom enterprise software',
-        price: 'BDT 90k – 150k+',
+        price: 'BDT 90k to 150k+',
         period: '/ project',
-        timeline: 'Typical timeline: 6–8 weeks',
+        timeline: 'Typical timeline: 6 to 8 weeks',
         popular: false,
         features: [
           'Microservices-inspired architecture & Docker deployments',
@@ -69,9 +69,9 @@ export default function PricingSection({ onOpenProjectRequest, onOpenCalendly })
         title: 'Starter AI Integration',
         badge: null,
         ideal: 'Ideal for: automating customer support, content parsing, or basic LLM features',
-        price: 'BDT 15k – 25k',
+        price: 'BDT 15k to 25k',
         period: '/ setup',
-        timeline: 'Typical timeline: 1–2 weeks',
+        timeline: 'Typical timeline: 1 to 2 weeks',
         popular: false,
         features: [
           'OpenAI / Anthropic / Gemini API pipelines',
@@ -84,9 +84,9 @@ export default function PricingSection({ onOpenProjectRequest, onOpenCalendly })
         title: 'Agentic Workflows',
         badge: '🔥 High Demand',
         ideal: 'Ideal for: autonomous business logic, RAG databases & document intelligence',
-        price: 'BDT 35k – 60k',
+        price: 'BDT 35k to 60k',
         period: '/ setup',
-        timeline: 'Typical timeline: 2–4 weeks',
+        timeline: 'Typical timeline: 2 to 4 weeks',
         popular: true,
         features: [
           'Full RAG architecture with vector databases (Pinecone / pgvector)',
@@ -99,9 +99,9 @@ export default function PricingSection({ onOpenProjectRequest, onOpenCalendly })
         title: 'Enterprise AI Suite',
         badge: null,
         ideal: 'Ideal for: high-volume automation, custom fine-tuning & proprietary workflows',
-        price: 'BDT 75k – 120k+',
+        price: 'BDT 75k to 120k+',
         period: '/ system',
-        timeline: 'Typical timeline: 4–6 weeks',
+        timeline: 'Typical timeline: 4 to 6 weeks',
         popular: false,
         features: [
           'Self-hosted open-source models (Llama 3 / Mistral) or hybrid cloud',
@@ -116,7 +116,7 @@ export default function PricingSection({ onOpenProjectRequest, onOpenCalendly })
         title: 'Maintenance Care',
         badge: null,
         ideal: 'Ideal for: businesses wanting zero-headache uptime, security & stability',
-        price: 'BDT 5k – 10k',
+        price: 'BDT 5k to 10k',
         period: '/ month',
         timeline: 'Continuous monthly partnership',
         popular: false,
@@ -131,7 +131,7 @@ export default function PricingSection({ onOpenProjectRequest, onOpenCalendly })
         title: 'Part-Time Dedicated',
         badge: null,
         ideal: 'Ideal for: steady feature iteration and continuous sprint improvements',
-        price: 'BDT 25k – 35k',
+        price: 'BDT 25k to 35k',
         period: '/ month (50 hrs)',
         timeline: 'Flexible monthly allocation',
         popular: false,
@@ -146,7 +146,7 @@ export default function PricingSection({ onOpenProjectRequest, onOpenCalendly })
         title: 'Full-Time Engineer',
         badge: '🔥 Most Popular',
         ideal: 'Ideal for: founders needing an elite remote software engineer with zero overhead',
-        price: 'BDT 50k – 75k',
+        price: 'BDT 50k to 75k',
         period: '/ month (Full-Time)',
         timeline: 'Full-time 160 hrs/month',
         popular: true,
@@ -201,7 +201,7 @@ export default function PricingSection({ onOpenProjectRequest, onOpenCalendly })
           transition={{ delay: 0.1 }}
           className="mt-8 lg:mt-10 flex justify-center w-full"
         >
-          {/* Mobile Vertical Stacked Tabs (Matches Zentexx Mobile Exactly) */}
+          {/* Mobile Vertical Stacked Tabs */}
           <div className="flex flex-wrap items-center justify-center lg:hidden w-full max-w-full rounded-md border border-[#3B3B3B] bg-[#1C1C1C] px-2 py-2">
             {tabs.map((tab) => {
               const isActive = activeTab === tab;

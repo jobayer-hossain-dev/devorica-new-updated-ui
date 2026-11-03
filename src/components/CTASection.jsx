@@ -31,7 +31,7 @@ export default function CTASection({ onOpenCalendly, onOpenProjectRequest }) {
           </h2>
 
           <p className="mx-auto mt-4 font-vietnam text-sm leading-5 text-[#CDCDCD] sm:text-base lg:mt-6 lg:leading-6">
-            In a free 30-minute call, we'll review your idea and map the approach — <br className="hidden lg:block" /> timeline and indicative investment included. No obligation.
+            In a free 30-minute call, we will review your idea and map the approach, <br className="hidden lg:block" /> with timeline and estimated investment included. No obligation.
           </p>
 
           <div className="mt-6 flex w-full flex-col items-center justify-center gap-3 sm:flex-row lg:mt-8">

@@ -26,7 +26,7 @@ import {
 } from '../hooks/useScrollReveal';
 
 export default function HomePage({ onOpenProjectRequest, onOpenCalendly }) {
-  // Scroll reveal controllers matching Zentexx exact scroll timing
+  // Scroll reveal controllers with precision timing
   const impactReveal = useScrollReveal(0.05);
   const notDevShopReveal = useScrollReveal(0.05);
   const servicesReveal = useScrollReveal(0.05);
@@ -90,53 +90,63 @@ export default function HomePage({ onOpenProjectRequest, onOpenCalendly }) {
   const services = [
     {
       title: 'AI MVP Development',
-      badge: '2-4 weeks',
+      badge: '2 to 4 weeks',
       badgeClass: 'bg-saas-btn text-saas-btn',
-      desc: 'Launch an investor-ready AI MVP in weeks — production-grade code, in front of users and investors fast. Built for funded founders validating an AI-first product.',
+      desc: 'Launch an investor-ready AI product in weeks with production-grade code, real users, and working subscription billing. Built for ambitious founders validating an AI-first software concept.',
       href: '/services/ai-mvp-development',
       linkText: 'Explore AI MVP Development',
-      img: '/homePage/EupinenceDashBoard.png',
+      img: '/homePage/service-ai-mvp.png',
       reverse: false
     },
     {
       title: 'SaaS Product Development',
-      badge: '6-12 weeks',
+      badge: '6 to 12 weeks',
       badgeClass: 'bg-end-btn text-end-btn',
-      desc: 'Full-cycle SaaS — strategy, UX, engineering, AI, and launch — from one senior team that owns the whole lifecycle. Built to scale without breaking.',
+      desc: 'Full-cycle software engineering covering architecture, product design, backend APIs, and cloud hosting from one accountable team. Built to scale smoothly as user demand multiplies.',
       href: '/services/product-development',
       linkText: 'Explore SaaS Development',
-      img: '/homePage/mySpendDashboard.png',
+      img: '/homePage/service-saas-dev.png',
       reverse: true
     },
     {
       title: 'AI Automation & Agents',
-      badge: '30-60 days',
+      badge: '2 to 4 weeks',
       badgeClass: 'bg-UiUx-btn text-UiUx-btn',
-      desc: 'Custom AI that removes repetitive work: support automation, document and contract processing, and AI agents wired into the tools you already run.',
+      desc: 'Intelligent automation that eliminates repetitive operations: customer support routing, document extraction, and custom AI agents connected to your daily business software.',
       href: '/services/ai-automation',
       linkText: 'Explore AI Automation',
-      img: '/homePage/Inner.png',
+      img: '/homePage/service-ai-automation.png',
       reverse: false
     },
     {
-      title: 'Product & UX Design',
-      badge: '1-3 weeks',
-      badgeClass: 'bg-UiUx-btn text-UiUx-btn',
-      desc: 'High-conversion UI/UX for AI products, SaaS, and mobile apps. Designed for the metric — activation, retention, conversion — not a dribbble shot.',
-      href: '/services/product-design',
-      linkText: 'Explore Product Design',
-      img: '/homePage/MySpendApp.png',
+      title: 'Modern E-Commerce & D2C',
+      badge: '3 to 5 weeks',
+      badgeClass: 'bg-saas-btn text-saas-btn',
+      desc: 'Ultra-fast headless online stores built with Next.js. Features instant mobile checkout, automated bKash, Nagad, and Stripe payments, and live Pathao and Steadfast courier delivery sync.',
+      href: '/services/ecommerce-development',
+      linkText: 'Explore Modern E-Commerce',
+      img: '/portfolio/bikkhipto.jpg',
       reverse: true
     },
     {
-      title: 'Maintenance & Care',
-      badge: 'ongoing',
+      title: 'Product & UX Design',
+      badge: '1 to 3 weeks',
       badgeClass: 'bg-UiUx-btn text-UiUx-btn',
-      desc: 'Post-launch reliability: uptime monitoring, security patching, and AI model tuning by a senior team that knows your stack. Whether we built it or not.',
+      desc: 'Intuitive UI/UX design for web applications, SaaS dashboards, and mobile platforms. Built for real business metrics like user retention, onboarding completion, and conversion.',
+      href: '/services/product-design',
+      linkText: 'Explore Product Design',
+      img: '/homePage/service-product-design.png',
+      reverse: false
+    },
+    {
+      title: 'Maintenance & Care',
+      badge: '24/7 care',
+      badgeClass: 'bg-UiUx-btn text-UiUx-btn',
+      desc: 'Proactive 24/7 uptime monitoring, weekly security updates, and monthly developer iterations by engineers who know your stack. Keeping your systems fast, reliable, and secure.',
       href: '/services/maintenance-care',
       linkText: 'Explore Maintenance & Care',
-      img: '/homePage/ZenHcareApp.png',
-      reverse: false
+      img: '/homePage/service-maintenance.png',
+      reverse: true
     }
   ];
 
@@ -144,28 +154,28 @@ export default function HomePage({ onOpenProjectRequest, onOpenCalendly }) {
     {
       title: 'Bikkhipto',
       subtitle: '+65% Conversion Lift · Headless E-commerce',
-      img: '/homePage/QuranLinkSeeDashBoard.png',
+      img: '/portfolio/bikkhipto.jpg',
       href: '/work/bikkhipto',
       colSpan: 'sm:col-span-2'
     },
     {
       title: 'Bayloz',
       subtitle: '99.99% Uptime · Global Marketplace',
-      img: '/homePage/EuphuinanceProjects.png',
+      img: '/portfolio/bayloz.jpg',
       href: '/work/bayloz',
       colSpan: 'sm:col-span-1'
     },
     {
       title: 'Fathom AI',
       subtitle: '99.4% Precision · Autonomous Intelligence',
-      img: '/homePage/AppZenCare.png',
+      img: '/portfolio/fathom.jpg',
       href: '/work/fathom-ai',
       colSpan: 'sm:col-span-1'
     },
     {
       title: 'Maertens Studio',
       subtitle: 'Award-Winning · Immersive WebGL Showcase',
-      img: '/homePage/MyspendSeeApp.png',
+      img: '/portfolio/studiomaertens.jpg',
       href: '/work/maertens-studio',
       colSpan: 'sm:col-span-2'
     }
@@ -198,17 +208,17 @@ export default function HomePage({ onOpenProjectRequest, onOpenCalendly }) {
     {
       title: 'We run our own SaaS products',
       icon: '/homePage/AI.svg',
-      desc: 'We build and operate our own platforms in fintech, healthtech, and trading — so we think about your product like owners, not a shop that ships and disappears.'
+      desc: 'We build and operate our own platforms in fintech, healthtech, and trading, so we think about your product like owners rather than a dev shop that ships and disappears.'
     },
     {
       title: 'AI-first, not AI-bolted-on',
       icon: '/homePage/build.svg',
-      desc: 'We architect AI into the product from day one — LLMs, RAG, agents, and automation designed into the core, not sprinkled on at the end.'
+      desc: 'We architect AI into the product from day one, with LLMs, RAG, agents, and automation designed into the core rather than sprinkled on at the end.'
     },
     {
       title: 'Direct access, global delivery',
       icon: '/homePage/outcome.svg',
-      desc: 'Work directly with the founder and senior team — boutique responsiveness across North America, Europe, MENA, and APAC.'
+      desc: 'Work directly with the founder and senior engineering team, giving you boutique responsiveness across North America, Europe, the Middle East, and Asia.'
     },
     {
       title: 'Senior team only',
@@ -262,7 +272,7 @@ export default function HomePage({ onOpenProjectRequest, onOpenCalendly }) {
 
             {/* Subtitle */}
             <p className="mt-4 max-w-[1152px] font-vietnam text-sm leading-5 text-design-desc sm:text-base sm:leading-7 lg:text-lg lg:leading-6">
-              Devorica takes AI products, MVPs, and SaaS platforms from idea to production — fast.{' '}
+              Devorica takes AI products, MVPs, and SaaS platforms from idea to production fast.{' '}
               <br className="hidden lg:block" />
               A senior team that runs its own SaaS, so we build yours like owners.
             </p>
@@ -432,7 +442,7 @@ export default function HomePage({ onOpenProjectRequest, onOpenCalendly }) {
             </h2>
             <div className="mt-5 lg:space-y-4 space-y-3 lg:mt-8">
               <p className="font-vietnam text-[14px] font-normal leading-5 text-[#4F4F4F] sm:text-base sm:leading-7 lg:text-lg lg:leading-[25px]">
-                Most agencies build exactly what you spec — bugs, dead ends, and all. We don't. Because we build and run our own SaaS in fintech, healthtech, and trading, we care about retention, cost, and what happens after launch. You get one senior, accountable team — no juniors on your budget, no handoffs between vendors.
+                Most agencies build exactly what you spec, including bugs, dead ends, and all. We do not work that way. Because we build and run our own products in fintech, healthtech, and modern commerce, we care deeply about user retention, cloud costs, and what happens after launch. You get one senior, accountable team with no juniors on your budget and no handoffs between outside vendors.
               </p>
             </div>
           </div>
@@ -457,7 +467,7 @@ export default function HomePage({ onOpenProjectRequest, onOpenCalendly }) {
               AI product development <br /> services, end to end.
             </h2>
             <p className="mt-2 text-center font-vietnam text-sm text-research-desc lg:mt-4 lg:text-lg">
-              Design, engineering, and applied AI under one <br className="block lg:hidden" /> roof — with an honest timeline for each.
+              Design, engineering, and applied AI under one <br className="block lg:hidden" /> roof, with an honest timeline for each.
             </p>
           </div>
 
@@ -670,7 +680,6 @@ export default function HomePage({ onOpenProjectRequest, onOpenCalendly }) {
                 aria-label="Devorica product development process video"
               >
                 <source src="/homePage/devorica-showcase.mp4" type="video/mp4" />
-                <source src="/homePage/1s_1.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
 
@@ -774,7 +783,7 @@ export default function HomePage({ onOpenProjectRequest, onOpenCalendly }) {
             </p>
           </div>
 
-          {/* 4-column Comparison Matrix (Smooth Horizontal Scroll on Mobile, Full-Width on Desktop - Exact Zentexx Pattern) */}
+          {/* 4-column Comparison Matrix (Smooth Horizontal Scroll on Mobile, Full-Width on Desktop) */}
           <div className="mt-8 lg:mt-12 overflow-x-auto scroll-smooth pb-3">
             <div className="min-w-[876px] grid grid-cols-4 gap-2 bg-[#121211] p-3 rounded-xl border border-[#2A2A2A]">
             {/* Column 1: Feature Row Labels */}
@@ -934,7 +943,7 @@ export default function HomePage({ onOpenProjectRequest, onOpenCalendly }) {
               AI product development for regulated, <br className="hidden lg:block" /> competitive industries.
             </h2>
             <p className="mt-3 text-center font-vietnam text-sm leading-[22px] text-design-desc lg:mt-4 lg:text-[16px] lg:leading-[26px]">
-              We ship in sectors where mistakes are expensive — FinTech, HealthTech, E-Commerce, EdTech, <br className="hidden lg:block" /> Real Estate, and B2B SaaS. Domain experience means fewer wrong turns and compliance handled from day one.
+              We ship in sectors where mistakes are expensive, including FinTech, HealthTech, E-Commerce, EdTech, <br className="hidden lg:block" /> Real Estate, and B2B SaaS. Domain experience means fewer wrong turns and compliance handled from day one.
             </p>
           </div>
 

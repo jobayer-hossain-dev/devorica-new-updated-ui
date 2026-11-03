@@ -13,6 +13,7 @@ import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import WorkPage from './pages/WorkPage';
 import CaseStudyPage from './pages/CaseStudyPage';
+import ServicesOverviewPage from './pages/ServicesOverviewPage';
 import ServiceDetailPage from './pages/ServiceDetailPage';
 import BlogPage from './pages/BlogPage';
 import BlogPostPage from './pages/BlogPostPage';
@@ -21,8 +22,8 @@ import CareerPage from './pages/CareerPage';
 import ContactPage from './pages/ContactPage';
 import NotFoundPage from './pages/NotFoundPage';
 
-// Scroll to top on route change with Lenis integration
-function ScrollToTop() {
+// Dynamic Title & Scroll to top on route change with Lenis integration
+function PageRouteTracker() {
   const { pathname } = useLocation();
 
   useEffect(() => {
@@ -30,6 +31,33 @@ function ScrollToTop() {
       window.lenis.scrollTo(0, { immediate: true });
     } else {
       window.scrollTo(0, 0);
+    }
+
+    const exactTitles = {
+      '/': 'Devorica | AI Product Engineering & Modern SaaS Studio',
+      '/about': 'About Devorica | Elite AI Engineering & Design Studio',
+      '/work': 'Our Projects & Case Studies | Devorica',
+      '/services': 'Services & Capabilities | Devorica AI Product Studio',
+      '/blog': 'Engineering, Design & AI Product Strategy | Devorica Articles',
+      '/career': 'Careers & Engineering Culture | Devorica',
+      '/faq': 'Frequently Asked Questions | Devorica',
+      '/contact': 'Book a Strategy Call | Devorica',
+    };
+
+    if (exactTitles[pathname]) {
+      document.title = exactTitles[pathname];
+    } else if (pathname.startsWith('/work/')) {
+      const slug = pathname.replace('/work/', '');
+      const formatted = slug.split('-').map(s => s.charAt(0).toUpperCase() + s.slice(1)).join(' ');
+      document.title = `${formatted} Case Study | Devorica`;
+    } else if (pathname.startsWith('/services/')) {
+      const slug = pathname.replace('/services/', '');
+      const formatted = slug.split('-').map(s => s.charAt(0).toUpperCase() + s.slice(1)).join(' ');
+      document.title = `${formatted} | Devorica Services`;
+    } else if (pathname.startsWith('/blog/')) {
+      document.title = 'Article | Devorica Blog';
+    } else {
+      document.title = 'Devorica | AI Product Engineering & Modern SaaS Studio';
     }
   }, [pathname]);
 
@@ -40,9 +68,9 @@ export default function App() {
   const [projectModalOpen, setProjectModalOpen] = useState(false);
   const [calendlyModalOpen, setCalendlyModalOpen] = useState(false);
   const { pathname } = useLocation();
-  const knownExactPaths = new Set(['/', '/about', '/work', '/faq', '/blog', '/career', '/contact']);
+  const knownExactPaths = new Set(['/', '/about', '/work', '/services', '/faq', '/blog', '/career', '/contact']);
   const isKnownNestedPath = /^\/(work|services|blog)\//.test(pathname);
-  const isNotFoundPath = pathname === '/services' || pathname === '/services/' || (!knownExactPaths.has(pathname) && !isKnownNestedPath);
+  const isNotFoundPath = !knownExactPaths.has(pathname) && !isKnownNestedPath;
 
   // Initialize Lenis Ultra-Smooth Floating Momentum (50x Deeper Inertia)
   useEffect(() => {
@@ -51,10 +79,10 @@ export default function App() {
 
     const lenis = new Lenis({
       autoRaf: true,
-      lerp: 0.1, // Matches Zentexx exact 10% interpolation per frame
+      lerp: 0.1, // 10% interpolation per frame for buttery momentum
       smoothWheel: true,
-      wheelMultiplier: 0.8, // Matches Zentexx exact 0.8 wheel multiplier
-      touchMultiplier: 1, // Matches Zentexx exact 1.0 touch multiplier
+      wheelMultiplier: 0.8,
+      touchMultiplier: 1,
       infinite: false,
       orientation: 'vertical',
       gestureOrientation: 'vertical',
@@ -81,7 +109,7 @@ export default function App() {
   return (
     <ToastProvider>
       <div className="min-h-screen w-full max-w-full flex flex-col bg-white text-[#171717] selection:bg-[#3649F5] selection:text-white font-vietnam relative">
-        <ScrollToTop />
+        <PageRouteTracker />
 
         {/* Global Navigation Header */}
         {!isNotFoundPath && <Navbar onOpenProjectRequest={() => setProjectModalOpen(true)} />}
@@ -120,6 +148,15 @@ export default function App() {
               path="/work/:slug"
               element={
                 <CaseStudyPage
+                  onOpenProjectRequest={() => setProjectModalOpen(true)}
+                  onOpenCalendly={() => setCalendlyModalOpen(true)}
+                />
+              }
+            />
+            <Route
+              path="/services"
+              element={
+                <ServicesOverviewPage
                   onOpenProjectRequest={() => setProjectModalOpen(true)}
                   onOpenCalendly={() => setCalendlyModalOpen(true)}
                 />

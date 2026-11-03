@@ -1,8 +1,8 @@
 import { useRef, useEffect } from 'react';
 import { useAnimation, useScroll, useMotionValueEvent } from 'framer-motion';
 
-// Exact cubic-bezier curve from Zentexx (easeOutQuint signature)
-export const EASING_ZENTEXX = [0.22, 1, 0.36, 1];
+// Devorica ultra-smooth cubic-bezier easing curve (easeOutQuint signature)
+export const DEVORICA_EASING = [0.22, 1, 0.36, 1];
 
 // Standard section content reveal (duration: 0.8s, y: 50)
 export const revealVariants = {
@@ -12,7 +12,7 @@ export const revealVariants = {
     y: 0,
     transition: {
       duration: 0.8,
-      ease: EASING_ZENTEXX
+      ease: DEVORICA_EASING
     }
   }
 };
@@ -25,7 +25,7 @@ export const headerVariants = {
     y: 0,
     transition: {
       duration: 0.75,
-      ease: EASING_ZENTEXX
+      ease: DEVORICA_EASING
     }
   }
 };
@@ -49,7 +49,7 @@ export const cardVariants = {
     y: 0,
     transition: {
       duration: 0.42,
-      ease: EASING_ZENTEXX
+      ease: DEVORICA_EASING
     }
   }
 };
@@ -62,13 +62,13 @@ export const ctaBannerVariants = {
     y: 0,
     transition: {
       duration: 0.85,
-      ease: EASING_ZENTEXX
+      ease: DEVORICA_EASING
     }
   }
 };
 
 /**
- * Zentexx Exact Scroll Reveal Hook
+ * Devorica Scroll Reveal Hook
  * Tracks scroll direction so entering when scrolling DOWN triggers a smooth reveal,
  * while leaving when scrolling UP resets to hidden for re-animation on the next downward scroll.
  * Guaranteed zero snap-back or jitter during downward scroll or near-threshold hovering.
@@ -77,7 +77,7 @@ export function useScrollReveal(amount = 0.05, margin = '0px') {
   const controls = useAnimation();
   const isVisible = useRef(false);
 
-  // Zentexx keeps the page content laid out and visible while scrolling. The
+  // Devorica keeps the page content laid out and visible while scrolling. The
   // reveal is a one-time page-entry motion, not a scroll-gated opacity mask.
   useEffect(() => {
     isVisible.current = true;

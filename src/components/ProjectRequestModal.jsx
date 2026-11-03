@@ -8,8 +8,8 @@ export default function ProjectRequestModal({ isOpen, onClose }) {
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
-    service: 'SaaS MVP',
-    budget: '$10k - $20k',
+    service: 'AI MVP Launch',
+    budget: '$10k to $20k',
     message: ''
   });
 
@@ -30,19 +30,20 @@ export default function ProjectRequestModal({ isOpen, onClose }) {
   if (!isOpen) return null;
 
   const services = [
-    'SaaS MVP',
-    'End-to-End Product',
-    'Product Design',
-    'Agentic AI Systems',
-    'Dedicated Team',
-    'Maintenance Care'
+    'AI MVP Launch',
+    'SaaS Product Engineering',
+    'AI Automation & Agents',
+    'Modern E-Commerce & D2C',
+    'Product Experience & UI/UX',
+    'Systems Care & Maintenance',
+    'Dedicated Product Teams'
   ];
 
   const budgets = [
     'Less than $5k',
-    '$5k - $10k',
-    '$10k - $20k',
-    '$20k - $50k',
+    '$5k to $10k',
+    '$10k to $20k',
+    '$20k to $50k',
     '$50k+'
   ];
 

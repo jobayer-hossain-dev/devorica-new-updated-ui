@@ -29,7 +29,7 @@ export default function Footer({ onOpenProjectRequest }) {
             </Link>
 
             <p className="text-[14px] text-[#C9C9C9] lg:text-[16px] mt-5 font-vietnam leading-relaxed">
-              Devorica is an AI product development company building and shipping production-ready AI products, MVPs, and SaaS platforms in weeks — for founders and teams worldwide.
+              Devorica is an AI product development company building and shipping production-ready AI products, MVPs, and SaaS platforms in weeks for founders and teams worldwide.
             </p>
 
             {/* Social Icons */}
@@ -95,11 +95,12 @@ export default function Footer({ onOpenProjectRequest }) {
                 <h3 className="mb-4 text-[16px] text-white font-vietnam font-medium">Solutions</h3>
                 <ul className="space-y-3 text-sm text-[#C9C9C9] font-vietnam">
                   <li><Link className="transition-colors duration-300 hover:text-white" to="/services/ai-mvp-development">AI MVP Launch</Link></li>
-                  <li><Link className="transition-colors duration-300 hover:text-white" to="/services/product-development">Full-Cycle Product Development</Link></li>
-                  <li><Link className="transition-colors duration-300 hover:text-white" to="/services/ai-automation">AI System &amp; Automation</Link></li>
+                  <li><Link className="transition-colors duration-300 hover:text-white" to="/services/product-development">SaaS Product Engineering</Link></li>
+                  <li><Link className="transition-colors duration-300 hover:text-white" to="/services/ai-automation">AI Automation &amp; Agents</Link></li>
+                  <li><Link className="transition-colors duration-300 hover:text-white" to="/services/ecommerce-development">Modern E-Commerce &amp; D2C</Link></li>
+                  <li><Link className="transition-colors duration-300 hover:text-white" to="/services/product-design">Product Experience &amp; UI/UX</Link></li>
+                  <li><Link className="transition-colors duration-300 hover:text-white" to="/services/maintenance-care">Systems Care &amp; Maintenance</Link></li>
                   <li><Link className="transition-colors duration-300 hover:text-white" to="/services/dedicated-teams">Dedicated Product Teams</Link></li>
-                  <li><Link className="transition-colors duration-300 hover:text-white" to="/services/product-design">Product Experience Design</Link></li>
-                  <li><Link className="transition-colors duration-300 hover:text-white" to="/services/maintenance-care">Maintenance &amp; Care</Link></li>
                 </ul>
               </div>
             </div>

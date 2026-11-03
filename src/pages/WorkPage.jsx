@@ -27,24 +27,12 @@ function ProjectCard({ project, wide }) {
 }
 
 export default function WorkPage({ onOpenCalendly }) {
-  // Keep the same four visual compositions as the reference portfolio grid.
-  // Project copy/routes remain Devorica-owned, while the image treatment is
-  // intentionally identical to the source layouts (large editorial previews).
-  const referenceImages = [
-    'https://zentexx.com/_next/image?url=%2Fprojects%2FMySpendApp.png&w=3840&q=75',
-    'https://zentexx.com/_next/image?url=%2Fprojects%2FFinanceDashBoard.png&w=3840&q=75',
-    'https://zentexx.com/_next/image?url=%2Fprojects%2FZenHcareApp.png&w=3840&q=75',
-    'https://zentexx.com/_next/image?url=%2Fprojects%2FQuranlinkDashBoard.png&w=3840&q=75',
-  ];
-  const projects = projectsData.slice(0, 4).map((project, index) => ({
-    ...project,
-    heroImage: referenceImages[index],
-  }));
-  const wideCards = new Set([0, 3]);
+  const projects = projectsData;
+  const wideCards = new Set([0, 3, 4]);
 
   return (
     <div className="w-full">
-      <section className="mx-auto max-w-7xl h-[1328px] px-4 pb-16 pt-10 sm:px-6 lg:h-[1308px] lg:pb-24 lg:pt-20 lg:pl-0 lg:pr-[10px]">
+      <section className="mx-auto max-w-7xl min-h-[900px] px-4 pb-16 pt-10 sm:px-6 lg:pb-24 lg:pt-20 lg:pl-0 lg:pr-[10px]">
         <h1 className="mb-8 text-center font-switzer text-[40px] font-medium leading-[48px] text-[#0A0A0A] lg:mb-12 lg:text-5xl">
           Our Projects
         </h1>

@@ -63,33 +63,38 @@ export default function Navbar({ onOpenProjectRequest }) {
   const serviceItems = [
     {
       title: 'AI MVP Launch',
-      desc: 'From idea to launch-ready product — built fast, validated early, and ready to scale.',
+      desc: 'From concept to working software in weeks, built fast and validated with real users.',
       href: '/services/ai-mvp-development'
     },
     {
-      title: 'Full-Cycle Product Development',
-      desc: 'We handle strategy, design, and development to deliver reliable, high-performance products.',
+      title: 'SaaS Product Engineering',
+      desc: 'Full-cycle software engineering from technical architecture to scalable cloud deployment.',
       href: '/services/product-development'
     },
     {
-      title: 'AI System & Automation',
-      desc: 'Intelligent AI agents that automate workflows, decisions, and operations at scale.',
+      title: 'AI Automation & Agents',
+      desc: 'Intelligent AI systems that handle complex workflows, document processing, and business tasks.',
       href: '/services/ai-automation'
     },
     {
-      title: 'Dedicated Product Teams',
-      desc: 'Skilled engineers and designers embedded seamlessly into your team.',
-      href: '/services/dedicated-teams'
+      title: 'Modern E-Commerce & D2C',
+      desc: 'Lightning-fast headless online stores engineered for high conversion rates and effortless checkout.',
+      href: '/services/ecommerce-development'
     },
     {
-      title: 'Maintenance & Care',
-      desc: 'Ongoing care that keeps your product reliable and your AI systems sharp.',
+      title: 'Product Experience & UI/UX',
+      desc: 'Intuitive, conversion-focused design that makes complex digital products effortless to use.',
+      href: '/services/product-design'
+    },
+    {
+      title: 'Systems Care & Maintenance',
+      desc: 'Proactive monitoring, security upgrades, and monthly development to keep your platform dependable.',
       href: '/services/maintenance-care'
     },
     {
-      title: 'Product Experience Design',
-      desc: 'Intuitive, user-centered design that turns complex ideas into seamless experiences.',
-      href: '/services/product-design'
+      title: 'Dedicated Product Teams',
+      desc: 'Senior engineers and designers working directly inside your daily workflows and sprint rituals.',
+      href: '/services/dedicated-teams'
     }
   ];
 
@@ -171,60 +176,70 @@ export default function Navbar({ onOpenProjectRequest }) {
                                 AI MVP Launch
                               </h2>
                               <p className="mt-2 font-vietnam text-sm leading-5 text-step-desc">
-                                From idea to launch-ready product — built fast, validated early, and ready to scale.
+                                From concept to working software in weeks, built fast and validated with real users.
                               </p>
                             </div>
                           </Link>
                           <Link to="/services/product-development" onClick={() => setServicesOpen(false)} className="block">
                             <div className="dropdown-services cursor-pointer px-4 py-3.5 transition-all duration-300 hover:bg-[#F6F6F6] hover:rounded-[6px]">
                               <h2 className="font-switzer text-base font-medium leading-5 transition-colors duration-200 text-header">
-                                Full-Cycle Product Development
+                                SaaS Product Engineering
                               </h2>
                               <p className="mt-2 font-vietnam text-sm leading-5 text-step-desc">
-                                We handle strategy, design, and development to deliver reliable, high-performance products.
+                                Full-cycle software engineering from technical architecture to scalable cloud deployment.
                               </p>
                             </div>
                           </Link>
                           <Link to="/services/ai-automation" onClick={() => setServicesOpen(false)} className="block">
                             <div className="dropdown-services cursor-pointer px-4 py-3.5 transition-all duration-300 hover:bg-[#F6F6F6] hover:rounded-[6px]">
                               <h2 className="font-switzer text-base font-medium leading-5 transition-colors duration-200 text-header">
-                                AI System &amp; Automation
+                                AI Automation &amp; Agents
                               </h2>
                               <p className="mt-2 font-vietnam text-sm leading-5 text-step-desc">
-                                Intelligent AI agents that automate workflows, decisions, and operations at scale.
+                                Intelligent AI systems that handle complex workflows, document processing, and business tasks.
+                              </p>
+                            </div>
+                          </Link>
+                          <Link to="/services/ecommerce-development" onClick={() => setServicesOpen(false)} className="block">
+                            <div className="dropdown-services cursor-pointer px-4 py-3.5 transition-all duration-300 hover:bg-[#F6F6F6] hover:rounded-[6px]">
+                              <h2 className="font-switzer text-base font-medium leading-5 transition-colors duration-200 text-header">
+                                Modern E-Commerce &amp; D2C
+                              </h2>
+                              <p className="mt-2 font-vietnam text-sm leading-5 text-step-desc">
+                                Lightning-fast headless online stores engineered for high conversion rates and effortless checkout.
                               </p>
                             </div>
                           </Link>
                         </div>
 
                         <div className="flex-1">
-                          <Link to="/services/dedicated-teams" onClick={() => setServicesOpen(false)} className="block">
+                          <Link to="/services/product-design" onClick={() => setServicesOpen(false)} className="block">
                             <div className="dropdown-services cursor-pointer px-4 py-3.5 transition-all duration-300 hover:bg-[#F6F6F6] hover:rounded-[6px]">
                               <h2 className="font-switzer text-base font-medium leading-5 transition-colors duration-200 text-header">
-                                Dedicated Product Teams
+                                Product Experience &amp; UI/UX
                               </h2>
                               <p className="mt-2 font-vietnam text-sm leading-5 text-step-desc">
-                                Skilled engineers and designers embedded seamlessly into your team.
+                                Intuitive, conversion-focused design that makes complex digital products effortless to use.
                               </p>
                             </div>
                           </Link>
                           <Link to="/services/maintenance-care" onClick={() => setServicesOpen(false)} className="block">
                             <div className="dropdown-services cursor-pointer px-4 py-3.5 transition-all duration-300 hover:bg-[#F6F6F6] hover:rounded-[6px]">
                               <h2 className="font-switzer text-base font-medium leading-5 transition-colors duration-200 text-header">
-                                Maintenance &amp; Care
+                                Systems Care &amp; Maintenance
                               </h2>
                               <p className="mt-2 font-vietnam text-sm leading-5 text-step-desc">
-                                Ongoing care that keeps your product reliable and your AI systems sharp.
+                                Proactive monitoring, security upgrades, and monthly development to keep your platform dependable.
                               </p>
                             </div>
                           </Link>
-                          <Link to="/services/product-design" onClick={() => setServicesOpen(false)} className="block">
+                          <Link to="/services/dedicated-teams" onClick={() => setServicesOpen(false)} className="block">
                             <div className="dropdown-services cursor-pointer px-4 py-3.5 transition-all duration-300 hover:bg-[#F6F6F6] hover:rounded-[6px]">
                               <h2 className="font-switzer text-base font-medium leading-5 transition-colors duration-200 text-header">
-                                Product Experience Design
+                                Dedicated Product Teams
                               </h2>
                               <p className="mt-2 font-vietnam text-sm leading-5 text-step-desc">
-                                Intuitive, user-centered design that turns complex ideas into seamless experiences.
+                                Senior engineers and designers working directly inside your daily workflows and sprint rituals.
                               </p>
                             </div>
                           </Link>

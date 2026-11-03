@@ -10,7 +10,7 @@ export default function AboutPage({ onOpenProjectRequest, onOpenCalendly }) {
     {
       title: 'Innovation',
       icon: '/aboutPage/innovation.png',
-      desc: 'We engineer with leading-edge AI models, autonomous agent frameworks, and reactive web architectures — staying months ahead of the technology curve.'
+      desc: 'We engineer with leading-edge AI models, autonomous agent frameworks, and reactive web architectures to stay months ahead of the technology curve.'
     },
     {
       title: 'Excellence',
@@ -113,7 +113,7 @@ export default function AboutPage({ onOpenProjectRequest, onOpenCalendly }) {
               Businesses.
             </h2>
             <p className="mt-5 font-vietnam text-sm sm:text-base text-[#555555] leading-relaxed">
-              Devorica is a product engineering and UX design company for startups and B2B SaaS teams. We move fast, think strategically, and stay invested in your outcomes — not just your deliverables.
+              Devorica is a product engineering and UX design company for startups and B2B SaaS teams. We move fast, think strategically, and stay invested in your outcomes rather than just your deliverables.
             </p>
           </div>
 
@@ -246,7 +246,7 @@ export default function AboutPage({ onOpenProjectRequest, onOpenCalendly }) {
         <div className="max-w-7xl mx-auto">
           <div className="max-w-3xl mx-auto text-center mb-12">
             <h2 className="font-switzer font-medium text-2xl sm:text-4xl text-[#0A0A0A] leading-relaxed">
-              We're Devorica — an autonomous product studio of senior engineers, AI architects, and designers shipping high-velocity digital platforms worldwide.
+              We are Devorica, an autonomous product studio of senior engineers, AI architects, and designers shipping high-velocity digital platforms worldwide.
             </h2>
           </div>
 

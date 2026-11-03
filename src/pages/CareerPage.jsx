@@ -26,7 +26,7 @@ export default function CareerPage({ onOpenCalendly }) {
           No Open Positions
         </button>
         <div className="mt-9 -mx-4 sm:mt-12 lg:mt-[53px] lg:relative lg:left-1/2 lg:w-screen lg:-translate-x-1/2 lg:mx-0">
-          <img src="https://zentexx.com/careerPage/careerBanner.png" alt="Devorica team members collaborating around a laptop" className="block h-auto w-full" />
+          <img src="/images/agency-team-collaboration.jpg" alt="Devorica team members collaborating around a laptop" className="block h-auto w-full max-h-[620px] object-cover" />
         </div>
       </section>
 
@@ -89,7 +89,7 @@ export default function CareerPage({ onOpenCalendly }) {
           <div className="mt-12 grid gap-8 rounded-2xl bg-[#F8F9FA] p-6 sm:grid-cols-[220px_1fr] sm:p-10 lg:grid-cols-[260px_1fr]">
             <img src="/images/team-nafis.jpg" alt="Devorica team member" className="h-56 w-full rounded-xl object-cover sm:h-64" />
             <div className="flex flex-col justify-center">
-              <p className="font-vietnam text-xl leading-9 text-[#303030] sm:text-2xl">“Zentexx is built around vision, execution, and people. Every project gives us the opportunity to solve real business problems with technology and creativity.”</p>
+              <p className="font-vietnam text-xl leading-9 text-[#303030] sm:text-2xl">“Devorica is built around vision, execution, and people. Every project gives us the opportunity to solve real business problems with technology and creativity.”</p>
               <h3 className="mt-8 font-switzerMedium text-xl text-[#0A0A0A]">Azmain Hossain</h3>
               <p className="mt-1 font-vietnam text-sm text-[#666666]">CEO &amp; Founder</p>
             </div>
@@ -101,7 +101,7 @@ export default function CareerPage({ onOpenCalendly }) {
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-2 lg:items-center">
           <div>
             <span className="font-vietnam text-sm text-[#666666]">Humans Behind the Screens</span>
-            <h2 className="mt-4 font-switzerMedium text-3xl leading-tight text-[#0A0A0A] sm:text-5xl">We&apos;re Devorica — a growing team of designers, developers, and dreamers.</h2>
+            <h2 className="mt-4 font-switzerMedium text-3xl leading-tight text-[#0A0A0A] sm:text-5xl">We&apos;re Devorica, a growing team of designers, developers, and dreamers.</h2>
             <p className="mt-6 max-w-xl font-vietnam text-base leading-7 text-[#555555]">Occasionally we argue over fonts and colors, but we always care about the people and products behind the work.</p>
           </div>
           <div className="grid grid-cols-3 gap-3">

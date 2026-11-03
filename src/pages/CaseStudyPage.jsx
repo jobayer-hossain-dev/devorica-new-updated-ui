@@ -3,23 +3,20 @@ import { useParams, Link, Navigate } from 'react-router-dom';
 import { ArrowRight, ExternalLink, CheckCircle2, Quote } from 'lucide-react';
 import { projectsData } from '../data/projectsData';
 
-const visuals = [
-  { background: 'https://zentexx.com/_next/image?url=%2FcaseStudy%2FmySpend%2FbannerBg.png&w=3840&q=75', logo: 'https://zentexx.com/_next/image?url=%2FcaseStudy%2FmySpend%2FmySpendLogo.png&w=3840&q=75', mockup: 'https://zentexx.com/_next/image?url=%2FcaseStudy%2FmySpend%2FmyspendApp.png&w=3840&q=75' },
-  { background: 'https://zentexx.com/_next/image?url=%2FcaseStudy%2Feuphinance%2Fbanner.png&w=3840&q=75', logo: 'https://zentexx.com/_next/image?url=%2FcaseStudy%2Feuphinance%2Flogo.png&w=3840&q=75', mockup: 'https://zentexx.com/_next/image?url=%2FcaseStudy%2Feuphinance%2FappAnalytics.png&w=3840&q=75' },
-  { background: 'https://zentexx.com/_next/image?url=%2FcaseStudy%2FzenHcare%2FzenHcareBanner.png&w=3840&q=75', logo: 'https://zentexx.com/_next/image?url=%2FcaseStudy%2FzenHcare%2FzenHcareLogo.png&w=3840&q=75', mockup: 'https://zentexx.com/_next/image?url=%2FcaseStudy%2FzenHcare%2FzenHcareApp.png&w=3840&q=75' },
-  { background: 'https://zentexx.com/_next/image?url=%2FcaseStudy%2FQuranLink%2Fbanner.png&w=3840&q=75', logo: 'https://zentexx.com/_next/image?url=%2FcaseStudy%2FQuranLink%2FquranLinkLogo.png&w=3840&q=75', mockup: 'https://zentexx.com/_next/image?url=%2FcaseStudy%2FQuranLink%2FquranLinkWeb.png&w=3840&q=75' },
-];
-
 function CopyBlock({ title, children, className = '' }) { return <div className={`case-copy ${className}`}><h2>{title}</h2><p>{children}</p></div>; }
 
 export default function CaseStudyPage() {
   const { slug } = useParams();
-  const indexes = { mySpend: 0, euphinance: 1, zenHcare: 2, quranlink: 3 };
-  const index = indexes[slug] ?? projectsData.findIndex((p) => p.slug === slug);
-  const project = projectsData[index];
+  const index = projectsData.findIndex((p) => p.slug === slug);
+  const project = index !== -1 ? projectsData[index] : projectsData[0];
   if (!project) return <Navigate to="/work" replace />;
-  const visual = visuals[index % visuals.length];
-  const next = projectsData[(index + 1) % projectsData.length];
+  const currentIndex = index !== -1 ? index : 0;
+  const next = projectsData[(currentIndex + 1) % projectsData.length];
+  const visual = {
+    background: project.bannerBg || project.heroImage,
+    logo: project.logo || '/devorica-logo.png',
+    mockup: project.mockup || project.heroImage
+  };
   const gallery = [visual.mockup, visual.background, visual.mockup];
   const cardText = 'We shaped the experience around clear information, fast feedback and a visual system that remains consistent from the first interaction to the final workflow.';
 
@@ -28,7 +25,7 @@ export default function CaseStudyPage() {
       <img src={visual.background} alt="" className="absolute inset-0 h-full w-full object-cover" />
       <img src={visual.mockup} alt={`${project.title} product preview`} className="absolute bottom-0 left-0 z-[1] h-[55%] w-full object-contain object-bottom sm:left-auto sm:right-[5%] sm:h-[690px] sm:w-[44%] sm:-bottom-[10px]" />
       <div className="absolute inset-0 z-[2] bg-gradient-to-t from-black/35 via-transparent to-transparent" />
-      <div className="absolute inset-x-0 top-0 z-[3] px-7 pt-[80px] sm:bottom-0 sm:top-auto sm:px-4 sm:pb-[183px] sm:pt-0"><div className="mb-[28px] flex h-[60px] items-center gap-4 sm:mb-[44px]"><img src={visual.logo} alt={`${project.title} logo`} className="h-[60px] w-[253px] object-contain object-left" /></div><h1 className="max-w-[720px] font-switzerMedium text-[32px] leading-[38px] tracking-tight text-white sm:text-6xl sm:leading-[1.1] lg:text-[64px] lg:leading-none">{project.title} — {project.tagline.split(' & ')[0]}</h1><a href={project.liveUrl || '#'} className="mt-10 inline-flex items-center gap-2 rounded-[6px] bg-white px-[33px] py-[17px] font-vietnam text-base text-black transition hover:bg-neutral-100 sm:mt-7 sm:rounded-full sm:border sm:border-white/40 sm:bg-transparent sm:px-5 sm:py-2.5 sm:text-sm sm:text-white sm:hover:bg-white sm:hover:text-black">View Live <ExternalLink className="hidden h-4 w-4 sm:block" /></a></div>
+      <div className="absolute inset-x-0 top-0 z-[3] px-7 pt-[80px] sm:bottom-0 sm:top-auto sm:px-4 sm:pb-[183px] sm:pt-0"><div className="mb-[28px] flex h-[60px] items-center gap-4 sm:mb-[44px]"><img src={visual.logo} alt={`${project.title} logo`} className="h-[60px] w-[253px] object-contain object-left" /></div><h1 className="max-w-[720px] font-switzerMedium text-[32px] leading-[38px] tracking-tight text-white sm:text-6xl sm:leading-[1.1] lg:text-[64px] lg:leading-none">{project.title}: {project.tagline.split(' & ')[0]}</h1><a href={project.liveUrl || '#'} className="mt-10 inline-flex items-center gap-2 rounded-[6px] bg-white px-[33px] py-[17px] font-vietnam text-base text-black transition hover:bg-neutral-100 sm:mt-7 sm:rounded-full sm:border sm:border-white/40 sm:bg-transparent sm:px-5 sm:py-2.5 sm:text-sm sm:text-white sm:hover:bg-white sm:hover:text-black">View Live <ExternalLink className="hidden h-4 w-4 sm:block" /></a></div>
     </section>
     <section className="case-intro mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[1.6fr_1fr]"><CopyBlock title={`${project.title}: Making the product simple`}>{project.overview}</CopyBlock><div className="grid grid-cols-2 gap-x-6 gap-y-8 self-start border-t border-neutral-200 pt-6 font-vietnam text-sm"><div><span className="block text-xs text-neutral-400">Industry</span><span className="mt-2 block text-neutral-900">{project.category}</span></div><div><span className="block text-xs text-neutral-400">Duration</span><span className="mt-2 block text-neutral-900">{project.timeline}</span></div><div className="col-span-2"><span className="block text-xs text-neutral-400">Service</span><span className="mt-2 block text-neutral-900">{project.services.join(' · ')}</span></div></div></section>
     <section className="case-gallery bg-[#0B0B0B]"> <div className="mx-auto grid h-full max-w-6xl grid-cols-1 gap-5 px-5 py-10 sm:grid-cols-2 lg:grid-cols-3 lg:items-center lg:px-10">{gallery.map((src, i) => <img key={i} src={src} alt="Product interface" className={`w-full rounded-2xl object-cover ${i === 1 ? 'lg:mt-28' : ''}`} />)}</div></section>

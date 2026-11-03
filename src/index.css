@@ -85,7 +85,7 @@
 }
 
 /* ============================================================
-   LENIS SMOOTH SCROLLING (MATCHING ZENTEXX & APPLE EXACTLY)
+   LENIS SMOOTH SCROLLING (DEVORICA PRECISION MOMENTUM)
    ============================================================ */
 html {
   scroll-behavior: auto !important;
@@ -149,7 +149,7 @@ html.lenis, html.lenis body {
   }
 }
 
-/* Zentexx Switzer Typography */
+/* Switzer Typography */
 @font-face {
   font-family: 'switzer';
   src: url('/fonts/Switzer_Regular-s.p.0lxq26jvtw16x.woff2') format('woff2');
@@ -199,22 +199,19 @@ html.lenis, html.lenis body {
 }
 
 /* Devorica Metallic Skeuomorphic Pill Button */
-.devorica-metallic-btn,
-.zentex-metallic-btn {
+.devorica-metallic-btn {
   border-radius: 4px;
   background: radial-gradient(83.04% 105.77% at 50.23% -5.77%, #4D5061 0%, rgba(0, 0, 0, 0) 100%), #0A0A0A;
   box-shadow: 3px 2px 12px 0 rgba(255, 255, 255, 0.25) inset, 0 4px 8px 0 rgba(0, 0, 0, 0.22), 0 15px 15px 0 rgba(0, 0, 0, 0.20), 0 33px 20px 0 rgba(0, 0, 0, 0.11), 0 59px 23px 0 rgba(0, 0, 0, 0.03);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.devorica-metallic-btn:hover,
-.zentex-metallic-btn:hover {
+.devorica-metallic-btn:hover {
   filter: brightness(1.15);
   transform: translateY(-1px);
 }
 
-.devorica-metallic-btn:active,
-.zentex-metallic-btn:active {
+.devorica-metallic-btn:active {
   transform: translateY(0.5px);
   filter: brightness(0.95);
 }
@@ -235,7 +232,7 @@ html.lenis, html.lenis body {
   background-clip: text;
 }
 
-/* Custom Zentexx Glowing Border utilities */
+/* Devorica Custom Glowing Border utilities */
 .glow-border-box {
   border: 1px solid transparent;
   background: linear-gradient(#2C2C2C, #2C2C2C) padding-box,

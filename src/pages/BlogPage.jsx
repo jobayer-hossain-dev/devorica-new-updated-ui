@@ -6,12 +6,6 @@ import { blogData } from '../data/blogData';
 export default function BlogPage({ onOpenCalendly }) {
   const featured = blogData[0];
   const others = blogData.slice(1);
-  const referenceBlogImages = [
-    'https://zentexx.com/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdeouaqmod%2Fimage%2Fupload%2Fv1764400249%2Fts4fwmlont7spmknujpf.png&w=3840&q=75',
-    'https://zentexx.com/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdeouaqmod%2Fimage%2Fupload%2Fv1759905318%2Fydy6doiujfv7f4vnvnr.png&w=3840&q=75',
-    'https://zentexx.com/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdeouaqmod%2Fimage%2Fupload%2Fv1758369214%2Frk4w5lmu60njfqpot2jw.png&w=3840&q=75',
-    'https://zentexx.com/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdeouaqmod%2Fimage%2Fupload%2Fv1756709612%2Fqrmr9olkq5a94yd3gs2k.png&w=3840&q=75',
-  ];
 
   return (
     <div className="w-full">
@@ -38,7 +32,7 @@ export default function BlogPage({ onOpenCalendly }) {
         >
           <div className="relative h-[255px] min-h-0 overflow-hidden bg-neutral-900 lg:col-span-6 lg:h-full lg:min-h-0">
             <img
-              src="https://zentexx.com/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdeouaqmod%2Fimage%2Fupload%2Fv1764400251%2Fgrck3pvggkah2rg0xkdx.png&w=3840&q=75"
+              src={featured.coverImage}
               alt={featured.title}
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
@@ -89,7 +83,7 @@ export default function BlogPage({ onOpenCalendly }) {
             >
               <div className="h-48 overflow-hidden bg-neutral-100 relative">
                 <img
-                  src={referenceBlogImages[articleIndex + 1] || article.coverImage}
+                  src={article.coverImage}
                   alt={article.title}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />

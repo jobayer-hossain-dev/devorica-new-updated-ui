@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Sparkles, Layers, Cpu, Users, Wrench, Palette, ArrowUpRight } from 'lucide-react';
+import { ArrowRight, Sparkles, Layers, Cpu, Users, Wrench, Palette, ShoppingBag, ArrowUpRight } from 'lucide-react';
 import { servicesData } from '../data/servicesData';
 import { TechStackMarquee } from '../components/Marquee';
 import CTASection from '../components/CTASection';
@@ -11,9 +11,10 @@ export default function ServicesOverviewPage({ onOpenProjectRequest, onOpenCalen
     'ai-mvp-development': Sparkles,
     'product-development': Layers,
     'ai-automation': Cpu,
-    'dedicated-teams': Users,
+    'ecommerce-development': ShoppingBag,
+    'product-design': Palette,
     'maintenance-care': Wrench,
-    'product-design': Palette
+    'dedicated-teams': Users
   };
 
   return (

@@ -15,11 +15,11 @@ export default function ContactSection({ onOpenCalendly, compact = false }) {
     message: ''
   });
 
-  const interestsRow1 = ['SaaS MVP', 'End-to-End Product', 'Product Design'];
-  const interestsRow2 = ['Agentic AI Systems', 'Maintenance Care'];
+  const interestsRow1 = ['AI MVP Launch', 'SaaS Engineering', 'Modern E-Commerce'];
+  const interestsRow2 = ['AI Automation & Agents', 'UI/UX Design', 'Systems Care'];
 
-  const budgetsRow1 = ['Less than $5k', '$5k - $10k', '$10k - $20k'];
-  const budgetsRow2 = ['$20k - $50k', '$50k+'];
+  const budgetsRow1 = ['Less than $5k', '$5k to $10k', '$10k to $20k'];
+  const budgetsRow2 = ['$20k to $50k', '$50k+'];
 
   const handleSubmit = (e) => {
     e.preventDefault();
