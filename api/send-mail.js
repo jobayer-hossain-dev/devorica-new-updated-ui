@@ -1,5 +1,9 @@
 import nodemailer from 'nodemailer';
-import { renderClientReceiptEmail, renderAdminNotificationEmail } from './emailTemplates.js';
+import {
+  EMAIL_TEMPLATE_CATALOG,
+  renderClientReceiptEmail,
+  renderAdminNotificationEmail
+} from './emailTemplates.js';
 
 /**
  * Parses request body for both Vercel Serverless environment and Vite dev server middleware
@@ -91,32 +95,26 @@ export default async function handler(req, res) {
   try {
     const body = await getRequestBody(req);
     const {
+      templateType = '',
       fullName = '',
       email = '',
       interest = '',
       service = '',
       budget = '',
       message = '',
-      source = 'Website Form'
+      source = 'Website Form',
+      ...customProps
     } = body;
 
-    // Field sanitization & validation
-    const trimmedName = String(fullName).trim();
-    const trimmedEmail = String(email).trim().toLowerCase();
+    const trimmedName = String(fullName || customProps.subscriberName || 'Valued Partner').trim();
+    const trimmedEmail = String(email || customProps.to || '').trim().toLowerCase();
     const chosenService = String(service || interest || 'AI MVP Launch').trim();
     const chosenBudget = String(budget || 'BDT 50k to 100k').trim();
     const cleanMessage = String(message || '').trim();
     const cleanSource = String(source || 'Website Lead Form').trim();
 
-    if (!trimmedName) {
-      return sendJsonResponse(res, 400, {
-        success: false,
-        error: 'Please provide your full name.'
-      });
-    }
-
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!trimmedEmail || !emailRegex.test(trimmedEmail)) {
+    if (trimmedEmail && !emailRegex.test(trimmedEmail)) {
       return sendJsonResponse(res, 400, {
         success: false,
         error: 'Please provide a valid email address.'
@@ -130,7 +128,83 @@ export default async function handler(req, res) {
       year: 'numeric'
     });
 
-    // Generate Apple-grade email templates
+    const smtp = getSmtpConfig();
+
+    // Check if a specific single template from the catalog was requested
+    if (templateType && EMAIL_TEMPLATE_CATALOG[templateType]) {
+      const templateDef = EMAIL_TEMPLATE_CATALOG[templateType];
+      const mergedProps = {
+        ...templateDef.defaultData,
+        ...customProps,
+        fullName: trimmedName,
+        email: trimmedEmail,
+        service: chosenService,
+        budget: chosenBudget,
+        message: cleanMessage,
+        source: cleanSource,
+        referenceId,
+        date: formattedDate
+      };
+
+      const rendered = templateDef.render(mergedProps);
+
+      if (smtp.isConfigured && trimmedEmail) {
+        const transporter = nodemailer.createTransport({
+          host: smtp.host,
+          port: smtp.port,
+          secure: smtp.secure,
+          auth: { user: smtp.user, pass: smtp.pass },
+          tls: { rejectUnauthorized: false }
+        });
+
+        await transporter.sendMail({
+          from: `"${smtp.fromName}" <${smtp.fromEmail}>`,
+          to: trimmedEmail,
+          subject: `${templateDef.name}: Devorica AI Product Studio`,
+          text: rendered.text,
+          html: rendered.html
+        });
+
+        return sendJsonResponse(res, 200, {
+          success: true,
+          referenceId,
+          templateType,
+          message: `Email dispatched successfully using ${templateDef.name} template.`
+        });
+      }
+
+      // Simulation mode
+      console.log('\n=============================================');
+      console.log(`[DEVORICA MAILING SYSTEM: SINGLE TEMPLATE: ${templateDef.name}]`);
+      console.log(`Recipient: ${trimmedEmail || smtp.adminEmail}`);
+      console.log(`Template ID: ${templateType}`);
+      console.log(`Reference: ${referenceId}`);
+      console.log('Status: Rendered successfully. Ready for live SMTP delivery.');
+      console.log('=============================================\n');
+
+      return sendJsonResponse(res, 200, {
+        success: true,
+        simulated: true,
+        referenceId,
+        templateType,
+        message: `Template ${templateDef.name} processed successfully in Ready Mode.`
+      });
+    }
+
+    // Default Flow: Standard Lead Submission (Inquiry Receipt + Admin Notification)
+    if (!trimmedName) {
+      return sendJsonResponse(res, 400, {
+        success: false,
+        error: 'Please provide your full name.'
+      });
+    }
+    if (!trimmedEmail) {
+      return sendJsonResponse(res, 400, {
+        success: false,
+        error: 'Please provide a valid email address.'
+      });
+    }
+
     const clientEmail = renderClientReceiptEmail({
       fullName: trimmedName,
       email: trimmedEmail,
@@ -152,10 +226,7 @@ export default async function handler(req, res) {
       date: new Date().toLocaleString('en-US', { timeZoneName: 'short' })
     });
 
-    const smtp = getSmtpConfig();
-
     if (smtp.isConfigured) {
-      // Create production SMTP transporter
       const transporter = nodemailer.createTransport({
         host: smtp.host,
         port: smtp.port,
@@ -179,7 +250,7 @@ export default async function handler(req, res) {
         html: adminEmail.html
       });
 
-      // 2. Send Client Confirmation / Receipt Email
+      // 2. Send Client Confirmation Email
       await transporter.sendMail({
         from: `"${smtp.fromName}" <${smtp.fromEmail}>`,
         to: trimmedEmail,
@@ -195,7 +266,7 @@ export default async function handler(req, res) {
       });
     }
 
-    // SIMULATED / READY MODE (Active until user configures SMTP details)
+    // SIMULATED / READY MODE
     console.log('\n=============================================');
     console.log('[DEVORICA MAILING SYSTEM - READY / SIMULATION MODE]');
     console.log(`Reference ID: ${referenceId}`);
@@ -217,7 +288,7 @@ export default async function handler(req, res) {
     console.error('[DEVORICA MAILING SYSTEM ERROR]:', error);
     return sendJsonResponse(res, 500, {
       success: false,
-      error: 'An unexpected error occurred while processing your request. Please try again or contact us directly at contact@devorica.com.'
+      error: 'An unexpected error occurred while processing your request. Please contact us at contact@devorica.com.'
     });
   }
 }
