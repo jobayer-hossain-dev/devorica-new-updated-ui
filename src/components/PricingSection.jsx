@@ -250,72 +250,80 @@ export default function PricingSection({ onOpenProjectRequest, onOpenCalendly })
           initial="hidden"
           animate={controls}
           transition={{ delay: 0.2 }}
-          className="mx-auto mt-5 lg:mt-[44px] grid grid-cols-1 gap-3 lg:gap-5 md:grid-cols-3"
+          className="mx-auto mt-6 lg:mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6 items-stretch"
         >
           {activePackages.map((pkg, idx) => (
             <article
               key={idx}
-              className={`relative flex flex-col overflow-hidden rounded-lg border border-[#323232] bg-[#141414] p-5 transition-all duration-300 hover:border-[#4B4B4B] lg:h-[619.3px] lg:p-6 ${
-                idx === 0 ? 'h-[474.7px]' : idx === 1 ? 'h-[526.7px]' : 'h-[490.7px]'
+              className={`relative flex flex-col justify-between rounded-xl border bg-[#141414] p-5 lg:p-6 transition-all duration-300 hover:border-[#4B4B4B] h-full ${
+                idx === 2 ? 'md:col-span-2 lg:col-span-1' : ''
               } ${
-                pkg.popular ? 'overflow-hidden shadow-[0_0_40px_rgba(54,73,245,0.12)]' : ''
+                pkg.popular
+                  ? 'border-[#3649F5] shadow-[0_0_35px_rgba(54,73,245,0.18)] ring-1 ring-[#3649F5]/40'
+                  : 'border-[#323232]'
               }`}
             >
-              {/* Title & Badge */}
-              <div className="flex items-center gap-2">
-                <h3 className="font-switzer font-medium text-xl lg:text-2xl text-white">
-                  {pkg.title}
-                </h3>
-                {pkg.badge && (
-                  <span className="rounded-full bg-[#39569F] px-2.5 py-1 font-vietnam text-xs text-white">
-                    {pkg.badge}
-                  </span>
-                )}
-              </div>
-
-              {/* Ideal for */}
-              <p className="mt-3 font-vietnam text-sm leading-relaxed text-[#D1D1D1]">
-                {pkg.ideal}
-              </p>
-
-              {/* Price Box with glowing radial background if popular */}
-              <div
-                className={`relative mt-5 overflow-hidden rounded-lg border border-[#323232] bg-[#181818] p-4 lg:p-5 ${
-                  pkg.popular
-                    ? `border-transparent [background:linear-gradient(#181818,#181818)_padding-box,linear-gradient(135deg,#323232_0%,#FAFCFF_33%,#4D4D4D_66%,#323232_100%)_border-box] before:pointer-events-none before:absolute before:inset-0 before:bg-[radial-gradient(ellipse_at_85%_-10%,rgba(99,149,232,0.76)_0%,rgba(99,149,232,0.32)_25%,rgba(99,149,232,0.16)_42%,rgba(99,149,232,0.10)_55%,transparent_72%)] before:content-['']`
-                    : ''
-                }`}
-              >
-                <div className="relative z-10">
-                  <span className="font-vietnam text-xs text-[#A0A0A0] lg:text-sm">
-                    Estimated Range
-                  </span>
-                  <div className="mt-1 flex items-baseline gap-2 flex-wrap">
-                    <span className="font-switzer font-semibold text-2xl lg:text-[28px] xl:text-3xl text-white tracking-tight whitespace-nowrap">
-                      {pkg.price}
+              <div>
+                {/* Title & Badge */}
+                <div className="flex items-center justify-between gap-2 min-h-[32px]">
+                  <h3 className="font-switzer font-medium text-xl lg:text-2xl text-white">
+                    {pkg.title}
+                  </h3>
+                  {pkg.badge && (
+                    <span className="shrink-0 rounded-full bg-[#39569F] px-2.5 py-1 font-vietnam text-xs font-medium text-white shadow-sm">
+                      {pkg.badge}
                     </span>
-                    <p className="font-vietnam text-xs lg:text-sm text-[#B0B0B0] whitespace-nowrap">
-                      <span className="text-white">/</span> {pkg.period.replace('/', '').trim()}
-                    </p>
-                  </div>
-
-                  <button
-                    type="button"
-                    onClick={onOpenCalendly}
-                    className="mt-4 block w-full rounded-md bg-white px-4 py-2.5 text-center font-vietnam text-xs font-medium text-[#0A0A0A] transition-all duration-300 hover:bg-[#3649F5] hover:text-white cursor-pointer lg:text-sm"
-                  >
-                    Schedule a Discovery Call
-                  </button>
+                  )}
                 </div>
-              </div>
 
-              {/* Timeline */}
-              <p className="mt-4 font-vietnam text-xs lg:text-sm text-[#D1D1D1]">
-                {pkg.timeline}
-              </p>
+                {/* Ideal for */}
+                <p className="mt-3 font-vietnam text-sm leading-relaxed text-[#D1D1D1] min-h-[44px]">
+                  {pkg.ideal}
+                </p>
+
+                {/* Price Box with glowing radial background if popular */}
+                <div
+                  className={`relative mt-5 rounded-lg border p-4 lg:p-5 transition-all ${
+                    pkg.popular
+                      ? "border-[#4F6BF6] bg-[#181818] shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)] relative overflow-hidden before:pointer-events-none before:absolute before:inset-0 before:bg-[radial-gradient(ellipse_at_85%_-10%,rgba(99,149,232,0.45)_0%,rgba(99,149,232,0.2)_30%,transparent_70%)] before:content-['']"
+                      : 'border-[#323232] bg-[#181818]'
+                  }`}
+                >
+                  <div className="relative z-10 flex flex-col justify-between">
+                    <span className="font-vietnam text-xs text-[#A0A0A0] lg:text-sm">
+                      Estimated Range
+                    </span>
+                    <div className="mt-1 flex items-baseline gap-1.5 flex-wrap min-h-[38px]">
+                      <span className="font-switzer font-semibold text-2xl lg:text-[26px] xl:text-[28px] text-white tracking-tight">
+                        {pkg.price}
+                      </span>
+                      <span className="font-vietnam text-xs lg:text-sm text-[#B0B0B0]">
+                        <span className="text-white">/</span> {pkg.period.replace('/', '').trim()}
+                      </span>
+                    </div>
+
+                    <button
+                      type="button"
+                      onClick={onOpenCalendly}
+                      className={`mt-4 block w-full rounded-md px-4 py-2.5 text-center font-vietnam text-xs font-medium transition-all duration-300 cursor-pointer lg:text-sm ${
+                        pkg.popular
+                          ? 'bg-[#3649F5] text-white hover:bg-[#2537d8] shadow-[0_4px_16px_rgba(54,73,245,0.35)]'
+                          : 'bg-white text-[#0A0A0A] hover:bg-[#3649F5] hover:text-white'
+                      }`}
+                    >
+                      Schedule a Discovery Call
+                    </button>
+                  </div>
+                </div>
+
+                {/* Timeline */}
+                <p className="mt-4 font-vietnam text-xs lg:text-sm text-[#D1D1D1] min-h-[22px]">
+                  {pkg.timeline}
+                </p>
+              </div>
 
               {/* Feature List */}
-              <ul className="mt-5 space-y-3 pt-4 border-t border-[#262626] flex-1">
+              <ul className="mt-4 space-y-3 pt-4 border-t border-[#262626] flex-1">
                 {pkg.features.map((feat, fIdx) => (
                   <li key={fIdx} className="flex items-start gap-2.5">
                     <Check className="w-4 h-4 text-[#3649F5] shrink-0 mt-0.5" />
@@ -329,14 +337,14 @@ export default function PricingSection({ onOpenProjectRequest, onOpenCalendly })
           ))}
         </motion.div>
 
-        <div className="mt-4 flex h-[72.7px] flex-col items-center justify-center text-center lg:mt-6 lg:h-auto">
+        <div className="mt-6 flex flex-col items-center justify-center text-center lg:mt-8">
           <p className="font-vietnam text-sm text-[#F6F6F6] lg:text-base">
-            Not sure which option fits? It’s good, but it still has no action.
+            Not sure which package fits your roadmap?
           </p>
           <button
             type="button"
             onClick={onOpenCalendly}
-            className="mt-2 cursor-pointer font-vietnam text-base leading-[22.7px] text-[#F6F6F6] underline transition-colors hover:text-[#3649F5] lg:text-lg lg:leading-[22.7px]"
+            className="mt-2 cursor-pointer font-vietnam text-base leading-[22.7px] text-[#F6F6F6] underline transition-colors hover:text-[#3649F5] lg:text-lg"
           >
             Talk to an Expert
           </button>
