@@ -269,10 +269,10 @@ export default function AboutPage({ onOpenProjectRequest, onOpenCalendly }) {
       </section>
 
       {/* SECTION 5: FAQ */}
-      <div className="h-[878px] overflow-hidden lg:min-h-[959px]"><FAQSection /></div>
+      <div className="w-full"><FAQSection /></div>
 
       {/* SECTION 6: CTA BANNER */}
-      <div className="h-[500px] overflow-hidden lg:h-auto"><CTASection onOpenCalendly={onOpenCalendly} onOpenProjectRequest={onOpenProjectRequest} /></div>
+      <div className="w-full"><CTASection onOpenCalendly={onOpenCalendly} onOpenProjectRequest={onOpenProjectRequest} /></div>
 
       {/* SECTION 7: CONTACT FORM */}
       <ContactSection compact onOpenCalendly={onOpenCalendly} />

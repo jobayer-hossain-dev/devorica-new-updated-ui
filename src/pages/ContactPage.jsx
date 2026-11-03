@@ -7,8 +7,10 @@ export default function ContactPage({ onOpenCalendly }) {
   return (
     <div className="w-full pt-0">
       <ContactSection compact onOpenCalendly={onOpenCalendly} />
-      <div className="contact-faq"><FAQSection limit={4} compact /></div>
-      <div className="contact-cta mt-[148px] lg:mt-0">
+      <div className="contact-faq">
+        <FAQSection limit={4} compact />
+      </div>
+      <div className="contact-cta">
         <CTASection onOpenCalendly={onOpenCalendly} />
       </div>
     </div>

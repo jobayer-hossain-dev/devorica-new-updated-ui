@@ -112,7 +112,7 @@ export default function CareerPage({ onOpenCalendly }) {
         </div>
       </section>
 
-      <div className="career-faq h-[805.3px] overflow-hidden lg:h-[899.3px]">
+      <div className="career-faq w-full">
         <FAQSection limit={6} />
       </div>
 

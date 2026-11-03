@@ -367,30 +367,30 @@ details > summary::-webkit-details-marker {
 }
 
 @media (min-width: 1024px) {
-  .contact-faq { margin-top: 92px; }
-  .contact-faq > section { height: 400px; min-height: 0; overflow: hidden; }
-  .contact-cta { margin-top: 169.6px !important; }
-  .contact-cta > section { height: 620.8px; min-height: 0; padding-top: 80px; padding-bottom: 80px; }
+  .contact-faq { margin-top: 40px; }
+  .contact-faq > section { height: auto !important; min-height: 0 !important; overflow: visible !important; }
+  .contact-cta { margin-top: 40px !important; }
+  .contact-cta > section { height: auto !important; min-height: 0 !important; padding-top: 80px; padding-bottom: 80px; }
 }
 @media (max-width: 639px) {
-  .contact-faq { margin-top: 50px; }
-  .contact-faq > section { height: 598px; min-height: 0; overflow: hidden; }
-  .contact-cta { margin-top: 127.5px; }
-  .contact-cta > section { height: 485px; min-height: 0; padding-top: 40px; padding-bottom: 40px; }
+  .contact-faq { margin-top: 32px; }
+  .contact-faq > section { height: auto !important; min-height: 0 !important; overflow: visible !important; }
+  .contact-cta { margin-top: 24px !important; }
+  .contact-cta > section { height: auto !important; min-height: 0 !important; padding-top: 40px; padding-bottom: 40px; }
 }
 
 @media (min-width: 1024px) {
   .career-hero { height: 372px !important; margin-top: 68px; margin-bottom: 409px; padding-top: 0 !important; }
-  .career-faq > section { height: 899.33px; min-height: 0; }
-  .career-cta { margin-top: 89.6px; height: 620.8px; overflow: hidden; }
-  .career-cta > section { height: 620.8px; min-height: 0; padding-top: 80px; padding-bottom: 80px; }
+  .career-faq > section { height: auto !important; min-height: 0; overflow: visible !important; }
+  .career-cta { margin-top: 40px; height: auto !important; overflow: visible !important; }
+  .career-cta > section { height: auto !important; min-height: 0; padding-top: 80px; padding-bottom: 80px; }
 }
 @media (max-width: 639px) {
   .career-hero { height: 268px !important; margin-top: 40px; margin-bottom: 126.14px; padding-top: 0 !important; }
   .career-hero > div:last-child { margin-top: 0; }
-  .career-faq > section { height: 805.33px; min-height: 0; }
-  .career-cta { margin-top: 87.5px; height: 485px; overflow: hidden; }
-  .career-cta > section { height: 485px; min-height: 0; padding-top: 40px; padding-bottom: 40px; }
+  .career-faq > section { height: auto !important; min-height: 0; overflow: visible !important; }
+  .career-cta { margin-top: 24px; height: auto !important; overflow: visible !important; }
+  .career-cta > section { height: auto !important; min-height: 0; padding-top: 40px; padding-bottom: 40px; }
 }
 
 .case-hero { height: 842px; }
@@ -519,9 +519,9 @@ details > summary::-webkit-details-marker {
   .service-pricing { height: 1279.3px; padding-top: 120px; }
   .service-process { height: 928px; padding-top: 120px; }
   .service-benefits { height: 1036.3px; padding-top: 120px; }
-  .service-faq { height: 470px; padding-top: 70px; overflow: hidden; }
-  .service-cta { height: 620.8px; margin-top: 89.6px; overflow: hidden; }
-  .service-cta > section { height: 620.8px; min-height: 0; padding-top: 80px; padding-bottom: 80px; }
+  .service-faq { height: auto !important; padding-top: 70px; overflow: visible !important; }
+  .service-cta { height: auto !important; margin-top: 40px; overflow: visible !important; }
+  .service-cta > section { height: auto !important; min-height: 0; padding-top: 80px; padding-bottom: 80px; }
 }
 @media (max-width: 639px) {
   .service-detail-hero { height: 603px; border-radius: 0 0 24px 24px; }
@@ -532,9 +532,9 @@ details > summary::-webkit-details-marker {
   .service-process { height: 1217.33px; overflow: hidden; }
   .service-detail-page > section:nth-of-type(5) { height: 399.33px; padding-bottom: 0; overflow: hidden; }
   .service-benefits { height: 1429.35px; overflow: hidden; }
-  .service-faq { height: 595.33px; overflow: hidden; }
-  .service-cta { height: 485px; margin-top: 87.5px; overflow: hidden; }
-  .service-cta > section { height: 485px; min-height: 0; padding-top: 40px; padding-bottom: 40px; }
+  .service-faq { height: auto !important; overflow: visible !important; }
+  .service-cta { height: auto !important; margin-top: 24px; overflow: visible !important; }
+  .service-cta > section { height: auto !important; min-height: 0; padding-top: 40px; padding-bottom: 40px; }
   .service-about .grid, .service-capabilities > div, .service-pricing > div, .service-process > div, .service-benefits > div { padding-left: 20px; padding-right: 20px; }
   .service-metrics { grid-template-columns: repeat(2, 1fr); }
   .service-cap-grid, .service-price-grid, .service-process-grid, .service-benefit-grid { grid-template-columns: 1fr; }

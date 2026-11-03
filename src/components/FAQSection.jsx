@@ -40,7 +40,7 @@ export default function FAQSection({ items = homePageFaqs, limit, compact = fals
 
   return (
     <motion.section
-      className={`bg-howIt-section px-5 ${compact ? '-mt-2.5 min-h-[600px] py-0 sm:min-h-0' : 'py-12 lg:py-20'}`}
+      className={`bg-howIt-section px-5 ${compact ? 'py-8 sm:py-10 lg:py-12' : 'py-12 lg:py-20'}`}
       variants={revealVariants}
       initial="hidden"
       animate={controls}
