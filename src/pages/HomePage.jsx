@@ -80,11 +80,12 @@ export default function HomePage({ onOpenProjectRequest, onOpenCalendly }) {
   }, [displayedText, isDeleting, wordIdx]);
 
   const heroMarqueeLogos = [
-    { name: 'Bikkhipto', src: '/bikkhipto-logo-white.webp' },
-    { name: 'Bayloz', src: '/bayloz-logo.webp' },
-    { name: 'Fathom AI', src: '/portfolio/client-fathom-white.svg' },
-    { name: 'EasySub BD', src: '/portfolio/client-easysub-white.svg' },
-    { name: 'Maertens Studio', src: '/portfolio/client-maertens-white.svg' }
+    { name: 'Bikkhipto', src: '/portfolio/client-bikkhipto.svg' },
+    { name: 'Bayloz', src: '/portfolio/client-bayloz.svg' },
+    { name: 'Fathom AI', src: '/portfolio/client-fathom.svg' },
+    { name: 'EasySub BD', src: '/portfolio/client-easysub.svg' },
+    { name: 'Maertens Studio', src: '/portfolio/client-maertens.svg' },
+    { name: 'Lumina AI', src: '/portfolio/client-lumina.svg' }
   ];
 
   const services = [
@@ -324,11 +325,11 @@ export default function HomePage({ onOpenProjectRequest, onOpenCalendly }) {
 
               <div className="flex items-center gap-12 w-max shrink-0 animate-marquee">
                 {[...heroMarqueeLogos, ...heroMarqueeLogos].map((logo, idx) => (
-                  <div key={idx} className="mx-6 flex h-8 w-[110px] shrink-0 items-center justify-center grayscale hover:grayscale-0 transition-all opacity-80 hover:opacity-100">
+                  <div key={idx} className="mx-6 flex h-8 w-auto min-w-[120px] max-w-[160px] shrink-0 items-center justify-center opacity-85 hover:opacity-100 transition-opacity duration-200">
                     <img
                       src={logo.src}
                       alt={`${logo.name} logo`}
-                      className="h-full w-full object-contain"
+                      className="h-full w-auto object-contain"
                     />
                   </div>
                 ))}
@@ -341,8 +342,8 @@ export default function HomePage({ onOpenProjectRequest, onOpenCalendly }) {
               <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-8 bg-gradient-to-l from-white to-transparent"></div>
               <div className="flex items-center gap-8 w-max shrink-0 animate-marquee">
                 {[...heroMarqueeLogos, ...heroMarqueeLogos, ...heroMarqueeLogos].map((logo, idx) => (
-                  <div key={idx} className="mx-2 flex h-6 w-24 shrink-0 items-center justify-center grayscale opacity-75">
-                    <img src={logo.src} alt="" className="h-full w-full object-contain" />
+                  <div key={idx} className="mx-2 flex h-6 w-auto min-w-[95px] max-w-[130px] shrink-0 items-center justify-center opacity-85">
+                    <img src={logo.src} alt="" className="h-full w-auto object-contain" />
                   </div>
                 ))}
               </div>

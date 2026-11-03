@@ -1,0 +1,8 @@
+<svg width="150" height="32" viewBox="0 0 150 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Lumina AI Spark / Prism Mark -->
+  <rect x="2" y="3" width="26" height="26" rx="7" fill="#0F172A" />
+  <path d="M15 7L17 13L23 15L17 17L15 23L13 17L7 15L13 13L15 7Z" fill="#38BDF8" />
+  <!-- LUMINA Typography -->
+  <text x="36" y="21.5" font-family="'Plus Jakarta Sans', 'Inter', sans-serif" font-size="15" font-weight="700" letter-spacing="1.5" fill="#0F172A">LUMINA</text>
+  <text x="110" y="21.5" font-family="'Plus Jakarta Sans', 'Inter', sans-serif" font-size="9" font-weight="700" letter-spacing="1" fill="#3649F5">AI</text>
+</svg>

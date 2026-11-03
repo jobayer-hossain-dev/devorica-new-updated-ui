@@ -64,7 +64,7 @@ export default function PricingSection({ onOpenProjectRequest, onOpenCalendly })
         ]
       }
     ],
-    'AI Automation & Workflows': [
+    'AI Automation': [
       {
         title: 'Starter AI Integration',
         badge: null,
@@ -111,7 +111,7 @@ export default function PricingSection({ onOpenProjectRequest, onOpenCalendly })
         ]
       }
     ],
-    'Dedicated Team & Care': [
+    'Team & Care': [
       {
         title: 'Maintenance Care',
         badge: null,
@@ -160,11 +160,7 @@ export default function PricingSection({ onOpenProjectRequest, onOpenCalendly })
     ]
   };
 
-  const packageAliases = {
-    'AI Automation': 'AI Automation & Workflows',
-    'Team & Care': 'Dedicated Team & Care'
-  };
-  const activePackages = packages[activeTab] || packages[packageAliases[activeTab]] || packages['Web & Product Development'];
+  const activePackages = packages[activeTab] || packages['Web & Product Development'];
 
   return (
     <motion.section
@@ -250,14 +246,12 @@ export default function PricingSection({ onOpenProjectRequest, onOpenCalendly })
           initial="hidden"
           animate={controls}
           transition={{ delay: 0.2 }}
-          className="mx-auto mt-6 lg:mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6 items-stretch"
+          className="mx-auto mt-6 lg:mt-12 grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch"
         >
           {activePackages.map((pkg, idx) => (
             <article
               key={idx}
               className={`relative flex flex-col justify-between rounded-xl border bg-[#141414] p-5 lg:p-6 transition-all duration-300 hover:border-[#4B4B4B] h-full ${
-                idx === 2 ? 'md:col-span-2 lg:col-span-1' : ''
-              } ${
                 pkg.popular
                   ? 'border-[#3649F5] shadow-[0_0_35px_rgba(54,73,245,0.18)] ring-1 ring-[#3649F5]/40'
                   : 'border-[#323232]'
@@ -277,29 +271,31 @@ export default function PricingSection({ onOpenProjectRequest, onOpenCalendly })
                 </div>
 
                 {/* Ideal for */}
-                <p className="mt-3 font-vietnam text-sm leading-relaxed text-[#D1D1D1] min-h-[44px] md:min-h-[66px]">
+                <p className="mt-3 font-vietnam text-sm leading-relaxed text-[#D1D1D1] min-h-[48px] lg:min-h-[64px]">
                   {pkg.ideal}
                 </p>
 
                 {/* Price Box with glowing radial background if popular */}
                 <div
-                  className={`relative mt-5 rounded-lg border p-4 lg:p-5 transition-all ${
+                  className={`relative mt-5 rounded-lg border p-4 lg:p-5 transition-all min-h-[162px] flex flex-col justify-between ${
                     pkg.popular
                       ? "border-[#4F6BF6] bg-[#181818] shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)] relative overflow-hidden before:pointer-events-none before:absolute before:inset-0 before:bg-[radial-gradient(ellipse_at_85%_-10%,rgba(99,149,232,0.45)_0%,rgba(99,149,232,0.2)_30%,transparent_70%)] before:content-['']"
                       : 'border-[#323232] bg-[#181818]'
                   }`}
                 >
-                  <div className="relative z-10 flex flex-col justify-between">
-                    <span className="font-vietnam text-xs text-[#A0A0A0] lg:text-sm">
-                      Estimated Range
-                    </span>
-                    <div className="mt-1 flex items-baseline gap-1.5 flex-wrap min-h-[38px] lg:min-h-[42px]">
-                      <span className="font-switzer font-semibold text-2xl lg:text-[26px] xl:text-[28px] text-white tracking-tight">
-                        {pkg.price}
+                  <div className="relative z-10 flex flex-col justify-between h-full">
+                    <div>
+                      <span className="font-vietnam text-xs text-[#A0A0A0] lg:text-sm">
+                        Estimated Range
                       </span>
-                      <span className="font-vietnam text-xs lg:text-sm text-[#B0B0B0]">
-                        <span className="text-white">/</span> {pkg.period.replace('/', '').trim()}
-                      </span>
+                      <div className="mt-1 flex items-baseline gap-1.5 flex-wrap min-h-[36px]">
+                        <span className="font-switzer font-semibold text-2xl lg:text-[26px] xl:text-[28px] text-white tracking-tight">
+                          {pkg.price}
+                        </span>
+                        <span className="font-vietnam text-xs lg:text-sm text-[#B0B0B0]">
+                          <span className="text-white">/</span> {pkg.period.replace('/', '').trim()}
+                        </span>
+                      </div>
                     </div>
 
                     <button

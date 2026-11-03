@@ -1,0 +1,10 @@
+<svg width="150" height="32" viewBox="0 0 150 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Bayloz Vault / Trend Shopping Mark -->
+  <rect x="2" y="3" width="26" height="26" rx="7" fill="#0F172A" />
+  <path d="M10 12V9C10 7.34 11.34 6 13 6H17C18.66 6 20 7.34 20 9V12" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round"/>
+  <path d="M8 12H22L20.5 24H9.5L8 12Z" fill="#FF5722"/>
+  <path d="M13 18L17 14M17 14H14M17 14V17" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Bayloz Typography -->
+  <text x="36" y="22" font-family="'Plus Jakarta Sans', 'Inter', sans-serif" font-size="17" font-weight="800" letter-spacing="-0.4" fill="#0F172A">bayloz</text>
+  <circle cx="106" cy="19" r="2.5" fill="#FF5722" />
+</svg>

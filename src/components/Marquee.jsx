@@ -2,11 +2,12 @@ import React from 'react';
 
 export function LogoMarquee({ showTrustLabel = false }) {
   const logos = [
-    { src: '/bikkhipto-logo.webp', alt: 'Bikkhipto' },
-    { src: '/bayloz-logo.webp', alt: 'Bayloz' },
+    { src: '/portfolio/client-bikkhipto.svg', alt: 'Bikkhipto' },
+    { src: '/portfolio/client-bayloz.svg', alt: 'Bayloz' },
     { src: '/portfolio/client-fathom.svg', alt: 'Fathom AI' },
     { src: '/portfolio/client-easysub.svg', alt: 'EasySub BD' },
     { src: '/portfolio/client-maertens.svg', alt: 'Maertens Studio' },
+    { src: '/portfolio/client-lumina.svg', alt: 'Lumina AI' },
   ];
 
   return (
@@ -26,14 +27,14 @@ export function LogoMarquee({ showTrustLabel = false }) {
             {[...logos, ...logos, ...logos, ...logos].map((logo, idx) => (
               <div
                 key={idx}
-                className="flex items-center justify-center shrink-0 grayscale hover:grayscale-0 opacity-70 hover:opacity-100 transition-all duration-300"
+                className="flex items-center justify-center shrink-0 opacity-85 hover:opacity-100 transition-opacity duration-200"
               >
                 <img
                   src={logo.src}
                   alt={logo.alt}
                   loading="lazy"
                   decoding="async"
-                  className="h-7 sm:h-9 w-auto max-w-[130px] object-contain"
+                  className="h-7 sm:h-8 w-auto min-w-[110px] max-w-[150px] object-contain"
                 />
               </div>
             ))}

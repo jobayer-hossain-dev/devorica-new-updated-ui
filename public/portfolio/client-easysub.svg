@@ -1,10 +1,9 @@
 <svg width="150" height="32" viewBox="0 0 150 32" fill="none" xmlns="http://www.w3.org/2000/svg">
   <!-- EasySub Bolt / Loop Badge -->
-  <rect x="2" y="3" width="26" height="26" rx="7" fill="#0A0A0A" />
+  <rect x="2" y="3" width="26" height="26" rx="7" fill="#0F172A" />
   <path d="M16 8L10 17H16L14 24L21 15H15L17 8H16Z" fill="#FFFFFF" />
   <!-- EasySub BD Typography -->
-  <text x="36" y="21" font-family="'Switzer', 'Plus Jakarta Sans', sans-serif" font-size="15" font-weight="700" letter-spacing="0.5" fill="#0A0A0A">EasySub</text>
-  <rect x="110" y="8" width="28" height="15" rx="3.5" fill="#0A0A0A" opacity="0.1"/>
-  <text x="115" y="19" font-family="'Switzer', 'Plus Jakarta Sans', sans-serif" font-size="9" font-weight="700" fill="#0A0A0A">BD</text>
+  <text x="36" y="21.5" font-family="'Plus Jakarta Sans', 'Inter', sans-serif" font-size="15.5" font-weight="700" letter-spacing="0.2" fill="#0F172A">EasySub</text>
+  <rect x="110" y="8.5" width="26" height="15" rx="4" fill="#0F172A" opacity="0.12"/>
+  <text x="114.5" y="19.5" font-family="'Plus Jakarta Sans', 'Inter', sans-serif" font-size="9.5" font-weight="800" fill="#0F172A">BD</text>
 </svg>
-
