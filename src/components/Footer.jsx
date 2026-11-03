@@ -22,8 +22,12 @@ export default function Footer({ onOpenProjectRequest }) {
 
             <Link to="/" className="mt-4 flex w-fit items-center" aria-label="Devorica home">
               <img
-                src="/devorica-logo.png"
+                src="/devorica-logo.webp"
                 alt="Devorica logo"
+                width="160"
+                height="36"
+                loading="lazy"
+                decoding="async"
                 className="h-8 lg:h-9 w-auto object-contain brightness-200"
               />
             </Link>

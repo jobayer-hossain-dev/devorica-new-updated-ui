@@ -3,7 +3,7 @@ import React from 'react';
 export function LogoMarquee({ showTrustLabel = false }) {
   const logos = [
     { src: '/bikkhipto-logo.webp', alt: 'Bikkhipto' },
-    { src: '/bayloz-logo.png', alt: 'Bayloz' },
+    { src: '/bayloz-logo.webp', alt: 'Bayloz' },
     { src: '/portfolio/client-fathom.svg', alt: 'Fathom AI' },
     { src: '/portfolio/client-easysub.svg', alt: 'EasySub BD' },
     { src: '/portfolio/client-maertens.svg', alt: 'Maertens Studio' },
@@ -31,6 +31,8 @@ export function LogoMarquee({ showTrustLabel = false }) {
                 <img
                   src={logo.src}
                   alt={logo.alt}
+                  loading="lazy"
+                  decoding="async"
                   className="h-7 sm:h-9 w-auto max-w-[130px] object-contain"
                 />
               </div>

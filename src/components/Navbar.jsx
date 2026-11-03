@@ -117,8 +117,12 @@ export default function Navbar({ onOpenProjectRequest }) {
             {/* Logo */}
             <Link to="/" aria-label="Go to Devorica homepage" className="flex items-center">
               <img
-                src="/favicon.png"
+                src="/devorica-nav-icon.webp"
                 alt="Devorica logo"
+                width="23"
+                height="27"
+                fetchPriority="high"
+                decoding="async"
                 className="h-7 w-[23px] object-contain lg:h-[27px] lg:w-[23px]"
               />
             </Link>
@@ -340,8 +344,11 @@ export default function Navbar({ onOpenProjectRequest }) {
           <Link to="/" aria-label="Go to Devorica homepage">
             <img
               alt="Devorica logo"
+              width="23"
+              height="28"
+              decoding="async"
               className="h-7 w-auto object-contain"
-              src="/favicon.png"
+              src="/devorica-nav-icon.webp"
             />
           </Link>
           <button
@@ -380,8 +387,11 @@ export default function Navbar({ onOpenProjectRequest }) {
           <div className="flex shrink-0 items-center justify-between p-6">
             <img
               alt="Devorica logo"
+              width="23"
+              height="28"
+              decoding="async"
               className="h-7 w-auto object-contain"
-              src="/favicon.png"
+              src="/devorica-nav-icon.webp"
             />
             <button
               type="button"

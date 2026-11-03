@@ -81,7 +81,7 @@ export default function HomePage({ onOpenProjectRequest, onOpenCalendly }) {
 
   const heroMarqueeLogos = [
     { name: 'Bikkhipto', src: '/bikkhipto-logo-white.webp' },
-    { name: 'Bayloz', src: '/bayloz-logo.png' },
+    { name: 'Bayloz', src: '/bayloz-logo.webp' },
     { name: 'Fathom AI', src: '/portfolio/client-fathom-white.svg' },
     { name: 'EasySub BD', src: '/portfolio/client-easysub-white.svg' },
     { name: 'Maertens Studio', src: '/portfolio/client-maertens-white.svg' }
@@ -95,7 +95,7 @@ export default function HomePage({ onOpenProjectRequest, onOpenCalendly }) {
       desc: 'Launch an investor-ready AI product in weeks with production-grade code, real users, and working subscription billing. Built for ambitious founders validating an AI-first software concept.',
       href: '/services/ai-mvp-development',
       linkText: 'Explore AI MVP Development',
-      img: '/homePage/service-ai-mvp.png',
+      img: '/homePage/service-ai-mvp.webp',
       reverse: false
     },
     {
@@ -105,7 +105,7 @@ export default function HomePage({ onOpenProjectRequest, onOpenCalendly }) {
       desc: 'Full-cycle software engineering covering architecture, product design, backend APIs, and cloud hosting from one accountable team. Built to scale smoothly as user demand multiplies.',
       href: '/services/product-development',
       linkText: 'Explore SaaS Development',
-      img: '/homePage/service-saas-dev.png',
+      img: '/homePage/service-saas-dev.webp',
       reverse: true
     },
     {
@@ -115,7 +115,7 @@ export default function HomePage({ onOpenProjectRequest, onOpenCalendly }) {
       desc: 'Intelligent automation that eliminates repetitive operations: customer support routing, document extraction, and custom AI agents connected to your daily business software.',
       href: '/services/ai-automation',
       linkText: 'Explore AI Automation',
-      img: '/homePage/service-ai-automation.png',
+      img: '/homePage/service-ai-automation.webp',
       reverse: false
     },
     {
@@ -125,7 +125,7 @@ export default function HomePage({ onOpenProjectRequest, onOpenCalendly }) {
       desc: 'Ultra-fast headless online stores built with Next.js. Features instant mobile checkout, automated bKash, Nagad, and Stripe payments, and live Pathao and Steadfast courier delivery sync.',
       href: '/services/ecommerce-development',
       linkText: 'Explore Modern E-Commerce',
-      img: '/portfolio/bikkhipto.jpg',
+      img: '/portfolio/bikkhipto.webp',
       reverse: true
     },
     {
@@ -135,7 +135,7 @@ export default function HomePage({ onOpenProjectRequest, onOpenCalendly }) {
       desc: 'Intuitive UI/UX design for web applications, SaaS dashboards, and mobile platforms. Built for real business metrics like user retention, onboarding completion, and conversion.',
       href: '/services/product-design',
       linkText: 'Explore Product Design',
-      img: '/homePage/service-product-design.png',
+      img: '/homePage/service-product-design.webp',
       reverse: false
     },
     {
@@ -145,7 +145,7 @@ export default function HomePage({ onOpenProjectRequest, onOpenCalendly }) {
       desc: 'Proactive 24/7 uptime monitoring, weekly security updates, and monthly developer iterations by engineers who know your stack. Keeping your systems fast, reliable, and secure.',
       href: '/services/maintenance-care',
       linkText: 'Explore Maintenance & Care',
-      img: '/homePage/service-maintenance.png',
+      img: '/homePage/service-maintenance.webp',
       reverse: true
     }
   ];
@@ -154,28 +154,28 @@ export default function HomePage({ onOpenProjectRequest, onOpenCalendly }) {
     {
       title: 'Bikkhipto',
       subtitle: '+65% Conversion Lift · Headless E-commerce',
-      img: '/portfolio/bikkhipto.jpg',
+      img: '/portfolio/bikkhipto.webp',
       href: '/work/bikkhipto',
       colSpan: 'sm:col-span-2'
     },
     {
       title: 'Bayloz',
       subtitle: '99.99% Uptime · Global Marketplace',
-      img: '/portfolio/bayloz.jpg',
+      img: '/portfolio/bayloz.webp',
       href: '/work/bayloz',
       colSpan: 'sm:col-span-1'
     },
     {
       title: 'Fathom AI',
       subtitle: '99.4% Precision · Autonomous Intelligence',
-      img: '/portfolio/fathom.jpg',
+      img: '/portfolio/fathom.webp',
       href: '/work/fathom-ai',
       colSpan: 'sm:col-span-1'
     },
     {
       title: 'Maertens Studio',
       subtitle: 'Award-Winning · Immersive WebGL Showcase',
-      img: '/portfolio/studiomaertens.jpg',
+      img: '/portfolio/studiomaertens.webp',
       href: '/work/maertens-studio',
       colSpan: 'sm:col-span-2'
     }
@@ -228,14 +228,14 @@ export default function HomePage({ onOpenProjectRequest, onOpenCalendly }) {
   ];
 
   const industries = [
-    { name: 'FinTech', img1: '/homePage/fintech2.png', img2: '/homePage/fintech1.png' },
-    { name: 'HealthTech', img1: '/homePage/health2.png', img2: '/homePage/health1.png' },
-    { name: 'EdTech', img1: '/homePage/edTech2.png', img2: '/homePage/edtech1.png' },
-    { name: 'E-Commerce', img1: '/homePage/eCommerce2.png', img2: '/homePage/eCommerce1.png' },
-    { name: 'B2B SaaS', img1: '/homePage/SaaSB2B2.png', img2: '/homePage/SaaSB2B1.png' },
-    { name: 'Real Estate', img1: '/homePage/RealEstate2.png', img2: '/homePage/RealEstate1.png' },
-    { name: 'AI & Technology', img1: '/homePage/ai2.png', img2: '/homePage/ai1.png' },
-    { name: 'Trading Platforms', img1: '/homePage/travel2.png', img2: '/homePage/travel1.png' },
+    { name: 'FinTech', img1: '/homePage/fintech2.webp', img2: '/homePage/fintech1.webp' },
+    { name: 'HealthTech', img1: '/homePage/health2.webp', img2: '/homePage/health1.webp' },
+    { name: 'EdTech', img1: '/homePage/edTech2.webp', img2: '/homePage/edtech1.webp' },
+    { name: 'E-Commerce', img1: '/homePage/eCommerce2.webp', img2: '/homePage/eCommerce1.webp' },
+    { name: 'B2B SaaS', img1: '/homePage/SaaSB2B2.webp', img2: '/homePage/SaaSB2B1.webp' },
+    { name: 'Real Estate', img1: '/homePage/RealEstate2.webp', img2: '/homePage/RealEstate1.webp' },
+    { name: 'AI & Technology', img1: '/homePage/ai2.webp', img2: '/homePage/ai1.webp' },
+    { name: 'Trading Platforms', img1: '/homePage/travel2.webp', img2: '/homePage/travel1.webp' },
   ];
 
   return (
@@ -428,8 +428,12 @@ export default function HomePage({ onOpenProjectRequest, onOpenCalendly }) {
           <div className="order-2 mx-auto w-full max-w-[616px] lg:order-1">
             <div className="relative aspect-square w-full overflow-hidden rounded-[12px] sm:rounded-[16px]">
               <img
-                src="/service.png"
+                src="/service.webp"
                 alt="Devorica AI product development studio"
+                width="616"
+                height="616"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-contain"
               />
             </div>
@@ -517,6 +521,8 @@ export default function HomePage({ onOpenProjectRequest, onOpenCalendly }) {
                   <img
                     src={srv.img}
                     alt={srv.title}
+                    loading="lazy"
+                    decoding="async"
                     className="h-full w-full object-contain transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-100"
                   />
                 </div>
@@ -536,6 +542,8 @@ export default function HomePage({ onOpenProjectRequest, onOpenCalendly }) {
                   <img
                     src={srv.img}
                     alt={srv.title}
+                    loading="lazy"
+                    decoding="async"
                     className="mb-4 w-full max-w-xs object-contain"
                   />
                 </div>
@@ -588,6 +596,8 @@ export default function HomePage({ onOpenProjectRequest, onOpenCalendly }) {
               <img
                 src={proj.img}
                 alt={proj.title}
+                loading="lazy"
+                decoding="async"
                 className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <Link to={proj.href}>
@@ -770,9 +780,13 @@ export default function HomePage({ onOpenProjectRequest, onOpenCalendly }) {
             <h2 className="text-[30px] sm:text-4xl md:text-5xl font-switzer font-medium text-white mb-2 flex flex-col md:flex-row items-center justify-center gap-2 text-center">
               <div className="flex items-center gap-2.5">
                 <img
-                  src="/brand/devorica-white-logo-tight.png"
+                  src="/devorica-logo.webp"
                   alt="Devorica"
-                  className="h-8 sm:h-10 md:h-12 w-auto object-contain shrink-0"
+                  width="180"
+                  height="40"
+                  loading="lazy"
+                  decoding="async"
+                  className="h-8 sm:h-10 md:h-12 w-auto object-contain shrink-0 brightness-200"
                 />
                 <span className="font-switzer font-medium text-white">Vs</span>
               </div>
@@ -807,9 +821,13 @@ export default function HomePage({ onOpenProjectRequest, onOpenCalendly }) {
               </div>
               <div className="flex h-[96px] items-center justify-center border-b border-[#2A2A2A] px-4 text-center bg-[linear-gradient(180deg,rgba(54,73,245,0.22)_0%,rgba(21,21,20,0)_100%)] pt-7">
                 <img
-                  src="/brand/devorica-white-logo-tight.png"
+                  src="/devorica-logo.webp"
                   alt="Devorica"
-                  className="h-9 md:h-10 lg:h-11 w-auto shrink-0 object-contain"
+                  width="160"
+                  height="36"
+                  loading="lazy"
+                  decoding="async"
+                  className="h-9 md:h-10 lg:h-11 w-auto shrink-0 object-contain brightness-200"
                 />
               </div>
               <div className="flex min-h-[72px] items-center justify-center gap-2 border-b border-[#2A2A2A] px-3 py-3 text-center text-sm text-white last:border-b-0">
@@ -955,12 +973,20 @@ export default function HomePage({ onOpenProjectRequest, onOpenCalendly }) {
                   <img
                     src={ind.img1}
                     alt={`${ind.name} bottom preview`}
+                    width="82"
+                    height="82"
+                    loading="lazy"
+                    decoding="async"
                     className="absolute bottom-2 left-2 object-contain transition-all duration-500 ease-out group-hover:-translate-x-2 group-hover:translate-y-2 group-hover:rotate-[-4deg] sm:left-3 lg:bottom-10 lg:left-1 w-[82px] h-[82px]"
                   />
                   {/* Top Card */}
                   <img
                     src={ind.img2}
                     alt={`${ind.name} top preview`}
+                    width="82"
+                    height="82"
+                    loading="lazy"
+                    decoding="async"
                     className="absolute right-2 top-2 object-contain transition-all duration-500 ease-out group-hover:translate-x-2 group-hover:-translate-y-2 group-hover:rotate-[4deg] sm:right-3 sm:top-3 lg:right-15 lg:top-10 w-[82px] h-[82px]"
                   />
                 </div>

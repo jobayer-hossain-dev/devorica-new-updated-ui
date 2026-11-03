@@ -121,6 +121,8 @@ export default function AboutPage({ onOpenProjectRequest, onOpenCalendly }) {
             <img
               src="/saasMvpPage/team.png"
               alt="Devorica Team"
+              loading="lazy"
+              decoding="async"
               className="aspect-square h-full w-full object-cover"
             />
           </div>
@@ -219,6 +221,8 @@ export default function AboutPage({ onOpenProjectRequest, onOpenCalendly }) {
                   <img
                     src={image}
                     alt={name}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
@@ -255,7 +259,7 @@ export default function AboutPage({ onOpenProjectRequest, onOpenCalendly }) {
               <div key={rowIdx} className={`grid h-[173px] gap-2 ${rowIdx === 0 ? 'grid-cols-[247.646px_102.354px]' : rowIdx === 1 ? 'grid-cols-2' : 'grid-cols-[140px_210px]'} lg:h-72 lg:grid-cols-2 lg:gap-6`}>
                 {row.map((img, gIdx) => (
                   <div key={gIdx} className="group h-full overflow-hidden rounded-xl bg-neutral-200 shadow-md">
-                    <img src={img} alt="Devorica Agency Life" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                    <img src={img} alt="Devorica Agency Life" loading="lazy" decoding="async" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
                   </div>
                 ))}
               </div>

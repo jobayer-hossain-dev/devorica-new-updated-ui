@@ -10,6 +10,8 @@ function ProjectCard({ project, wide }) {
       <img
         src={project.heroImage}
         alt={project.title}
+        loading="lazy"
+        decoding="async"
         className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
       />
       <div className="absolute bottom-3 left-3 right-3 z-10 flex items-center justify-between rounded-[4px] bg-white/95 px-3 py-2 backdrop-blur-sm transition-transform duration-300 group-hover:-translate-y-0.5 lg:rounded-[8px] lg:px-4 lg:py-3">
