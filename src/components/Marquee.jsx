@@ -7,6 +7,7 @@ export function LogoMarquee({ showTrustLabel = false }) {
     { src: '/portfolio/client-easysub.webp', alt: 'EasySub' },
     { src: '/portfolio/client-tr-fashion.webp', alt: 'TR Fashion' },
     { src: '/portfolio/client-triple-minds.webp', alt: 'Triple Minds' },
+    { src: '/portfolio/client-adcreva.webp', alt: 'Adcreva' },
   ];
 
   return (
@@ -21,22 +22,43 @@ export function LogoMarquee({ showTrustLabel = false }) {
         <div className="pointer-events-none absolute left-0 top-0 bottom-0 z-10 w-16 sm:w-28 bg-gradient-to-r from-white via-white/80 to-transparent" />
         <div className="pointer-events-none absolute right-0 top-0 bottom-0 z-10 w-16 sm:w-28 bg-gradient-to-l from-white via-white/80 to-transparent" />
 
-        <div className="relative w-full max-w-full overflow-hidden">
-        <div style={{ animationDuration: showTrustLabel ? '54.17s' : undefined }} className={`${showTrustLabel ? 'pb-8 pt-5' : 'py-8 sm:py-10'} flex items-center gap-12 sm:gap-20 w-max shrink-0 animate-marquee hover:[animation-play-state:paused]`}>
-            {[...logos, ...logos, ...logos, ...logos].map((logo, idx) => (
-              <div
-                key={idx}
-                className="flex items-center justify-center shrink-0 opacity-85 hover:opacity-100 transition-opacity duration-200"
-              >
-                <img
-                  src={logo.src}
-                  alt={logo.alt}
-                  loading="lazy"
-                  decoding="async"
-                  className="h-7 sm:h-8 w-auto min-w-[110px] max-w-[150px] object-contain"
-                />
-              </div>
-            ))}
+        <div className="relative w-full max-w-full overflow-hidden marquee-group select-none">
+          <div className="flex w-max shrink-0">
+            {/* Track 1 */}
+            <div className="animate-marquee-track flex items-center gap-10 sm:gap-16 pr-10 sm:pr-16 shrink-0 py-6 sm:py-8">
+              {[...logos, ...logos].map((logo, idx) => (
+                <div
+                  key={`m1-${idx}`}
+                  className="flex items-center justify-center shrink-0 opacity-85 hover:opacity-100 transition-opacity duration-200"
+                >
+                  <img
+                    src={logo.src}
+                    alt={logo.alt}
+                    loading="lazy"
+                    decoding="async"
+                    className="h-7 sm:h-9 w-auto max-w-[140px] sm:max-w-[180px] object-contain select-none"
+                  />
+                </div>
+              ))}
+            </div>
+
+            {/* Track 2 (Seamless loop twin) */}
+            <div className="animate-marquee-track flex items-center gap-10 sm:gap-16 pr-10 sm:pr-16 shrink-0 py-6 sm:py-8" aria-hidden="true">
+              {[...logos, ...logos].map((logo, idx) => (
+                <div
+                  key={`m2-${idx}`}
+                  className="flex items-center justify-center shrink-0 opacity-85 hover:opacity-100 transition-opacity duration-200"
+                >
+                  <img
+                    src={logo.src}
+                    alt={logo.alt}
+                    loading="lazy"
+                    decoding="async"
+                    className="h-7 sm:h-9 w-auto max-w-[140px] sm:max-w-[180px] object-contain select-none"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -91,36 +113,72 @@ export function TechStackMarquee() {
         <div className="pointer-events-none absolute right-0 top-0 bottom-0 z-10 w-16 sm:w-32 bg-gradient-to-l from-white via-white/70 to-transparent" />
 
         {/* Row 1 (moving left) */}
-        <div className="relative w-full max-w-full overflow-hidden">
-          <div style={{ animationDuration: '40.26s' }} className="flex items-center gap-4 w-max shrink-0 animate-marquee hover:[animation-play-state:paused]">
-            {[...row1, ...row1, ...row1].map((item, idx) => (
-              <div
-                key={idx}
-                className="flex h-[71px] shrink-0 cursor-pointer items-center justify-center gap-3 rounded-md border border-[#E7E7E7] bg-[#F6F6F6] px-5 py-3 transition-transform duration-300 hover:scale-105 hover:border-[#D0D0D0]"
-              >
-                <img src={item.icon} alt={item.name} className="h-8 w-8 object-contain" />
-                <span className="font-vietnam font-medium text-sm text-[#0A0A0A] whitespace-nowrap">
-                  {item.name}
-                </span>
-              </div>
-            ))}
+        <div className="relative w-full max-w-full overflow-hidden marquee-group select-none">
+          <div className="flex w-max shrink-0">
+            {/* Track 1 */}
+            <div className="animate-marquee-track flex items-center gap-4 pr-4 shrink-0">
+              {[...row1, ...row1].map((item, idx) => (
+                <div
+                  key={`r1-1-${idx}`}
+                  className="flex h-[71px] shrink-0 cursor-pointer items-center justify-center gap-3 rounded-md border border-[#E7E7E7] bg-[#F6F6F6] px-5 py-3 transition-transform duration-300 hover:scale-105 hover:border-[#D0D0D0]"
+                >
+                  <img src={item.icon} alt={item.name} className="h-8 w-8 object-contain" />
+                  <span className="font-vietnam font-medium text-sm text-[#0A0A0A] whitespace-nowrap">
+                    {item.name}
+                  </span>
+                </div>
+              ))}
+            </div>
+
+            {/* Track 2 (Seamless loop twin) */}
+            <div className="animate-marquee-track flex items-center gap-4 pr-4 shrink-0" aria-hidden="true">
+              {[...row1, ...row1].map((item, idx) => (
+                <div
+                  key={`r1-2-${idx}`}
+                  className="flex h-[71px] shrink-0 cursor-pointer items-center justify-center gap-3 rounded-md border border-[#E7E7E7] bg-[#F6F6F6] px-5 py-3 transition-transform duration-300 hover:scale-105 hover:border-[#D0D0D0]"
+                >
+                  <img src={item.icon} alt={item.name} className="h-8 w-8 object-contain" />
+                  <span className="font-vietnam font-medium text-sm text-[#0A0A0A] whitespace-nowrap">
+                    {item.name}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
         {/* Row 2 (moving right / reverse) */}
-        <div className="relative w-full max-w-full overflow-hidden">
-          <div style={{ animationDuration: '60.97s' }} className="flex items-center gap-4 w-max shrink-0 animate-marquee-reverse hover:[animation-play-state:paused]">
-            {[...row2, ...row2, ...row2].map((item, idx) => (
-              <div
-                key={idx}
-                className="flex h-[71px] shrink-0 cursor-pointer items-center justify-center gap-3 rounded-md border border-[#E7E7E7] bg-[#F6F6F6] px-5 py-3 transition-transform duration-300 hover:scale-105 hover:border-[#D0D0D0]"
-              >
-                <img src={item.icon} alt={item.name} className="h-8 w-8 object-contain" />
-                <span className="font-vietnam font-medium text-sm text-[#0A0A0A] whitespace-nowrap">
-                  {item.name}
-                </span>
-              </div>
-            ))}
+        <div className="relative w-full max-w-full overflow-hidden marquee-group select-none">
+          <div className="flex w-max shrink-0">
+            {/* Track 1 */}
+            <div className="animate-marquee-track-reverse flex items-center gap-4 pr-4 shrink-0">
+              {[...row2, ...row2].map((item, idx) => (
+                <div
+                  key={`r2-1-${idx}`}
+                  className="flex h-[71px] shrink-0 cursor-pointer items-center justify-center gap-3 rounded-md border border-[#E7E7E7] bg-[#F6F6F6] px-5 py-3 transition-transform duration-300 hover:scale-105 hover:border-[#D0D0D0]"
+                >
+                  <img src={item.icon} alt={item.name} className="h-8 w-8 object-contain" />
+                  <span className="font-vietnam font-medium text-sm text-[#0A0A0A] whitespace-nowrap">
+                    {item.name}
+                  </span>
+                </div>
+              ))}
+            </div>
+
+            {/* Track 2 (Seamless loop twin) */}
+            <div className="animate-marquee-track-reverse flex items-center gap-4 pr-4 shrink-0" aria-hidden="true">
+              {[...row2, ...row2].map((item, idx) => (
+                <div
+                  key={`r2-2-${idx}`}
+                  className="flex h-[71px] shrink-0 cursor-pointer items-center justify-center gap-3 rounded-md border border-[#E7E7E7] bg-[#F6F6F6] px-5 py-3 transition-transform duration-300 hover:scale-105 hover:border-[#D0D0D0]"
+                >
+                  <img src={item.icon} alt={item.name} className="h-8 w-8 object-contain" />
+                  <span className="font-vietnam font-medium text-sm text-[#0A0A0A] whitespace-nowrap">
+                    {item.name}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

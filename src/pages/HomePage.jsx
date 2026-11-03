@@ -84,7 +84,8 @@ export default function HomePage({ onOpenProjectRequest, onOpenCalendly }) {
     { name: 'Bayloz', src: '/portfolio/client-bayloz.webp' },
     { name: 'EasySub', src: '/portfolio/client-easysub.webp' },
     { name: 'TR Fashion', src: '/portfolio/client-tr-fashion.webp' },
-    { name: 'Triple Minds', src: '/portfolio/client-triple-minds.webp' }
+    { name: 'Triple Minds', src: '/portfolio/client-triple-minds.webp' },
+    { name: 'Adcreva', src: '/portfolio/client-adcreva.webp' }
   ];
 
   const services = [
@@ -318,33 +319,43 @@ export default function HomePage({ onOpenProjectRequest, onOpenCalendly }) {
               Trusted by startups, SaaS teams, and growing businesses
             </p>
 
-            <div className="relative mx-auto hidden w-full max-w-[1000px] overflow-hidden lg:block">
-              <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-24 bg-gradient-to-r from-white to-transparent"></div>
-              <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-24 bg-gradient-to-l from-white to-transparent"></div>
+            <div className="relative marquee-group mx-auto w-full max-w-[1100px] overflow-hidden py-2 sm:py-3 select-none">
+              {/* Edge Gradient Masks */}
+              <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-16 sm:w-28 bg-gradient-to-r from-white to-transparent"></div>
+              <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-16 sm:w-28 bg-gradient-to-l from-white to-transparent"></div>
 
-              <div className="flex items-center gap-12 w-max shrink-0 animate-marquee">
-                {[...heroMarqueeLogos, ...heroMarqueeLogos, ...heroMarqueeLogos].map((logo, idx) => (
-                  <div key={idx} className="mx-6 flex h-8 sm:h-9 w-auto max-w-[150px] shrink-0 items-center justify-center opacity-90 hover:opacity-100 transition-opacity duration-200">
-                    <img
-                      src={logo.src}
-                      alt={`${logo.name} logo`}
-                      className="h-full w-auto object-contain"
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
+              <div className="flex w-max shrink-0">
+                {/* Track 1 */}
+                <div className="animate-marquee-track flex items-center gap-8 sm:gap-14 pr-8 sm:pr-14 shrink-0">
+                  {[...heroMarqueeLogos, ...heroMarqueeLogos].map((logo, idx) => (
+                    <div
+                      key={`h1-${idx}`}
+                      className="flex h-7 sm:h-9 w-auto max-w-[140px] sm:max-w-[180px] shrink-0 items-center justify-center opacity-85 hover:opacity-100 transition-opacity duration-200"
+                    >
+                      <img
+                        src={logo.src}
+                        alt={`${logo.name} logo`}
+                        className="h-full w-auto max-h-7 sm:max-h-9 object-contain select-none"
+                      />
+                    </div>
+                  ))}
+                </div>
 
-            {/* Mobile Continuous Scrolling Marquee */}
-            <div className="relative mx-auto block lg:hidden w-full overflow-hidden py-2">
-              <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-8 bg-gradient-to-r from-white to-transparent"></div>
-              <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-8 bg-gradient-to-l from-white to-transparent"></div>
-              <div className="flex items-center gap-8 w-max shrink-0 animate-marquee">
-                {[...heroMarqueeLogos, ...heroMarqueeLogos, ...heroMarqueeLogos, ...heroMarqueeLogos].map((logo, idx) => (
-                  <div key={idx} className="mx-3 flex h-6 sm:h-7 w-auto max-w-[120px] shrink-0 items-center justify-center opacity-90">
-                    <img src={logo.src} alt="" className="h-full w-auto object-contain" />
-                  </div>
-                ))}
+                {/* Track 2 (Seamless Infinite Follower) */}
+                <div className="animate-marquee-track flex items-center gap-8 sm:gap-14 pr-8 sm:pr-14 shrink-0" aria-hidden="true">
+                  {[...heroMarqueeLogos, ...heroMarqueeLogos].map((logo, idx) => (
+                    <div
+                      key={`h2-${idx}`}
+                      className="flex h-7 sm:h-9 w-auto max-w-[140px] sm:max-w-[180px] shrink-0 items-center justify-center opacity-85 hover:opacity-100 transition-opacity duration-200"
+                    >
+                      <img
+                        src={logo.src}
+                        alt={`${logo.name} logo`}
+                        className="h-full w-auto max-h-7 sm:max-h-9 object-contain select-none"
+                      />
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>

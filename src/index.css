@@ -296,6 +296,55 @@ details > summary::-webkit-details-marker {
   animation-play-state: paused;
 }
 
+/* True Seamless Infinite Continuous Marquee Animation */
+@keyframes marqueeScrollInfinite {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+@keyframes marqueeScrollInfiniteReverse {
+  0% {
+    transform: translate3d(-100%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animate-marquee-track {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  animation: marqueeScrollInfinite 30s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-track-reverse {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  animation: marqueeScrollInfiniteReverse 34s linear infinite;
+  will-change: transform;
+}
+
+.marquee-group:hover .animate-marquee-track,
+.marquee-group:hover .animate-marquee-track-reverse {
+  animation-play-state: paused;
+}
+
+@media (max-width: 768px) {
+  .animate-marquee-track {
+    animation-duration: 20s;
+  }
+  .animate-marquee-track-reverse {
+    animation-duration: 24s;
+  }
+}
+
 /* Detail article geometry is intentionally explicit to mirror the reference page. */
 .blog-post-header { height: 438px; }
 .blog-post-cover { height: 340px; }

@@ -6,7 +6,7 @@ import { TechStackMarquee } from '../components/Marquee';
 import CTASection from '../components/CTASection';
 import ContactSection from '../components/ContactSection';
 
-const trustLogos = ['/portfolio/client-bikkhipto-white.webp', '/portfolio/client-bayloz-white.webp', '/portfolio/client-easysub-white.webp', '/portfolio/client-tr-fashion-white.webp', '/portfolio/client-triple-minds-white.webp'];
+const trustLogos = ['/portfolio/client-bikkhipto-white.webp', '/portfolio/client-bayloz-white.webp', '/portfolio/client-easysub-white.webp', '/portfolio/client-tr-fashion-white.webp', '/portfolio/client-triple-minds-white.webp', '/portfolio/client-adcreva-white.webp'];
 
 export default function ServiceDetailPage({ onOpenCalendly }) {
   const { slug } = useParams();
