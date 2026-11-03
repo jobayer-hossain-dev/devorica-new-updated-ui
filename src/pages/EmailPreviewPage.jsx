@@ -10,11 +10,15 @@ import {
   Monitor,
   Maximize2,
   Smartphone,
+  Tablet,
   Send,
   Sparkles,
   RefreshCw,
   Copy,
-  Check
+  Check,
+  Wifi,
+  BatteryMedium,
+  ZoomIn
 } from 'lucide-react';
 import { EMAIL_TEMPLATE_CATALOG } from '../../api/emailTemplates.js';
 import { useToast } from '../components/Toast';
@@ -22,7 +26,9 @@ import { useToast } from '../components/Toast';
 export default function EmailPreviewPage() {
   const { showToast } = useToast();
   const [activeKey, setActiveKey] = useState('inquiry_receipt');
-  const [viewport, setViewport] = useState('desktop'); // 'desktop', 'full', 'mobile'
+  const [viewport, setViewport] = useState('mobile'); // 'desktop', 'mobile', 'mobile_compact', 'tablet', 'full'
+  const [zoomScale, setZoomScale] = useState(1); // 1, 1.15, 1.25
+  const [mobileTab, setMobileTab] = useState('preview'); // 'preview', 'params'
   const [sendingTest, setSendingTest] = useState(false);
   const [copied, setCopied] = useState(false);
 
@@ -122,6 +128,8 @@ export default function EmailPreviewPage() {
     studio_newsletter: BookOpen
   };
 
+  const isMobileMode = viewport === 'mobile' || viewport === 'mobile_compact';
+
   return (
     <div className="min-h-screen bg-[#F5F5F7] text-[#1D1D1F] pt-24 pb-20 px-4 sm:px-6 lg:px-8 font-vietnam">
       <div className="max-w-[1540px] mx-auto">
@@ -136,7 +144,7 @@ export default function EmailPreviewPage() {
               Expanded Dynamic Email Templates
             </h1>
             <p className="mt-1 text-sm text-[#86868B] max-w-2xl">
-              Spacious full-width layouts (760px) featuring the original Devorica logo. 100% dynamic HTML email suite compatible with Apple Mail, Gmail, and Outlook.
+              Spacious full-width desktop view (760px) paired with an authentic, edge-to-edge flagship mobile device experience. 100% dynamic HTML email suite compatible with Apple Mail, Gmail, and Outlook.
             </p>
           </div>
 
@@ -189,16 +197,52 @@ export default function EmailPreviewPage() {
           })}
         </div>
 
+        {/* Mobile View Tab Switcher (Visible on Screens Below XL) */}
+        <div className="flex xl:hidden items-center p-1 bg-white rounded-xl border border-[#E5E5EA] shadow-xs mt-6 mb-2">
+          <button
+            onClick={() => setMobileTab('preview')}
+            className={`flex-1 py-2.5 text-xs font-semibold rounded-lg transition flex items-center justify-center gap-2 ${
+              mobileTab === 'preview'
+                ? 'bg-[#111111] text-white shadow-xs'
+                : 'text-[#86868B] hover:text-[#111111]'
+            }`}
+          >
+            <Mail className="w-3.5 h-3.5" />
+            Live Email View
+          </button>
+          <button
+            onClick={() => setMobileTab('params')}
+            className={`flex-1 py-2.5 text-xs font-semibold rounded-lg transition flex items-center justify-center gap-2 ${
+              mobileTab === 'params'
+                ? 'bg-[#111111] text-white shadow-xs'
+                : 'text-[#86868B] hover:text-[#111111]'
+            }`}
+          >
+            <Sparkles className="w-3.5 h-3.5" />
+            Edit Parameters
+          </button>
+        </div>
+
         {/* Main Workspace: Left Controls & Right Preview */}
-        <div className="grid grid-cols-1 xl:grid-cols-[380px_1fr] gap-8 mt-8">
+        <div className="grid grid-cols-1 xl:grid-cols-[380px_1fr] gap-8 mt-6">
           {/* Left Controls Column */}
-          <div className="flex flex-col gap-6">
+          <div className={`flex flex-col gap-6 ${mobileTab === 'params' ? 'flex' : 'hidden xl:flex'}`}>
             {/* Viewport Selector */}
             <div className="bg-white rounded-2xl p-5 border border-[#E5E5EA] shadow-sm">
-              <label className="block text-xs font-semibold text-[#86868B] uppercase tracking-wider mb-3">
-                Preview Canvas Viewport
-              </label>
-              <div className="grid grid-cols-3 gap-2">
+              <div className="flex items-center justify-between mb-3">
+                <label className="text-xs font-semibold text-[#86868B] uppercase tracking-wider">
+                  Preview Canvas Viewport
+                </label>
+                <span className="text-[11px] font-medium text-[#0071E3]">
+                  {viewport === 'desktop' && 'Windows / Desktop (760px)'}
+                  {viewport === 'mobile' && 'Flagship Phone (412px)'}
+                  {viewport === 'mobile_compact' && 'Compact Phone (375px)'}
+                  {viewport === 'tablet' && 'Tablet View (680px)'}
+                  {viewport === 'full' && 'Fluid Full Width'}
+                </span>
+              </div>
+              
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                 <button
                   onClick={() => setViewport('desktop')}
                   className={`flex items-center justify-center gap-1.5 py-2 px-2.5 rounded-xl text-xs font-medium border transition ${
@@ -208,11 +252,44 @@ export default function EmailPreviewPage() {
                   }`}
                 >
                   <Monitor className="w-3.5 h-3.5" />
-                  Standard (760px)
+                  Windows (760px)
+                </button>
+                <button
+                  onClick={() => setViewport('mobile')}
+                  className={`flex items-center justify-center gap-1.5 py-2 px-2.5 rounded-xl text-xs font-medium border transition ${
+                    viewport === 'mobile'
+                      ? 'bg-[#0071E3] text-white border-[#0071E3]'
+                      : 'bg-white text-[#1D1D1F] border-[#E5E5EA] hover:bg-[#F9F9FB]'
+                  }`}
+                >
+                  <Smartphone className="w-3.5 h-3.5" />
+                  Mobile (412px)
+                </button>
+                <button
+                  onClick={() => setViewport('mobile_compact')}
+                  className={`flex items-center justify-center gap-1.5 py-2 px-2.5 rounded-xl text-xs font-medium border transition ${
+                    viewport === 'mobile_compact'
+                      ? 'bg-[#111111] text-white border-[#111111]'
+                      : 'bg-white text-[#1D1D1F] border-[#E5E5EA] hover:bg-[#F9F9FB]'
+                  }`}
+                >
+                  <Smartphone className="w-3.5 h-3.5 opacity-70" />
+                  Compact (375px)
+                </button>
+                <button
+                  onClick={() => setViewport('tablet')}
+                  className={`flex items-center justify-center gap-1.5 py-2 px-2.5 rounded-xl text-xs font-medium border transition ${
+                    viewport === 'tablet'
+                      ? 'bg-[#111111] text-white border-[#111111]'
+                      : 'bg-white text-[#1D1D1F] border-[#E5E5EA] hover:bg-[#F9F9FB]'
+                  }`}
+                >
+                  <Tablet className="w-3.5 h-3.5" />
+                  Tablet (680px)
                 </button>
                 <button
                   onClick={() => setViewport('full')}
-                  className={`flex items-center justify-center gap-1.5 py-2 px-2.5 rounded-xl text-xs font-medium border transition ${
+                  className={`col-span-2 sm:col-span-1 flex items-center justify-center gap-1.5 py-2 px-2.5 rounded-xl text-xs font-medium border transition ${
                     viewport === 'full'
                       ? 'bg-[#111111] text-white border-[#111111]'
                       : 'bg-white text-[#1D1D1F] border-[#E5E5EA] hover:bg-[#F9F9FB]'
@@ -221,18 +298,36 @@ export default function EmailPreviewPage() {
                   <Maximize2 className="w-3.5 h-3.5" />
                   Full Width
                 </button>
-                <button
-                  onClick={() => setViewport('mobile')}
-                  className={`flex items-center justify-center gap-1.5 py-2 px-2.5 rounded-xl text-xs font-medium border transition ${
-                    viewport === 'mobile'
-                      ? 'bg-[#111111] text-white border-[#111111]'
-                      : 'bg-white text-[#1D1D1F] border-[#E5E5EA] hover:bg-[#F9F9FB]'
-                  }`}
-                >
-                  <Smartphone className="w-3.5 h-3.5" />
-                  Mobile (375px)
-                </button>
               </div>
+
+              {/* Mobile Magnification / Zoom Control */}
+              {isMobileMode && (
+                <div className="mt-4 pt-3 border-t border-[#F2F2F7] flex items-center justify-between">
+                  <div className="flex items-center gap-1.5 text-xs text-[#86868B]">
+                    <ZoomIn className="w-3.5 h-3.5 text-[#0071E3]" />
+                    <span>Mobile Screen Scale:</span>
+                  </div>
+                  <div className="flex items-center gap-1 bg-[#F2F2F7] p-1 rounded-lg">
+                    {[
+                      { label: '100%', val: 1 },
+                      { label: '115%', val: 1.15 },
+                      { label: '125%', val: 1.25 }
+                    ].map((opt) => (
+                      <button
+                        key={opt.val}
+                        onClick={() => setZoomScale(opt.val)}
+                        className={`text-[11px] font-semibold px-2 py-0.5 rounded-md transition ${
+                          zoomScale === opt.val
+                            ? 'bg-white text-[#111111] shadow-xs'
+                            : 'text-[#86868B] hover:text-[#111111]'
+                        }`}
+                      >
+                        {opt.label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
 
             {/* Dynamic Parameters Editor */}
@@ -523,38 +618,111 @@ export default function EmailPreviewPage() {
           </div>
 
           {/* Right Live Preview Canvas */}
-          <div className="flex flex-col items-center w-full">
+          <div className={`flex flex-col items-center w-full overflow-x-auto pb-8 ${mobileTab === 'preview' ? 'flex' : 'hidden xl:flex'}`}>
             <div
+              style={{
+                transform: isMobileMode && zoomScale !== 1 ? `scale(${zoomScale})` : 'none',
+                transformOrigin: 'top center',
+                transition: 'transform 0.2s ease-in-out'
+              }}
               className={`w-full transition-all duration-300 ${
                 viewport === 'mobile'
+                  ? 'max-w-[430px]'
+                  : viewport === 'mobile_compact'
                   ? 'max-w-[395px]'
+                  : viewport === 'tablet'
+                  ? 'max-w-[700px]'
                   : viewport === 'full'
                   ? 'w-full max-w-none'
                   : 'max-w-[840px]'
               }`}
             >
-              {/* Mail Client Chrome Header */}
-              <div className="bg-[#E5E5EA] rounded-t-2xl px-5 py-3.5 flex items-center justify-between border-b border-[#D1D1D6]">
-                <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 rounded-full bg-[#FF5F56]" />
-                  <div className="w-3 h-3 rounded-full bg-[#FFBD2E]" />
-                  <div className="w-3 h-3 rounded-full bg-[#27C93F]" />
-                </div>
-                <div className="text-xs font-medium text-[#636366] flex items-center gap-1.5">
-                  <Mail className="w-3.5 h-3.5" />
-                  {currentTemplate.name} &bull; Width: {viewport === 'mobile' ? '375px' : viewport === 'full' ? 'Fluid Full' : '760px'}
-                </div>
-                <div className="w-12" />
-              </div>
+              {isMobileMode ? (
+                /* Authentic Flagship iPhone Device Frame */
+                <div className="w-full bg-transparent sm:bg-[#1C1C1E] sm:rounded-[50px] p-0 sm:p-3.5 shadow-none sm:shadow-2xl sm:ring-1 sm:ring-white/10 relative">
+                  {/* Outer Bezel Volume Buttons & Power Indentations (desktop/tablet only) */}
+                  <div className="hidden sm:block absolute -left-[3px] top-28 w-[3px] h-12 bg-[#2C2C2E] rounded-l-sm" />
+                  <div className="hidden sm:block absolute -left-[3px] top-44 w-[3px] h-12 bg-[#2C2C2E] rounded-l-sm" />
+                  <div className="hidden sm:block absolute -right-[3px] top-36 w-[3px] h-16 bg-[#2C2C2E] rounded-r-sm" />
 
-              {/* Iframe Viewport Container */}
-              <div className="bg-white rounded-b-2xl border border-t-0 border-[#E5E5EA] overflow-hidden shadow-xl min-h-[820px]">
-                <iframe
-                  title="Devorica Email Preview"
-                  srcDoc={renderedEmail.html}
-                  className="w-full h-[880px] border-none"
-                />
-              </div>
+                  {/* Glass Screen */}
+                  <div className="bg-[#F5F5F7] rounded-2xl sm:rounded-[38px] overflow-hidden flex flex-col relative border border-[#E5E5EA] sm:border-[#2C2C2E]/30 shadow-sm sm:shadow-none">
+                    {/* iOS Top Status Bar with Dynamic Island */}
+                    <div className="bg-[#F5F5F7] px-6 pt-3 pb-1.5 flex items-center justify-between text-[11px] font-semibold text-[#1C1C1E] select-none relative z-10 border-b border-[#E5E5EA]/60">
+                      <span className="font-mono">9:41</span>
+                      
+                      {/* Dynamic Island Capsule */}
+                      <div className="w-24 h-[20px] bg-black rounded-full flex items-center justify-between px-2.5 mx-auto shadow-xs">
+                        <div className="w-2 h-2 rounded-full bg-[#1A1A1A] flex items-center justify-center">
+                          <div className="w-1 h-1 rounded-full bg-[#0369a1]" />
+                        </div>
+                        <div className="w-2 h-2 rounded-full bg-[#052e16] flex items-center justify-center">
+                          <div className="w-1 h-1 rounded-full bg-[#22c55e] animate-pulse" />
+                        </div>
+                      </div>
+
+                      <div className="flex items-center gap-1.5 text-[10px] text-[#3C3C43]">
+                        <span className="font-semibold">5G</span>
+                        <Wifi className="w-3 h-3 text-[#1C1C1E]" />
+                        <BatteryMedium className="w-3.5 h-3.5 text-[#30D158]" />
+                      </div>
+                    </div>
+
+                    {/* iOS Mail App Header Navigation */}
+                    <div className="bg-[#FFFFFF]/90 backdrop-blur-md border-b border-[#E5E5EA] px-4 py-2 flex items-center justify-between text-xs text-[#86868B] select-none">
+                      <span className="text-[#0071E3] font-medium flex items-center gap-0.5">
+                        &lsaquo; Mailboxes
+                      </span>
+                      <span className="font-semibold text-[#111111] text-xs max-w-[170px] truncate">
+                        {currentTemplate.name}
+                      </span>
+                      <span className="text-[#0071E3] font-medium text-xs">
+                        Archive
+                      </span>
+                    </div>
+
+                    {/* Mobile Iframe Viewport Container */}
+                    <div className="bg-[#F5F5F7] min-h-[720px]">
+                      <iframe
+                        title="Devorica Email Mobile Preview"
+                        srcDoc={renderedEmail.html}
+                        className="w-full h-[750px] border-none bg-transparent"
+                      />
+                    </div>
+
+                    {/* iOS Bottom Home Indicator Bar */}
+                    <div className="bg-[#F5F5F7] py-2 flex items-center justify-center select-none border-t border-[#E5E5EA]/50">
+                      <div className="w-32 h-1 bg-[#1C1C1E]/30 rounded-full" />
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                /* Desktop / Tablet / Full-Width Mail Client Window */
+                <div>
+                  {/* Mail Client Chrome Header */}
+                  <div className="bg-[#E5E5EA] rounded-t-2xl px-5 py-3.5 flex items-center justify-between border-b border-[#D1D1D6]">
+                    <div className="flex items-center gap-2">
+                      <div className="w-3 h-3 rounded-full bg-[#FF5F56]" />
+                      <div className="w-3 h-3 rounded-full bg-[#FFBD2E]" />
+                      <div className="w-3 h-3 rounded-full bg-[#27C93F]" />
+                    </div>
+                    <div className="text-xs font-medium text-[#636366] flex items-center gap-1.5">
+                      <Mail className="w-3.5 h-3.5" />
+                      {currentTemplate.name} &bull; Width: {viewport === 'tablet' ? '680px' : viewport === 'full' ? 'Fluid 100%' : '760px'}
+                    </div>
+                    <div className="w-12" />
+                  </div>
+
+                  {/* Iframe Viewport Container */}
+                  <div className="bg-white rounded-b-2xl border border-t-0 border-[#E5E5EA] overflow-hidden shadow-xl min-h-[820px]">
+                    <iframe
+                      title="Devorica Email Desktop Preview"
+                      srcDoc={renderedEmail.html}
+                      className="w-full h-[880px] border-none"
+                    />
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>

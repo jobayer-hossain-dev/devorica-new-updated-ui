@@ -2,7 +2,7 @@
  * Apple-grade Email Templates for Devorica AI Product Studio
  * Derived from MCP design patterns (Ticket Confirmation, Email Draft, Contact Card, Apple Design).
  * Fully responsive across Apple Mail (iOS / macOS), Gmail, Outlook, Yahoo Mail.
- * Expansive full-width layout (max-width: 760px) with original Devorica logos.
+ * Expansive full-width layout (max-width: 760px) on desktop with edge-to-edge mobile optimization.
  * Zero middle dashes used in copy.
  */
 
@@ -18,6 +18,71 @@ function escapeHtml(str) {
 
 const DEFAULT_LOGO_LIGHT = 'https://devorica.com/devorica-logo.png';
 const DEFAULT_LOGO_DARK = 'https://devorica.com/brand/devorica-white-logo-tight.png';
+
+const COMMON_RESPONSIVE_CSS = `
+    @media only screen and (max-width: 640px) {
+      body {
+        padding: 8px 4px !important;
+        margin: 0 !important;
+      }
+      .email-wrapper {
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+      .apple-card, .card {
+        width: 100% !important;
+        max-width: 100% !important;
+        border-radius: 16px !important;
+      }
+      .mobile-padding {
+        padding: 24px 16px 20px 16px !important;
+      }
+      .mobile-inner-padding {
+        padding: 16px 14px !important;
+      }
+      .mobile-inner-padding table td:first-child {
+        width: 36% !important;
+        white-space: nowrap !important;
+        padding-right: 10px !important;
+        font-size: 13px !important;
+      }
+      .mobile-inner-padding table td:last-child {
+        font-size: 14px !important;
+        word-break: break-word !important;
+      }
+      .mobile-heading {
+        font-size: 23px !important;
+        line-height: 1.3 !important;
+        margin-top: 14px !important;
+        margin-bottom: 12px !important;
+      }
+      .mobile-body-text {
+        font-size: 14px !important;
+        line-height: 1.6 !important;
+        margin-bottom: 22px !important;
+      }
+      .primary-btn, .secondary-btn, .join-btn, .btn, .read-btn, .reply-btn {
+        display: block !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        text-align: center !important;
+        margin-bottom: 10px !important;
+        padding: 15px 20px !important;
+        font-size: 14px !important;
+        font-weight: 600 !important;
+        border-radius: 9999px !important;
+      }
+      .stack-column {
+        display: block !important;
+        width: 100% !important;
+        padding: 0 !important;
+      }
+      .stack-spacer {
+        display: none !important;
+        height: 0 !important;
+      }
+    }
+`;
 
 /* =========================================================================
    TEMPLATE 1: CLIENT INQUIRY CONFIRMATION (Receipt Style)
@@ -103,19 +168,15 @@ export function renderClientReceiptEmail({
       letter-spacing: -0.01em;
       text-decoration: none;
     }
-    @media only screen and (max-width: 640px) {
-      .mobile-padding { padding: 28px 20px !important; }
-      .stack-column { display: block !important; width: 100% !important; }
-      .stack-spacer { height: 12px !important; }
-    }
+    ${COMMON_RESPONSIVE_CSS}
   </style>
 </head>
-<body style="margin: 0; padding: 40px 16px; background-color: #F5F5F7;">
+<body style="margin: 0; padding: 36px 12px; background-color: #F5F5F7;">
   <center>
-    <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 760px; margin: 0 auto;">
+    <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="email-wrapper" style="width: 100%; max-width: 760px; margin: 0 auto;">
       <!-- Brand Header with Original Devorica Logo -->
       <tr>
-        <td style="padding: 0 0 28px 0; text-align: center;">
+        <td style="padding: 0 0 24px 0; text-align: center;">
           <a href="https://devorica.com" target="_blank" style="display: inline-block; text-decoration: none;">
             <img src="${safeLogo}" alt="Devorica" width="176" style="display: block; width: 176px; max-width: 100%; height: auto; border: 0; outline: none; margin: 0 auto;" />
           </a>
@@ -137,18 +198,18 @@ export function renderClientReceiptEmail({
                 </span>
 
                 <!-- Main Greeting -->
-                <h1 style="margin: 22px 0 12px 0; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Switzer', sans-serif; font-size: 28px; font-weight: 600; line-height: 1.25; letter-spacing: -0.03em; color: #111111;">
+                <h1 class="mobile-heading" style="margin: 22px 0 12px 0; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Switzer', sans-serif; font-size: 28px; font-weight: 600; line-height: 1.25; letter-spacing: -0.03em; color: #111111;">
                   We have received your project details, ${safeName}.
                 </h1>
-                <p style="margin: 0 0 32px 0; font-size: 16px; line-height: 1.6; color: #6E6E73;">
+                <p class="mobile-body-text" style="margin: 0 0 32px 0; font-size: 16px; line-height: 1.6; color: #6E6E73;">
                   Thank you for reaching out to Devorica. Our senior technical architects are reviewing your project requirements, tech stack feasibility, and release timeline.
                 </p>
 
                 <!-- Project Snapshot Card -->
                 <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #FAFAFC; border: 1px solid #E5E5EA; border-radius: 16px; margin-bottom: 32px;">
                   <tr>
-                    <td style="padding: 24px 28px;">
-                      <div style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #86868B; margin-bottom: 18px;">
+                    <td class="mobile-inner-padding" style="padding: 24px 28px;">
+                      <div style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #86868B; margin-bottom: 16px;">
                         Submission Summary
                       </div>
                       <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
@@ -170,9 +231,9 @@ export function renderClientReceiptEmail({
                         </tr>
                         ${safeMessage ? `
                         <tr>
-                          <td colspan="2" style="padding-top: 18px;">
+                          <td colspan="2" style="padding-top: 16px;">
                             <div style="font-size: 12px; font-weight: 500; color: #86868B; margin-bottom: 6px;">Your Project Note:</div>
-                            <div style="font-size: 14px; line-height: 1.6; color: #1D1D1F; background: #FFFFFF; border: 1px solid #EBEBF0; border-radius: 10px; padding: 14px 18px;">
+                            <div style="font-size: 14px; line-height: 1.6; color: #1D1D1F; background: #FFFFFF; border: 1px solid #EBEBF0; border-radius: 10px; padding: 14px 16px;">
                               "${safeMessage}"
                             </div>
                           </td>
@@ -218,15 +279,15 @@ export function renderClientReceiptEmail({
                 <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
                   <tr>
                     <td align="center" style="padding-bottom: 28px;">
-                      <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                      <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
                         <tr>
-                          <td class="stack-column" align="center" style="padding: 0 8px;">
+                          <td class="stack-column" align="center" style="padding: 0 6px;">
                             <a href="https://calendly.com" target="_blank" class="primary-btn">
                               Schedule a Discovery Call
                             </a>
                           </td>
-                          <td class="stack-spacer" height="0" width="0"></td>
-                          <td class="stack-column" align="center" style="padding: 0 8px;">
+                          <td class="stack-spacer" height="0" width="12"></td>
+                          <td class="stack-column" align="center" style="padding: 0 6px;">
                             <a href="https://wa.me/8801968819448" target="_blank" class="secondary-btn">
                               Chat on WhatsApp
                             </a>
@@ -239,7 +300,7 @@ export function renderClientReceiptEmail({
 
                 <!-- Divider -->
                 <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
-                  <tr><td style="border-top: 1px solid #E5E5EA; padding-top: 28px;"></td></tr>
+                  <tr><td style="border-top: 1px solid #E5E5EA; padding-top: 24px;"></td></tr>
                 </table>
 
                 <!-- Founder Sign-off -->
@@ -262,7 +323,7 @@ export function renderClientReceiptEmail({
 
       <!-- Footer -->
       <tr>
-        <td style="padding: 28px 16px 0 16px; text-align: center;">
+        <td style="padding: 24px 12px 0 12px; text-align: center;">
           <p style="margin: 0; font-size: 12px; line-height: 1.6; color: #86868B;">
             Devorica AI Product Studio &bull; High Performance Engineering &amp; AI Integration
           </p>
@@ -359,14 +420,12 @@ export function renderAdminNotificationEmail({
       border-radius: 9999px;
       text-decoration: none;
     }
-    @media only screen and (max-width: 640px) {
-      .mobile-padding { padding: 28px 20px !important; }
-    }
+    ${COMMON_RESPONSIVE_CSS}
   </style>
 </head>
-<body style="margin: 0; padding: 40px 16px; background-color: #0A0A0A;">
+<body style="margin: 0; padding: 36px 12px; background-color: #0A0A0A;">
   <center>
-    <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 760px; margin: 0 auto;">
+    <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="email-wrapper" style="width: 100%; max-width: 760px; margin: 0 auto;">
       <!-- Header Row with Original White Devorica Logo -->
       <tr>
         <td style="padding-bottom: 24px;">
@@ -396,7 +455,7 @@ export function renderAdminNotificationEmail({
                 <div style="font-size: 12px; color: #8E8E93; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px;">
                   Reference: ${safeRef}
                 </div>
-                <h1 style="margin: 0 0 8px 0; font-size: 26px; font-weight: 600; color: #FFFFFF; letter-spacing: -0.02em;">
+                <h1 class="mobile-heading" style="margin: 0 0 8px 0; font-size: 26px; font-weight: 600; color: #FFFFFF; letter-spacing: -0.02em;">
                   ${safeName}
                 </h1>
                 <div style="font-size: 15px; color: #0071E3; margin-bottom: 28px;">
@@ -406,7 +465,7 @@ export function renderAdminNotificationEmail({
                 <!-- Snapshot Table -->
                 <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #1C1C1E; border: 1px solid #2C2C2E; border-radius: 14px; margin-bottom: 28px;">
                   <tr>
-                    <td style="padding: 20px 24px;">
+                    <td class="mobile-inner-padding" style="padding: 20px 24px;">
                       <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
                         <tr>
                           <td style="padding: 8px 0; font-size: 13px; color: #8E8E93; width: 34%;">Service</td>
@@ -523,6 +582,8 @@ export function renderStrategyCallInviteEmail({
       font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Switzer", "Helvetica Neue", sans-serif;
       color: #1D1D1F;
     }
+    table { border-collapse: separate; }
+    a { color: #0071E3; text-decoration: none; }
     .card { background-color: #FFFFFF; border: 1px solid #E5E5EA; border-radius: 20px; }
     .join-btn {
       display: inline-block;
@@ -534,17 +595,15 @@ export function renderStrategyCallInviteEmail({
       border-radius: 9999px;
       text-decoration: none;
     }
-    @media only screen and (max-width: 640px) {
-      .mobile-padding { padding: 28px 20px !important; }
-    }
+    ${COMMON_RESPONSIVE_CSS}
   </style>
 </head>
-<body style="margin: 0; padding: 40px 16px; background-color: #F5F5F7;">
+<body style="margin: 0; padding: 36px 12px; background-color: #F5F5F7;">
   <center>
-    <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 760px; margin: 0 auto;">
+    <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="email-wrapper" style="width: 100%; max-width: 760px; margin: 0 auto;">
       <!-- Logo Header -->
       <tr>
-        <td style="padding: 0 0 28px 0; text-align: center;">
+        <td style="padding: 0 0 24px 0; text-align: center;">
           <a href="https://devorica.com" target="_blank" style="display: inline-block; text-decoration: none;">
             <img src="${safeLogo}" alt="Devorica" width="176" style="display: block; width: 176px; max-width: 100%; height: auto; border: 0; margin: 0 auto;" />
           </a>
@@ -563,17 +622,17 @@ export function renderStrategyCallInviteEmail({
                   Confirmed Strategy Session
                 </span>
 
-                <h1 style="margin: 22px 0 12px 0; font-size: 26px; font-weight: 600; color: #111111; letter-spacing: -0.02em;">
+                <h1 class="mobile-heading" style="margin: 22px 0 12px 0; font-size: 26px; font-weight: 600; color: #111111; letter-spacing: -0.02em;">
                   Your 30-Minute Architecture Call is Ready, ${safeName}
                 </h1>
-                <p style="margin: 0 0 32px 0; font-size: 16px; line-height: 1.6; color: #6E6E73;">
+                <p class="mobile-body-text" style="margin: 0 0 32px 0; font-size: 16px; line-height: 1.6; color: #6E6E73;">
                   We are excited to discuss your <strong>${safeService}</strong>. During this session, our senior architects will analyze your product specs and outline the fastest path to production.
                 </p>
 
                 <!-- Meeting Calendar Card -->
                 <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #FAFAFC; border: 1px solid #E5E5EA; border-radius: 16px; margin-bottom: 32px;">
                   <tr>
-                    <td style="padding: 24px 28px;">
+                    <td class="mobile-inner-padding" style="padding: 24px 28px;">
                       <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
                         <tr>
                           <td style="padding: 8px 0; font-size: 14px; color: #86868B; width: 30%;">Date</td>
@@ -629,7 +688,7 @@ export function renderStrategyCallInviteEmail({
       </tr>
 
       <tr>
-        <td style="padding: 28px 16px 0 16px; text-align: center; font-size: 12px; color: #86868B;">
+        <td style="padding: 24px 12px 0 12px; text-align: center; font-size: 12px; color: #86868B;">
           Devorica AI Product Studio &bull; High Performance Engineering
         </td>
       </tr>
@@ -701,6 +760,8 @@ export function renderProjectProposalEmail({
       font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Switzer", "Helvetica Neue", sans-serif;
       color: #1D1D1F;
     }
+    table { border-collapse: separate; }
+    a { color: #0071E3; text-decoration: none; }
     .card { background-color: #FFFFFF; border: 1px solid #E5E5EA; border-radius: 20px; }
     .btn {
       display: inline-block;
@@ -712,17 +773,15 @@ export function renderProjectProposalEmail({
       border-radius: 9999px;
       text-decoration: none;
     }
-    @media only screen and (max-width: 640px) {
-      .mobile-padding { padding: 28px 20px !important; }
-    }
+    ${COMMON_RESPONSIVE_CSS}
   </style>
 </head>
-<body style="margin: 0; padding: 40px 16px; background-color: #F5F5F7;">
+<body style="margin: 0; padding: 36px 12px; background-color: #F5F5F7;">
   <center>
-    <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 760px; margin: 0 auto;">
+    <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="email-wrapper" style="width: 100%; max-width: 760px; margin: 0 auto;">
       <!-- Logo Header -->
       <tr>
-        <td style="padding: 0 0 28px 0; text-align: center;">
+        <td style="padding: 0 0 24px 0; text-align: center;">
           <a href="https://devorica.com" target="_blank" style="display: inline-block; text-decoration: none;">
             <img src="${safeLogo}" alt="Devorica" width="176" style="display: block; width: 176px; max-width: 100%; height: auto; border: 0; margin: 0 auto;" />
           </a>
@@ -741,17 +800,17 @@ export function renderProjectProposalEmail({
                   Proposal &bull; ${safeProject}
                 </span>
 
-                <h1 style="margin: 22px 0 12px 0; font-size: 26px; font-weight: 600; color: #111111;">
+                <h1 class="mobile-heading" style="margin: 22px 0 12px 0; font-size: 26px; font-weight: 600; color: #111111;">
                   Project Architecture &amp; Milestone Plan
                 </h1>
-                <p style="margin: 0 0 28px 0; font-size: 15px; line-height: 1.6; color: #6E6E73;">
+                <p class="mobile-body-text" style="margin: 0 0 28px 0; font-size: 15px; line-height: 1.6; color: #6E6E73;">
                   Hello ${safeName}, our senior engineering team has synthesized your requirements into a production roadmap. Here is the formal executive summary.
                 </p>
 
                 <!-- Scope Details Table -->
                 <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #FAFAFC; border: 1px solid #E5E5EA; border-radius: 16px; margin-bottom: 28px;">
                   <tr>
-                    <td style="padding: 24px 28px;">
+                    <td class="mobile-inner-padding" style="padding: 24px 28px;">
                       <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
                         <tr>
                           <td style="padding: 8px 0; font-size: 14px; color: #86868B; width: 34%;">Project Name</td>
@@ -805,7 +864,7 @@ export function renderProjectProposalEmail({
       </tr>
 
       <tr>
-        <td style="padding: 28px 16px 0 16px; text-align: center; font-size: 12px; color: #86868B;">
+        <td style="padding: 24px 12px 0 12px; text-align: center; font-size: 12px; color: #86868B;">
           Devorica AI Product Studio &bull; Precision Software Delivery
         </td>
       </tr>
@@ -872,18 +931,18 @@ export function renderClientOnboardingEmail({
       font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Switzer", "Helvetica Neue", sans-serif;
       color: #1D1D1F;
     }
+    table { border-collapse: separate; }
+    a { color: #0071E3; text-decoration: none; }
     .card { background-color: #FFFFFF; border: 1px solid #E5E5EA; border-radius: 20px; }
-    @media only screen and (max-width: 640px) {
-      .mobile-padding { padding: 28px 20px !important; }
-    }
+    ${COMMON_RESPONSIVE_CSS}
   </style>
 </head>
-<body style="margin: 0; padding: 40px 16px; background-color: #F5F5F7;">
+<body style="margin: 0; padding: 36px 12px; background-color: #F5F5F7;">
   <center>
-    <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 760px; margin: 0 auto;">
+    <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="email-wrapper" style="width: 100%; max-width: 760px; margin: 0 auto;">
       <!-- Logo Header -->
       <tr>
-        <td style="padding: 0 0 28px 0; text-align: center;">
+        <td style="padding: 0 0 24px 0; text-align: center;">
           <a href="https://devorica.com" target="_blank" style="display: inline-block; text-decoration: none;">
             <img src="${safeLogo}" alt="Devorica" width="176" style="display: block; width: 176px; max-width: 100%; height: auto; border: 0; margin: 0 auto;" />
           </a>
@@ -902,17 +961,17 @@ export function renderClientOnboardingEmail({
                   Official Kickoff
                 </span>
 
-                <h1 style="margin: 22px 0 12px 0; font-size: 26px; font-weight: 600; color: #111111;">
+                <h1 class="mobile-heading" style="margin: 22px 0 12px 0; font-size: 26px; font-weight: 600; color: #111111;">
                   Welcome to Devorica, ${safeName}
                 </h1>
-                <p style="margin: 0 0 28px 0; font-size: 15px; line-height: 1.6; color: #6E6E73;">
+                <p class="mobile-body-text" style="margin: 0 0 28px 0; font-size: 15px; line-height: 1.6; color: #6E6E73;">
                   Your project <strong>${safeProject}</strong> is officially in production. Below are your dedicated team channels and workspace access points.
                 </p>
 
                 <!-- Kickoff Details -->
                 <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #FAFAFC; border: 1px solid #E5E5EA; border-radius: 16px; margin-bottom: 28px;">
                   <tr>
-                    <td style="padding: 24px 28px;">
+                    <td class="mobile-inner-padding" style="padding: 24px 28px;">
                       <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
                         <tr>
                           <td style="padding: 8px 0; font-size: 14px; color: #86868B; width: 34%;">Kickoff Date</td>
@@ -966,7 +1025,7 @@ export function renderClientOnboardingEmail({
       </tr>
 
       <tr>
-        <td style="padding: 28px 16px 0 16px; text-align: center; font-size: 12px; color: #86868B;">
+        <td style="padding: 24px 12px 0 12px; text-align: center; font-size: 12px; color: #86868B;">
           Devorica AI Product Studio &bull; Precision Software Delivery
         </td>
       </tr>
@@ -1037,6 +1096,8 @@ export function renderStudioNewsletterEmail({
       font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Switzer", "Helvetica Neue", sans-serif;
       color: #1D1D1F;
     }
+    table { border-collapse: separate; }
+    a { color: #0071E3; text-decoration: none; }
     .card { background-color: #FFFFFF; border: 1px solid #E5E5EA; border-radius: 20px; }
     .read-btn {
       display: inline-block;
@@ -1048,17 +1109,15 @@ export function renderStudioNewsletterEmail({
       border-radius: 9999px;
       text-decoration: none;
     }
-    @media only screen and (max-width: 640px) {
-      .mobile-padding { padding: 28px 20px !important; }
-    }
+    ${COMMON_RESPONSIVE_CSS}
   </style>
 </head>
-<body style="margin: 0; padding: 40px 16px; background-color: #F5F5F7;">
+<body style="margin: 0; padding: 36px 12px; background-color: #F5F5F7;">
   <center>
-    <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 760px; margin: 0 auto;">
+    <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="email-wrapper" style="width: 100%; max-width: 760px; margin: 0 auto;">
       <!-- Logo Header -->
       <tr>
-        <td style="padding: 0 0 28px 0; text-align: center;">
+        <td style="padding: 0 0 24px 0; text-align: center;">
           <a href="https://devorica.com" target="_blank" style="display: inline-block; text-decoration: none;">
             <img src="${safeLogo}" alt="Devorica" width="176" style="display: block; width: 176px; max-width: 100%; height: auto; border: 0; margin: 0 auto;" />
           </a>
@@ -1079,11 +1138,11 @@ export function renderStudioNewsletterEmail({
                   </span>
                 </div>
 
-                <h1 style="margin: 0 0 16px 0; font-size: 26px; font-weight: 600; color: #111111; line-height: 1.3;">
+                <h1 class="mobile-heading" style="margin: 0 0 16px 0; font-size: 26px; font-weight: 600; color: #111111; line-height: 1.3;">
                   ${safeTitle}
                 </h1>
 
-                <p style="margin: 0 0 28px 0; font-size: 15px; line-height: 1.6; color: #48484A;">
+                <p class="mobile-body-text" style="margin: 0 0 28px 0; font-size: 15px; line-height: 1.6; color: #48484A;">
                   ${safeSummary}
                 </p>
 
@@ -1118,7 +1177,7 @@ export function renderStudioNewsletterEmail({
       </tr>
 
       <tr>
-        <td style="padding: 28px 16px 0 16px; text-align: center; font-size: 12px; color: #86868B;">
+        <td style="padding: 24px 12px 0 12px; text-align: center; font-size: 12px; color: #86868B;">
           Devorica AI Product Studio &bull; You received this because you are subscribed to Devorica Insights.
         </td>
       </tr>
