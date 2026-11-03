@@ -80,12 +80,11 @@ export default function HomePage({ onOpenProjectRequest, onOpenCalendly }) {
   }, [displayedText, isDeleting, wordIdx]);
 
   const heroMarqueeLogos = [
-    { name: 'Bikkhipto', src: '/portfolio/client-bikkhipto.svg' },
-    { name: 'Bayloz', src: '/portfolio/client-bayloz.svg' },
-    { name: 'Fathom AI', src: '/portfolio/client-fathom.svg' },
-    { name: 'EasySub BD', src: '/portfolio/client-easysub.svg' },
-    { name: 'Maertens Studio', src: '/portfolio/client-maertens.svg' },
-    { name: 'Lumina AI', src: '/portfolio/client-lumina.svg' }
+    { name: 'Bikkhipto', src: '/portfolio/client-bikkhipto.webp' },
+    { name: 'Bayloz', src: '/portfolio/client-bayloz.webp' },
+    { name: 'EasySub', src: '/portfolio/client-easysub.webp' },
+    { name: 'TR Fashion', src: '/portfolio/client-tr-fashion.webp' },
+    { name: 'Triple Minds', src: '/portfolio/client-triple-minds.webp' }
   ];
 
   const services = [
@@ -324,8 +323,8 @@ export default function HomePage({ onOpenProjectRequest, onOpenCalendly }) {
               <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-24 bg-gradient-to-l from-white to-transparent"></div>
 
               <div className="flex items-center gap-12 w-max shrink-0 animate-marquee">
-                {[...heroMarqueeLogos, ...heroMarqueeLogos].map((logo, idx) => (
-                  <div key={idx} className="mx-6 flex h-8 w-auto min-w-[120px] max-w-[160px] shrink-0 items-center justify-center opacity-85 hover:opacity-100 transition-opacity duration-200">
+                {[...heroMarqueeLogos, ...heroMarqueeLogos, ...heroMarqueeLogos].map((logo, idx) => (
+                  <div key={idx} className="mx-6 flex h-8 sm:h-9 w-auto max-w-[150px] shrink-0 items-center justify-center opacity-90 hover:opacity-100 transition-opacity duration-200">
                     <img
                       src={logo.src}
                       alt={`${logo.name} logo`}
@@ -341,8 +340,8 @@ export default function HomePage({ onOpenProjectRequest, onOpenCalendly }) {
               <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-8 bg-gradient-to-r from-white to-transparent"></div>
               <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-8 bg-gradient-to-l from-white to-transparent"></div>
               <div className="flex items-center gap-8 w-max shrink-0 animate-marquee">
-                {[...heroMarqueeLogos, ...heroMarqueeLogos, ...heroMarqueeLogos].map((logo, idx) => (
-                  <div key={idx} className="mx-2 flex h-6 w-auto min-w-[95px] max-w-[130px] shrink-0 items-center justify-center opacity-85">
+                {[...heroMarqueeLogos, ...heroMarqueeLogos, ...heroMarqueeLogos, ...heroMarqueeLogos].map((logo, idx) => (
+                  <div key={idx} className="mx-3 flex h-6 sm:h-7 w-auto max-w-[120px] shrink-0 items-center justify-center opacity-90">
                     <img src={logo.src} alt="" className="h-full w-auto object-contain" />
                   </div>
                 ))}

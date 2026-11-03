@@ -2,12 +2,11 @@ import React from 'react';
 
 export function LogoMarquee({ showTrustLabel = false }) {
   const logos = [
-    { src: '/portfolio/client-bikkhipto.svg', alt: 'Bikkhipto' },
-    { src: '/portfolio/client-bayloz.svg', alt: 'Bayloz' },
-    { src: '/portfolio/client-fathom.svg', alt: 'Fathom AI' },
-    { src: '/portfolio/client-easysub.svg', alt: 'EasySub BD' },
-    { src: '/portfolio/client-maertens.svg', alt: 'Maertens Studio' },
-    { src: '/portfolio/client-lumina.svg', alt: 'Lumina AI' },
+    { src: '/portfolio/client-bikkhipto.webp', alt: 'Bikkhipto' },
+    { src: '/portfolio/client-bayloz.webp', alt: 'Bayloz' },
+    { src: '/portfolio/client-easysub.webp', alt: 'EasySub' },
+    { src: '/portfolio/client-tr-fashion.webp', alt: 'TR Fashion' },
+    { src: '/portfolio/client-triple-minds.webp', alt: 'Triple Minds' },
   ];
 
   return (
