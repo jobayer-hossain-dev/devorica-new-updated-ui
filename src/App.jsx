@@ -20,6 +20,7 @@ import BlogPostPage from './pages/BlogPostPage';
 import FAQPage from './pages/FAQPage';
 import CareerPage from './pages/CareerPage';
 import ContactPage from './pages/ContactPage';
+import EmailPreviewPage from './pages/EmailPreviewPage';
 import NotFoundPage from './pages/NotFoundPage';
 
 // Dynamic Title & Scroll to top on route change with Lenis integration
@@ -42,6 +43,7 @@ function PageRouteTracker() {
       '/career': 'Careers & Engineering Culture | Devorica',
       '/faq': 'Frequently Asked Questions | Devorica',
       '/contact': 'Book a Strategy Call | Devorica',
+      '/email-preview': 'Email Preview Studio | Devorica',
     };
 
     if (exactTitles[pathname]) {
@@ -68,7 +70,7 @@ export default function App() {
   const [projectModalOpen, setProjectModalOpen] = useState(false);
   const [calendlyModalOpen, setCalendlyModalOpen] = useState(false);
   const { pathname } = useLocation();
-  const knownExactPaths = new Set(['/', '/about', '/work', '/services', '/faq', '/blog', '/career', '/contact']);
+  const knownExactPaths = new Set(['/', '/about', '/work', '/services', '/faq', '/blog', '/career', '/contact', '/email-preview']);
   const isKnownNestedPath = /^\/(work|services|blog)\//.test(pathname);
   const isNotFoundPath = !knownExactPaths.has(pathname) && !isKnownNestedPath;
 
@@ -191,6 +193,7 @@ export default function App() {
               path="/contact"
               element={<ContactPage onOpenCalendly={() => setCalendlyModalOpen(true)} />}
             />
+            <Route path="/email-preview" element={<EmailPreviewPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </main>

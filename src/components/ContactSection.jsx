@@ -21,24 +21,56 @@ export default function ContactSection({ onOpenCalendly, compact = false }) {
   const budgetsRow1 = ['Under BDT 25k', 'BDT 25k to 50k', 'BDT 50k to 100k'];
   const budgetsRow2 = ['BDT 100k to 200k', 'BDT 200k+'];
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formState.fullName.trim() || !formState.email.trim()) {
       showToast('Please provide your name and email.', 'error');
       return;
     }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formState.email.trim())) {
+      showToast('Please provide a valid email address.', 'error');
+      return;
+    }
+
     setSubmitting(true);
-    setTimeout(() => {
-      setSubmitting(false);
-      showToast('Thank you! Your project inquiry has been received. Expect a reply within 2 hours.', 'success');
-      setFormState({
-        fullName: '',
-        email: '',
-        interest: '',
-        budget: '',
-        message: ''
+    try {
+      const response = await fetch('/api/send-mail', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          fullName: formState.fullName.trim(),
+          email: formState.email.trim(),
+          interest: formState.interest || 'General Product Inquiry',
+          budget: formState.budget || 'Not specified',
+          message: formState.message.trim(),
+          source: 'Contact Page Section'
+        })
       });
-    }, 900);
+
+      const result = await response.json().catch(() => ({}));
+
+      if (response.ok && result.success) {
+        showToast('Thank you! Your project inquiry has been received. Expect a reply within 2 hours.', 'success');
+        setFormState({
+          fullName: '',
+          email: '',
+          interest: '',
+          budget: '',
+          message: ''
+        });
+      } else {
+        showToast(result.error || 'Failed to submit inquiry. Please try again.', 'error');
+      }
+    } catch (err) {
+      console.error('Contact submission error:', err);
+      showToast('Network error while sending inquiry. Please check your connection or contact us at contact@devorica.com.', 'error');
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (

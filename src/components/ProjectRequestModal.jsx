@@ -47,18 +47,59 @@ export default function ProjectRequestModal({ isOpen, onClose }) {
     'BDT 200k+'
   ];
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!formData.fullName || !formData.email) {
+    if (!formData.fullName.trim() || !formData.email.trim()) {
       showToast('Please fill in your name and email.', 'error');
       return;
     }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email.trim())) {
+      showToast('Please provide a valid email address.', 'error');
+      return;
+    }
+
     setLoading(true);
-    setTimeout(() => {
+    try {
+      const response = await fetch('/api/send-mail', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          fullName: formData.fullName.trim(),
+          email: formData.email.trim(),
+          service: formData.service || 'AI MVP Launch',
+          budget: formData.budget || 'BDT 50k to 100k',
+          message: formData.message.trim(),
+          source: 'Project Request Modal'
+        })
+      });
+
+      const result = await response.json().catch(() => ({}));
+
+      if (response.ok && result.success) {
+        showToast('Project request submitted successfully! We will reach out within 2 hours.', 'success');
+        setFormData({
+          fullName: '',
+          email: '',
+          service: 'AI MVP Launch',
+          budget: 'BDT 50k to 100k',
+          message: ''
+        });
+        setTimeout(() => {
+          onClose();
+        }, 800);
+      } else {
+        showToast(result.error || 'Failed to submit request. Please try again.', 'error');
+      }
+    } catch (err) {
+      console.error('Project request submission error:', err);
+      showToast('Network error while sending request. Please contact us at contact@devorica.com.', 'error');
+    } finally {
       setLoading(false);
-      showToast('Project request submitted successfully! We will reach out within 2 hours.', 'success');
-      onClose();
-    }, 1000);
+    }
   };
 
   return (
