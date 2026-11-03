@@ -486,7 +486,7 @@ export default function EmailPreviewPage() {
                 </span>
               </div>
               <p className="text-xs text-[#AEAEB2] leading-relaxed">
-                All 6 email templates are completely dynamic, isolated, and testable. Triggering dispatches works through <code className="text-[#30D158]">/api/send-mail</code> in both simulation mode and live authenticated SMTP mode.
+                Configured for <code className="text-[#30D158]">mail.devorica.com</code> on port 465 (Secure SSL/TLS). Enter your email account password in <code className="text-[#30D158]">SMTP_PASS</code> in <code className="text-[#30D158]">.env</code> to activate live delivery.
               </p>
             </div>
           </div>

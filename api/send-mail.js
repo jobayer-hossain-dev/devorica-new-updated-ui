@@ -5,6 +5,12 @@ import {
   renderAdminNotificationEmail
 } from './emailTemplates.js';
 
+if (typeof process.loadEnvFile === 'function') {
+  try {
+    process.loadEnvFile();
+  } catch {}
+}
+
 /**
  * Parses request body for both Vercel Serverless environment and Vite dev server middleware
  */
@@ -50,15 +56,15 @@ function sendJsonResponse(res, statusCode, data) {
  * Checks if SMTP credentials are provided in environment
  */
 function getSmtpConfig() {
-  const host = process.env.SMTP_HOST;
-  const user = process.env.SMTP_USER;
+  const host = process.env.SMTP_HOST || 'mail.devorica.com';
+  const user = process.env.SMTP_USER || 'support@devorica.com';
   const pass = process.env.SMTP_PASS;
   const port = parseInt(process.env.SMTP_PORT || '465', 10);
   const secure = process.env.SMTP_SECURE === 'true' || port === 465;
 
-  const fromEmail = process.env.SMTP_FROM_EMAIL || user || 'contact@devorica.com';
+  const fromEmail = process.env.SMTP_FROM_EMAIL || user || 'support@devorica.com';
   const fromName = process.env.SMTP_FROM_NAME || 'Devorica AI Product Studio';
-  const adminEmail = process.env.ADMIN_NOTIFICATION_EMAIL || 'contact@devorica.com';
+  const adminEmail = process.env.ADMIN_NOTIFICATION_EMAIL || 'support@devorica.com';
 
   const isConfigured = Boolean(host && user && pass);
 
