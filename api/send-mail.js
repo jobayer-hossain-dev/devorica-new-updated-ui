@@ -1,3 +1,4 @@
+import fs from 'node:fs';
 import nodemailer from 'nodemailer';
 import {
   EMAIL_TEMPLATE_CATALOG,
@@ -5,10 +6,49 @@ import {
   renderAdminNotificationEmail
 } from './emailTemplates.js';
 
-if (typeof process.loadEnvFile === 'function') {
+function getFileEnv() {
   try {
-    process.loadEnvFile();
-  } catch {}
+    const content = fs.readFileSync('.env', 'utf-8');
+    const result = {};
+    for (const line of content.split(/\r?\n/)) {
+      const trimmed = line.trim();
+      if (!trimmed || trimmed.startsWith('#')) continue;
+      const idx = trimmed.indexOf('=');
+      if (idx !== -1) {
+        result[trimmed.slice(0, idx).trim()] = trimmed.slice(idx + 1).trim();
+      }
+    }
+    return result;
+  } catch {
+    return {};
+  }
+}
+
+function getSmtpConfig() {
+  const fileEnv = getFileEnv();
+  const host = process.env.SMTP_HOST || fileEnv.SMTP_HOST || 'mail.devorica.com';
+  const user = process.env.SMTP_USER || fileEnv.SMTP_USER || 'support@devorica.com';
+  const pass = process.env.SMTP_PASS || fileEnv.SMTP_PASS || '';
+  const port = parseInt(process.env.SMTP_PORT || fileEnv.SMTP_PORT || '465', 10);
+  const secure = (process.env.SMTP_SECURE || fileEnv.SMTP_SECURE) === 'true' || port === 465;
+
+  const fromEmail = process.env.SMTP_FROM_EMAIL || fileEnv.SMTP_FROM_EMAIL || user || 'support@devorica.com';
+  const fromName = process.env.SMTP_FROM_NAME || fileEnv.SMTP_FROM_NAME || 'Devorica AI Product Studio';
+  const adminEmail = process.env.ADMIN_NOTIFICATION_EMAIL || fileEnv.ADMIN_NOTIFICATION_EMAIL || 'support@devorica.com';
+
+  const isConfigured = Boolean(host && user && pass);
+
+  return {
+    isConfigured,
+    host,
+    port,
+    secure,
+    user,
+    pass,
+    fromEmail,
+    fromName,
+    adminEmail
+  };
 }
 
 /**
@@ -50,35 +90,6 @@ function sendJsonResponse(res, statusCode, data) {
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.end(JSON.stringify(data));
-}
-
-/**
- * Checks if SMTP credentials are provided in environment
- */
-function getSmtpConfig() {
-  const host = process.env.SMTP_HOST || 'mail.devorica.com';
-  const user = process.env.SMTP_USER || 'support@devorica.com';
-  const pass = process.env.SMTP_PASS;
-  const port = parseInt(process.env.SMTP_PORT || '465', 10);
-  const secure = process.env.SMTP_SECURE === 'true' || port === 465;
-
-  const fromEmail = process.env.SMTP_FROM_EMAIL || user || 'support@devorica.com';
-  const fromName = process.env.SMTP_FROM_NAME || 'Devorica AI Product Studio';
-  const adminEmail = process.env.ADMIN_NOTIFICATION_EMAIL || 'support@devorica.com';
-
-  const isConfigured = Boolean(host && user && pass);
-
-  return {
-    isConfigured,
-    host,
-    port,
-    secure,
-    user,
-    pass,
-    fromEmail,
-    fromName,
-    adminEmail
-  };
 }
 
 export default async function handler(req, res) {
